@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ page.title }}</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="{{ site.url }}/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="{{ site.url }}/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="{{ site.url }}/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      {% include nav.html nav=site.data.menu %}
+    </nav>
+    <header>
+      <h1>{{ page.title }}</h1>
+    </header>
+    <article>
+      <p>{{ content }}</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>
