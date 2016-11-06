@@ -3,6 +3,9 @@ layout: default
 title: Release Notes
 ---
 
+*Projektstatus: **rc.1**, Inhalte für erste Fassung vollständig, kleinere Änderungen & Fehler sind noch möglich.*
+
+
 | Datum       | Inhalt
 |-------------|----------------------
 | 6. 11. 2016 | Projektstatus von ***Beta*** in ***1.0.0-rc.1*** geändert

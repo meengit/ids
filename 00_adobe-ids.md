@@ -4,18 +4,9 @@ permalink: /adobe-ids/
 title: Projekt
 ---
 
-Skript zum Kurs «Adobe InDesign Scripting» des *Grafischen Forum Zürich* in Zusammenarbeit mit *medienformfarbe*, Berufsschule für Gestaltung Zürich.
+## Übersicht
 
-Autor(en): Andreas Eberhard (GFZ)
-
-Lizenz/Copyright: MIT, siehe [Hauptseite][1]
-
-## Entwicklung
-
-Dieses Skript wurde erstmalig am 28. Januar 2016 veröffentlicht (Alpha 1). Es wird aktiv weiterentwickelt. 
-
-- Aktuelle Roadmap: Siehe [Hauptseite][1]
-- Aktuelle Milestones & Issues: Siehe [Issues][2]
+Informationen über Autoren, Roadmap und Kontakt werden im [README][2] der Versionsverwaltung aufgeführt.
 
 ## Unterstütze Kurse
 
@@ -26,7 +17,11 @@ Diese Dokumentation berücksichtigt folgende Kurse:
 | medienformfarbe | 18. Mai bis 29. Juni 2016        | Zürich
 | medienformfarbe | 21. Oktober bis 2. Dezember 2015 | Zürich
 
+## Nächster Kurs 
+
+Frühjahr 2017, Anmeldung noch nicht verfügbar. Voraussichtlicher Inhalt siehe [Screenshot]({{ site.baseurl }}/img/description.png).
 
 
-[1]:https://github.com/grafisches-forum-zh/scripting
-[2]:https://github.com/grafisches-forum-zh/scripting/issues
+
+[1]:https://github.com/meengit/ids/blob/master/LICENSE
+[2]:https://github.com/meengit/ids/blob/master/README.md
