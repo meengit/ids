@@ -51,13 +51,13 @@ Rudimentär formuliert passiet folgendes: Adobe InDesign erstellt ein neues Doku
 
 Mit den blauen Pfeiltasten im *`Debug-Bedienfelt`* des ESTK kann durch die einzelnen Zeilen des Skripts gesprungen werden. 
 
-![Debug-Bedienfelt im ESTK](img/debug.fw.png)
+![Debug-Bedienfelt im ESTK]({{ site.baseurl }}/img/debug.fw.png)
 
 Nachdem der Interpreter in die zweite Skriptzeile gesprungen ist, kann im Bedienfeld *`Datenbrowser`* nach dem neu erstellten Dokument respektive dessen Referenz (`newDoc`) gesucht werden.  Wird das Bedienfeld nicht von Beginn an angezeigt, kann es im Menü *`Fenster`* aufgerufen werden. 
 
 Die Aufgabe der zweiten Zeile hängt nicht mit der Anzeige im *`Datenbrowser`* zusammen, wie vielleicht vermutet.  Am Ende jedes Skripts sucht das Adobe ESTK nach einem Ergebnis. Kann dieses nicht ermittelt werden, schreibt das Programm `undefined` in die *`JavaScript-Konsole`*. Wenn zum Schluss des Skripts dagegen beispielsweise eine Variable aufgerufen wird, so wie in der zweiten Zeile, wird deren Ergebnis in die Konsole geschrieben. Wird die *`JavaScript-Konsole`* nicht von Anfang an angezeigt, kann sie im Menü *`Fenster`* aufgerufen werden.
 
-![Ergebnis der JS-Konsole von `script.001.jsx` & `script.002.jsx`](img/js-console_vs.fw.png)
+![Ergebnis der JS-Konsole von `script.001.jsx` & `script.002.jsx`]({{ site.baseurl }}/img/js-console_vs.fw.png)
 
 #### Skript 003, Dokument speichern
 
@@ -88,35 +88,35 @@ var newDoc = Neues Dokument aus │     app     │
 Die Variable `newDoc` referenziert das soeben durch `app.documents.add()` erstellte neue Dokument. Im Unterschied zum Skript 002 wäre es in Skript 003 nicht unbedingt nötig, das neu erstellte Dokument mit einer Variable zu referenzieren. Es gibt nach dem Erstellen keinen Zugriff mehr über die Variable (Referenz) `newDoc`. Dies weil das ExtendScript Objekt `app` eine Eigenschaft besitzt, welche das aktive Dokument referenziert: `activeDocument`. Das eigentliche Dokument ist wiederum eine Instanz der Klasse `Document`. (Jedes Dokument in Adobe InDesign ist eine Instanz der Klasse `Document`.) Diese enthält eine Methode, mit der ein Dokument gespeichert werden kann: `save()`.
 
 ```Text
-                   ┌────────────────┐              ┌─────────────┐                                   
-                   │     Class      │              │    Class    │ Vorgefertigter «Bauplan» des ESTK 
-                   │    Document    │─ ┐           │    File     │ für die Arbeit mit Dokumenten     
-                   └────────────────┘              └─────────────┘                                   
-                            ▲          │                  │                                          
-┌─────────────┐             │                              ─ ─ ─ ─                                   
-│     app     │                        │                          │                                  
-└─────────────┘             │                                     ▼                                  
-       │           ┌────────────────┐  │        ┌───────────────────────────────────┐                
-       └───────────│ activeDocument │   ─▶ save(│ new File('~/Desktop/myname.indd') │)               
-                   └────────────────┘           └───────────────────────────────────┘                
+          ┌────────────────┐      ┌─────────────┐                                   
+          │     Class      │      │    Class    │ Vorgefertigter «Bauplan» ESTK 
+          │    Document    │─ ┐   │    File     │ für die Arbeit mit Dokumenten     
+          └────────────────┘      └─────────────┘                                   
+                   ▲          │          │                                          
+┌───────┐          │                      ─ ─ ─ ─ ─ ─ ─ ─                                   
+│  app  │                     │                          │                                  
+└───────┘          │                                     ▼                                  
+    │     ┌────────────────┐  │        ┌─────────────────────────────────┐                
+    └─────│ activeDocument │   ─▶ save( new File('~/Desktop/myname.indd') )               
+          └────────────────┘           └─────────────────────────────────┘                
 ```
 
 #### Skript 004, Dokment speichern *wenn möglich*
 
 Das Skript 003 hat einige logische Fehler – auch wenn es seine Arbeit richtig macht. Wenn sich unter dem Pfad ` ~/Desktop/myname.indd` bereits ein gleichnamiges Dokument befindet, wird dieses überschrieben. Alle dort gespeicherten Änderungen gehen unwiderruflich verloren. Dieses Skript enthält nun einige rudimentäre Sicherheitsfunktionen.
 
-```Javascript
+```javascript
 // script.004.jsx
  
 var doc = '~/Desktop/myname.indd';
-$.writeln('Datentype Variable \«doc\«: ' + typeof(doc));
+$.writeln('Datentype Variable \«doc\»: ' + typeof(doc));
 
 doc = new File(doc);
-$.writeln('Datentype Variable \«doc\«: ' + typeof(doc));
+$.writeln('Datentype Variable \«doc\»: ' + typeof(doc));
 
 if(doc.exists == true) {
   $.writeln('Das Dokument existiert: '+ doc.exists);
-  alert('Das Dokument existiert bereits. Der Befehl \«Speichern\« konnte nicht ausgeführt werden.');
+  alert('Das Dokument existiert bereits. Der Befehl \«Speichern\» konnte nicht ausgeführt werden.');
 }
 else {
   $.writeln('Das Dokument existiert: '+ doc.exists);

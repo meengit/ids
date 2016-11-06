@@ -6,7 +6,7 @@ title: Projekt
 
 ## Übersicht
 
-Informationen über Autoren, Roadmap und Kontakt werden im [README][2] der Versionsverwaltung aufgeführt.
+Informationen zu Autoren, Lizenz/Copyright, Roadmap und Kontakt werden im [README][2] der Versionsverwaltung aufgeführt.
 
 ## Unterstütze Kurse
 

@@ -11,9 +11,16 @@ description: >
   Adobe InDesign Scripting, Gemeinschaftsprojekt «Grafisches Forum Zürich» 
   und Berufsschule für Gestaltung Zürich medienformfarbe, entwickelt durch
   Andreas Eberhard, Jona.
-baseurl: "/ids"
-url: "https://meengit.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  meengit
+baseurl: "/ids"
+
+# Prod.
+url: "https://meengit.github.io"
+
+# development
+# url: "http://localhost:4000" 
+# destination:
+#   _site/ids
 
 # Build settings
 markdown: kramdown

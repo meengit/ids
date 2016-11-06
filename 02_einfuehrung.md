@@ -24,17 +24,17 @@ Skriptdateien für Adobe InDesign haben immer die Endungen *`.jsx`* oder *`.jsxb
 
 Das *`Skripte`*-Bedienfeld in Adobe InDesign ist eine Art «Mini-Dateibrowser». Alle auf der Festplatte abgelegten Skripte werden angezeigt. Sie müssen dazu in einem der vorgesehenen Ordner liegen. Es können aber auch weitere Ordner oder Laufwerkverknüpfungen eingebunden werden. Die Anzeige der Ordner kann über einen Rechtsklick oder das Bedienfeldmenü mit dem Befehl *`Im Finder anzeigen`* respektive *`Im Explorer öffnen`* geöffnet werden. 
 
-![Adobe InDesign Bedienfeld Skripte](img/id-skriptepanel.png "Bedienfeld Skripte")
+![Adobe InDesign Bedienfeld Skripte]({{ site.baseurl}}/img/id-skriptepanel.png "Bedienfeld Skripte")
 
 Jedes Adobe InDesign Objekt besitzt eine Eigenschaft mit dem Namen «Label». In der Palette *`Skriptetikett`* kann diese Eigenschaft beim angewählten Objekt (Textrahmen usw.) mit einem Wert gesetzt werden. Damit kann das Objekt in einem Skript explizit angesprochen werden. Wie das geht, wird später erklärt.
 
-![Adobe InDesign Bedienfeld Skriptetikett](img/id-skriptetikett.png "Bedienfeld Skriptetikett")
+![Adobe InDesign Bedienfeld Skriptetikett]({{ site.baseurl}}/img/id-skriptetikett.png "Bedienfeld Skriptetikett")
 
 ### Adobe ExtendScript Toolkit (ESTK)
 
 Skripte für Adobe InDesign werden im Adobe ExtendScript Toolkit, kurz Adobe ESTK, erstellt. Das Programm gehört zum Leistungsumfang der Adobe CreativeCloud und ist kostenlos. In der Regel wird es mit der Installation von Adobe InDesign ausgeliefert. Ist dies nicht der Fall, kann es über [adobe.com/de/products/extendscript-toolkit.html][5] nachträglich heruntergeladen und installiert werden. 
 
-![Oberfläche des Adobe ExtendScript Toolkit](img/benutzeroberflaeche.png "Adobe ESTK")
+![Oberfläche des Adobe ExtendScript Toolkit]({{ site.baseurl}}/img/benutzeroberflaeche.png "Adobe ESTK")
 
 Die Benutzeroberfläche des Adobe ESTK bietet im wesentlichen neun Elemente. Im *`Debug-Bedienfeld`* (1) wird die Zielapplikation eingestellt. Sie bestimmt, in welcher Adobe Applikation das geöffnete Skript ausgeführt wird. Der grösste Vorteil des Adobe ESTK im Vergleich zu einem Texteditor liegt darin, dass es mit der Zielapplikation verbunden ist. So können Skripte direkt aus dem Adobe ESTK in der betreffenden Applikation ausgeführt werden.
 

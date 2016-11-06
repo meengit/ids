@@ -13,40 +13,44 @@ JavaScript ist keine objektorientierte, sondern eine objektbasierte Sprache. Ein
 
 Ebenfalls können Objekte Zustände haben. Eine Methode (= Funktion) in einem Objekt wird mit `empfänger.methodenname(Argumente)` aufgerufen. Der «Empfänger» entspricht dem Aufruf des Objektnamens (Objektadresse). Eine Objekteigenschaft wird mit `empfänger.eigenschaft` aufgerufen.
 
-	// Ein Objekt definieren
-	
-	           Zuweisungsoperator                                                                                                    
-	                   │                                                                                                             
-	                   │                                                                                                             
-	                   ▼                                                                                                             
-	     var dasObjekt = { ◀──────────────────────────────────────────────── «Beginn» des Objekts                                    
-	      ▲      ▲        zahl1: 12, ◀──────────────────────────────────────────────────────────── Eigenschaft «zahl1» mit Wert 12   
-	      │      │        zahl2: 15, ◀──────────────────────────────────────────────────────────── Eigenschaft «zahl1» mit Wert 15   
-	      │      │        rechnen: function(uebergeben){ ◀──────────────────────────────────────── Beginn Methode «rechnen»            
-	      │      │                   var ergebnis = this.zahl1 + this.zahl2 + uebergeben;                                            
-	      │      │                   return ergebnis;                                                                                
-	      │      │                 } ◀──────────────────────────────────────────────────────────── Ende Methode «rechnen»              
-	      │      │       } ◀──────────────────────────────────────────────── «Ende» des Objekts                                      
-	      │      │                                                                                                                   
-	      │      │                                                                                                                   
-	      │ Bezeichner                                                                                                               
-	      │                                                                                                                          
-	      │                                                                                                                          
-	Schlüsselwort                                                                                                                    
-	
-	
-	
-	
-	 // Wert berechnen zahl1 + zahl2 + uebergeben (5)                                                                            
-	 // Ergebnis JavaScript Konsole: 32                                                                                          
-	 $.writeln(dasObjekt.rechnen(5));                                                                                            
-	
-	 // Eigenschaft zahl1 verändern                                                                                              
-	 dasObjekt.zahl1 = 0;                                                                                                        
-	
-	 // Wert NEU berechnen aus zahl1 (neu) + zahl2 + uebergeben (5)                                                              
-	 // // Ergebnis JavaScript Konsole: 20                                                                                       
-	 $.writeln(dasObjekt.rechnen(5));
+```text
+// Ein Objekt definieren
+
+           Zuweisungsoperator                                                                                                    
+                   │                                                                                                             
+                   │                                                                                                             
+                   ▼                                                                                                             
+     var dasObjekt = { ◀───────────────────────────────────────────── «Beginn» des Objekts                                    
+      ▲      ▲        zahl1: 12, ◀──────────────────────── Eigenschaft «zahl1» mit Wert 12   
+      │      │        zahl2: 15, ◀──────────────────────── Eigenschaft «zahl1» mit Wert 15   
+      │      │        rechnen: function(uebergeben){ ◀─────────── Beginn Methode «rechnen»            
+      │      │                                           
+      │      │                   var ergebnis = this.zahl1 + this.zahl2 + uebergeben;                                            
+      │      │                   return ergebnis;                                                                                
+      │      │                                                                                
+      │      │                 } ◀───────────────────────────────── Ende Methode «rechnen»              
+      │      │       } ◀─────────────────────────────────────────────── «Ende» des Objekts                                      
+      │      │                                                                                                                   
+      │      │                                                                                                                   
+      │ Bezeichner                                                                                                               
+      │                                                                                                                          
+      │                                                                                                                          
+Schlüsselwort                                                                                                                    
+
+
+
+
+ // Wert berechnen zahl1 + zahl2 + uebergeben (5)                                                                            
+ // Ergebnis JavaScript Konsole: 32                                                                                          
+ $.writeln(dasObjekt.rechnen(5));                                                                                            
+
+ // Eigenschaft zahl1 verändern                                                                                              
+ dasObjekt.zahl1 = 0;                                                                                                        
+
+ // Wert NEU berechnen aus zahl1 (neu) + zahl2 + uebergeben (5)                                                              
+ // // Ergebnis JavaScript Konsole: 20                                                                                       
+ $.writeln(dasObjekt.rechnen(5));
+```
 
 Eine Variable kann in JavaScript auf viele «Inhalte» verweisen. Datentypen wie `Number`, `String` und `Array` waren bereits Thema dieser Dokumentation. In der Programmierung ist es jedoch oft notwendig, dass verschiedene Datentypen und Objektformen in einem Objekt gemischt werden können. Hierfür gibt es das Objekt `Object`. Es ist selbst die Basis aller Objekte und Datentypen und kann deshalb auch alle enthalten. Das gezeigte Beispiel weist der Variablen `dasObjekt` ein Objekt zu und macht sie damit selbst zum «Objekt vom Typ `Object`». Diese Zuweisung des Typs geschieht in JavaScript automatisch durch den Interpreter. Genauso wie er der Anweisung `var zahl = 1234;` automatisch (implizit) den Typ `Number` zuweisen würde.
 
@@ -76,34 +80,35 @@ Funktionen werden mit dem Schlüsselwort `function` eingeführt, gefolgt von ein
 
 Dem Klammernpaar können optional Parameter übergeben werden. Mehrere Parameter werden mittels Komma (`,`) von einander getrennt. Innerhalb einer Funktion stehen die Parameter als lokale Variablen zur Verfügung. Die Bezeichner sind damit auch nur innerhalb des *Scope* (= Gültigkeitbereich) der Funktion sichtbar. Die eigentlichen Anweisungen der Funktion, die sogenannte Implementation oder Implementierung, werden nachfolgend in geschweifte Klammern ({}) eingeschlossen. Sie bilden einen sogenannten «Block».
 
-	             Bezeichner                                                        
-	                 │                                                            
-	Schlüsselwort    │     Parameter 1   Parameter 2                              
-	      │          │          │             │                                   
-	      │          │          │             │                                   
-	      ▼          ▼          ▼             ▼                                   
-	   function dieFunktion(uebergeben01, uebergeben02){                          
-	       return uebergeben01 + uebergeben02;                                    
-	   }     ▲                                                                    
-	         │                                                                    
-	         │                                                                    
-	         │                                                                    
-	         │                                                                    
-	         │                                                                    
-	    Rückgabewert                                                              
-	
-	
-	
-	
-	// uebergeben01 + uebergeben02 zusammenrechnen                              
-	// und direkt zurückgeben                                                   
-	// Ergebnis JavaScript Konsole: 5                                            
-	$.writeln(dieFunktion(2,3));                                                
-	                       ▲                                                    
-	                       │                                                    
-	                       │                                                    
-	           Argumente 1 & 2, getrennt durch Kommas  
+```text
+             Bezeichner                                                       
+                 │                                                            
+Schlüsselwort    │     Parameter 1   Parameter 2                              
+      │          │          │             │                                   
+      │          │          │             │                                   
+      ▼          ▼          ▼             ▼                                   
+   function dieFunktion(uebergeben01, uebergeben02){                          
+       return uebergeben01 + uebergeben02;                                    
+   }     ▲                                                                    
+         │                                                                    
+         │                                                                    
+         │                                                                    
+         │                                                                    
+         │                                                                    
+    Rückgabewert                                                              
 
+
+
+
+// uebergeben01 + uebergeben02 zusammenrechnen                              
+// und direkt zurückgeben                                                   
+// Ergebnis JavaScript Konsole: 5                                            
+$.writeln(dieFunktion(2,3));                                                
+                       ▲                                                    
+                       │                                                    
+                       │                                                    
+           Argumente 1 & 2, getrennt durch Kommas  
+```
 Soll die Funktion einen Rückgabewert (Ergebnis) liefern, muss dieser über die Sprunganweisung `return [Rückgabewert]` zurückgegeben werden. `return` sollte dabei immer die letzte Anweisung sein. Denn nach dem Aufruf von `return` verlässt der Interpreter die Funktion. Nachfolgender Code wird nicht mehr ausgeführt und damit für das Programm unerreichbar (unreachable Code, logischer Fehler).
 
 ### Benannte und anonyme Funktionen
@@ -125,18 +130,20 @@ JavaScript erlaubt das Verschachteln von Funktionen. Dabei wird eine Funktion di
 
 .
 
-	function aussen(){
-	  var a = 1;
-	  function innen(){
-	    document.write(a);
-	  } 
-	  // Funktion «innen» im Scope von «aussen» aufrufen um auf die Variable «a» zuzugreifen.
-	  // innen() aufrufen wenn aussen() aufgerufen wird
-	  innen(); 
-	} 
-	
-	// wenn aussen() aufgerufen wird, wird "automatisch" innen() ausgeführt
-	aussen(); 
+```javascript
+function aussen(){
+  var a = 1;
+  function innen(){
+    document.write(a);
+  } 
+  // Funktion «innen» im Scope von «aussen» aufrufen um auf die Variable «a» zuzugreifen.
+  // innen() aufrufen wenn aussen() aufgerufen wird
+  innen(); 
+} 
+
+// wenn aussen() aufgerufen wird, wird "automatisch" innen() ausgeführt
+aussen(); 
+```
 
 ### Callback-Funktion
 

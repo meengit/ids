@@ -19,4 +19,4 @@ Diese Dokumentation fasst im Wesentlichen die Themen zum GFZ-Kurs «Adobe InDesi
 
 Alle referenzierten Quellen wurden während dem Erstellungsprozess sorgfältig geprüft. Insbesondere bei Verweisen auf Inhalte aus dem Internet kann es sein, dass diese nach einer bestimmten Zeit nicht mehr verfügbar sind oder verändert wurden. Die Urheberschaft dieses Skripts übernimmt deshalb in keinem Fall Haftung für die Inhalte Dritter. Dies gilt auch für empfohlene Software o. ä. Produkte. Die Handhabung dieser geschieht auf eigene Verantwortung.
 
-Lizenz: MIT
+Lizenz: [MIT](https://github.com/meengit/ids/blob/master/LICENSE)

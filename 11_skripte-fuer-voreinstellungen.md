@@ -6,7 +6,7 @@ title: Mit den Voreinstellungen arbeiten
 
 Das Skript 009 erweitert das Skript 008 um die effektive Anwendung der im Dialog-Fenster ermittelten Werte. Weitere Informationen zum Arbeiten mit den Dokumentvoreinstellungen sind unter anderem im *Adobe InDesign Scripting Tutorial* und insbesondere im *Adobe InDesign JavaScript Scripting Guide* zu finden.
 
-```javaScript 
+```javascript 
 // script.009.jsx
 
 // Testen ob ein Dokument geöffnet ist
@@ -22,12 +22,14 @@ else {
   // Variable activDoc auf aktives Dokument referenzieren lassen
   var activeDoc = app.activeDocument; 
   
-  // Funktion für Dialog-Fenster effektiv ausführen (abarbeiten) und Ergebnis in Variable speichern
+  // Funktion für Dialog-Fenster effektiv ausführen (abarbeiten) 
+  // und Ergebnis in Variable speichern
   var shownWindow = setConfigWindow();
 
 }
 
-// Sicherheitshalber falsche Eingaben, die nicht nur aus Zahlen bestehen, in reine Zahlen umwandeln sofern möglich.
+// Sicherheitshalber falsche Eingaben, die nicht nur aus Zahlen bestehen, 
+// in reine Zahlen umwandeln sofern möglich.
 shownWindow['gridBegin'] = parseInt(shownWindow['gridBegin']);
 shownWindow['gridHeight'] = parseInt(shownWindow['gridHeight']);
 
@@ -99,7 +101,8 @@ function setConfigWindow() {
   configWindow.column01 = configWindow.add ('group {orientation: "column"}'); 
   
   // "Umrahmung" mit "Titel" hinzufügen
-  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 'Grundlinienraster');
+  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 
+    'Grundlinienraster');
   
   // Mit dem "Innern" der Umrahmung folgendes machen ...
   with(configWindow.column01.gridPanel){
@@ -119,7 +122,8 @@ function setConfigWindow() {
   
     // "Eingabebeschrifgung" (statictext) & Auswahlliste (dropdownlist) hinzufügen
     gridRelTo.add('statictext', [0,0,140,15], 'Relativ zu:');
-    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], ['Oberer Seitenkante', 'Oberen Seitenrand']);
+    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], 
+      ['Oberer Seitenkante', 'Oberen Seitenrand']);
     gridRelToInputField.selection = 0;
     
     // Anzeigegruppe für 3. Eingabe erstellen
@@ -184,7 +188,7 @@ Die erste `if`-`else`-Verzweigung prüft, ob ein Dokument geöffnet wird. Dies w
 
 Nach dem Ausführen des Dialog-Fensters kommt die nach oben kopierte `if`-`else`-Verzweigung aus dem Skript 008. Sie prüft, wie im Skript 008 zuerst, ob «Ok» oder «Cancel» geklickt wurden. Sofern «Ok» geklickt wurde, wird ein `with`-Anweisungsblock mit dem aktiven Dokument aus `activeDoc` aufgerufen. `gridPreferences` ist eine Eigenschaft von der Klasse `Documents`, welche für ein Dokument in Adobe InDesign steht und von `app.activeDocument` und damit von der Variable `activeDoc` referenziert wird. 
 
-![*`Objektmodell-Viewer`* mit eingestelltem *`Adobe IndDesign Object Model`* im Abschnitt *`Browser`* und ausgewählter `gridPreferences`-Eigenschaft der `Document`-Instanz](img/objmdlvw-cls_document-gpref.fw.png)
+![*`Objektmodell-Viewer`* mit eingestelltem *`Adobe IndDesign Object Model`* im Abschnitt *`Browser`* und ausgewählter `gridPreferences`-Eigenschaft der `Document`-Instanz]({{ site.baseurl }}/img/objmdlvw-cls_document-gpref.fw.png)
 
 Die folgenden `try`-`catch`-Anweisungsblöcke passen die Eigenschaften von ` gridPreferences` im aktiven Dokument an. Kommt es zu logischen Fehlern, zum Beispiel weil aus irgendeinem Grund Voreinstellungen nicht gesetzt werden können, schlägt `try` fehl und `catch` wird ausgeführt. Wenn `catch` anspringt, wird dem Nutzer eine Fehlermeldung angezeigt und das Skript sofort abgebrochen. Sofern im `try`-Block ein `throw` definiert ist, wird  dem Benutzer bei `catch` eine die in `throw` gesetzte Nachricht angezeigt. Ist kein `throw` definiert, erhält der die Standardfehlermeldung des Programms angezeigt. Die eingesetzten `alert`-Anweisungen geben dem Nutzer in bestimmten Fällen eine Warnmeldung aus, brechen das Skript jedoch nicht ab.
 

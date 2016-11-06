@@ -3,7 +3,10 @@ layout: default
 title: Release Notes
 ---
 
-*Projektstatus: **rc.1**, Inhalte für erste Fassung vollständig, kleinere Änderungen & Fehler sind noch möglich.*
+Projektstatus: **rc.1**
+
+- Inhalte für erste Fassung vollständig; 
+- Kleine Änderungen und Fehler sind möglich.
 
 
 | Datum       | Inhalt

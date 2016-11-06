@@ -1,5 +1,5 @@
 ---
-# Front matter added to ensure Jekyll processes file.
+# Project SCSS
 ---
 
 @import '_susy';
@@ -16,7 +16,7 @@ $abeezee: 'ABeeZee';
 $opensans: 'Open Sans';
 $adelle: 'Adelle';
 
-$basefontsize: 16pt;
+$basefontsize: 14.5pt;
 $navfontsize: 13pt;
 $baselinehight: 1.38;
 
@@ -44,6 +44,7 @@ main {
   
   article {
     @include span(9 last);
+    margin-top: $basefontsize * 1.9;
     
     div {
       .highlight {

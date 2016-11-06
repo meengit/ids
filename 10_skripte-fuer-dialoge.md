@@ -12,7 +12,7 @@ Im nächsten Skript wird ein Dialog-Fenster erstellt. Dialoge-Fenster ermöglich
 
 Adobe ExtendScript enthält einen vorgefertigten «Baukasten» für die Anzeige von Fenstern. Dieser wird durch die `ScriptUI`-Klassen repräsentiert. Deren Inhalt und Struktur kann unter anderem über den *`Objektmodell-Viewer`* unter *`Browser`* > *`ScriptUI Classes`* eingesehen werden. Der *`Objektmodell-Viewer`* lässt sich über das Menü *`Hilfe`* aufrufen.
 
-![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewähltem `Window`-Objekt]({{ site.url }}/img/objmdlvw-cls_window.fw.png)
+![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewähltem `Window`-Objekt]({{ site.baseurl }}/img/objmdlvw-cls_window.fw.png)
 
 Damit der Programmcode übersichtlich bleibt und das Fenster gegebenenfalls mehrfach verwendet werden kann, wird es in diesem Beispiel mit einem Funktionsblock (`function ...`) umschlossen.
 
@@ -29,7 +29,7 @@ Die Zeilen ***deklarieren*** eine Funktion mit dem Bezeichner `setConfigWindow`.
 
 Nun wird das Fenster initialisiert:
 
-```Javascript
+```javascript
 // script.005.jsx
 
 // "Funktionsblock" erstellen
@@ -46,7 +46,7 @@ Nach dem Erstellen ist das neue Fensterobjekt der Variable `configWindow` zugewi
 
 Als nächstes werden die Standard-Buttons `Ok` und `Cancel` hinzugefügt.
 
-```Javascript
+```javascript
 // script.005.jsx
 
 // "Funktionsblock" erstellen
@@ -63,7 +63,7 @@ function setConfigWindow() {
 
 Die Variable `configWindow` referenziert das vorhin erstellte `Window`-Objekt. Dieses hat alle Funktionen und Eigenschaften der Klasse `Window` geerbt respektive gemäss deren «Bauplan» erhalten. Dazu gehört auch die Funktion `add()` – wie im *`Objektmodell-Viewer`* nachgesehen werden kann. Mit dieser können dem Fenster weitere Elemente, wie zum Beispiel Buttons, hinzugefügt werden. 
 
-![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `add()`-Methode des `Window`-Objekts]({{ site.url }}/img/objmdlvw-cls_window-add.fw.png)
+![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `add()`-Methode des `Window`-Objekts]({{ site.baseurl }}/img/objmdlvw-cls_window-add.fw.png)
 
 Als nächstens soll ein erster Blick auf das erzeugte Fenster möglich werden.
 
@@ -90,17 +90,17 @@ setConfigWindow();
 
 Die Anweisung `configWindow.show();` sagt Adobe InDesign, dass das Fenster, welches mit `configWindow` referenziert wird, angezeigt werden soll. `show()` ist hierbei ebenfalls eine geerbte Funktion, so wie `add()`. 
 
-![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `show()`-Methode des `Window`-Objekts]({{ site.url }}/img/objmdlvw-cls_window-show.fw.png)
+![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `show()`-Methode des `Window`-Objekts]({{ site.baseurl }}/img/objmdlvw-cls_window-show.fw.png)
 
 Die Anweisung `setConfigWindow();` ruft die Funktion auf und weist den Interpreter an, jetzt die Funktionsdeklaration abzuarbeiten. Das heisst, auch wenn in der Funktion `configWindow.show();` steht, wird damit so lange nichts gemacht, bis der Interpreter angewiesen wird, den Funktionsblock auszuführen.
 
 Zu beachten ist, dass nun im *`Debug-Bedienfeld`* Adobe InDesign ausgewählt ist. Ansonsten schlägt das Skript unter Umständen fehl.
 
-![Adobe InDesign als ausgewählte Zielapplikation im *`Debug-Bedienfeld`*.]({{ site.url }}/img/debug-idsSelected.fw.png)
+![Adobe InDesign als ausgewählte Zielapplikation im *`Debug-Bedienfeld`*.]({{ site.baseurl }}/img/debug-idsSelected.fw.png)
 
 Das erzeugte Fenster hat noch nicht all zu viel Inhalt. Die Buttons «Ok» und «Cancel» stehen übereinander. Das soll als nächstes geändert werden. Denn in den meisten Dialogfenstern stehen die beiden nebeneinander. Dazu muss eine Gruppe für Bedienelemente erstellt werden. Hierzu muss das bestehende Skript umformuliert werden.
 
-![Dialog-Fenster mit **nicht** gruppierten Buttons übereinander.]({{ site.url }}/img/dialog_box001.fw.png)
+![Dialog-Fenster mit **nicht** gruppierten Buttons übereinander.]({{ site.baseurl }}/img/dialog_box001.fw.png)
 
 ```javascript
 // script.005.jsx
@@ -130,13 +130,13 @@ setConfigWindow();
 
 Eine Gruppe ist eine Art «Zwischenelement» welches mehrere Anzeigelemente in einer Reihe zusammenfasst.  Mit ` configWindow.add('group');` wird dem Fenster eine neue Gruppe hinzugefügt. Diese wird der Variable ` okCancel_Grp ` zugewiesen. ` okCancel_Grp ` referenziert damit so zu sagen ein Unterobjekt von ` configWindow`. In den nächsten Zeilen werden der Gruppe die beiden Buttons «Ok» und «Cancel» hinzugefügt. Das Argument `button` legt den Typ des hinzugefügten Elements fest. `undefined` besagt, dass es keine speziellen Positionierungseigenschaften für den zu erzeugenden Button gibt. `'Ok'` und `'Cancel'` beschreiben den Text im Button. Wenn nun das Skript erneut ausgeführt wird, stehen die beiden Buttons nebeneinander.
 
-![Dialog-Fenster mit gruppierten Buttons nebeneinander.]({{ site.url }}/img/dialog_box002.fw.png)
+![Dialog-Fenster mit gruppierten Buttons nebeneinander.]({{ site.baseurl }}/img/dialog_box002.fw.png)
 
 #### Skript 006, auf Events reagieren
 
 Das Skript 006 erweitert die Code-Basis aus dem Skript 005 um *Event-Handler*. *Event-Handler* reagieren auf ausgelöste *Events*. *Events* sind Aktionen, die innerhalb eines Skripts oder einer Applikation ausgelöst werden. Das können sowohl Benutzerkationen als auch skript- oder applikationsinterne Aktionen sein. Um *Events* abzufangen gibt es sogenannte *EventListener*. Sie horchen, ob ein Event ausgelöst wird. Abstrahiert formuliert besteht also ein *EventHandler* aus einem *EventListener* und einem Programmblock der ausgeführt wird, wenn der *EventListener* anschlägt, respektive der *Event*, auf den er horch, ausgelöst wird. Weitere Informationen zu den *Events*, *EventHandler* und *EventListener* sind unter anderem im *`Objektmodell-Viewer`* und im «JavaScript Tools Guide» unter «Defining behavior with event callbacks and listeners» zu finden. 
 
-![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `addEventListener()`-Methode des `Button`-Objekts]({{ site.url }}/img/button_cls-eventListener.fw.png)
+![*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `addEventListener()`-Methode des `Button`-Objekts]({{ site.baseurl }}/img/button_cls-eventListener.fw.png)
 
 Im aktuellen Beispiel kann auf den Einsatz von *EventListener* und *EventHandler* verzichtet werden. Die Buttons «Ok» und «Cancel» haben im Zusammenhang mit Dialog-Fenstern eine spezielle Bedeutung. Schematisch formuliert, wird ihr Rückgabewert von der Funktion `.show()` aufgefangen und nach deren Ausführung als boolscher Wert zurückgegeben. Klickt der Nutzer «Ok» ist der Rückgabewert `true`, klickt er `Cancel`, ist der Rückgabewert `false`.
 
@@ -202,7 +202,8 @@ function setConfigWindow() {
   configWindow.column01 = configWindow.add ('group {orientation: "column"}'); 
   
   // "Umrahmung" mit "Titel" hinzufügen
-  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 'Grundlinienraster');
+  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 
+    'Grundlinienraster');
   
   // Mit dem "Innern" der Umrahmung folgendes machen ...
   with(configWindow.column01.gridPanel){
@@ -222,7 +223,8 @@ function setConfigWindow() {
   
     // "Eingabebeschrifgung" (statictext) & Auswahlliste (dropdownlist) hinzufügen
     gridRelTo.add('statictext', [0,0,140,15], 'Relativ zu:');
-    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], ['Oberer Seitenkante', 'Oberen Seitenrand']);
+    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], 
+      ['Oberer Seitenkante', 'Oberen Seitenrand']);
     gridRelToInputField.selection = 0;
     
     // Anzeigegruppe für 3. Eingabe erstellen
@@ -276,7 +278,7 @@ Hin und wieder kommt es vor, dass mehrere Anweisungen in Folge notiert werden so
 
  `with(configWindow.column01.gridPanel)` definiert also sinnbildlich «mach etwas mit dem Objekt `gridPanel`», Kind-Objekt von ` column01`, Kind-Objekt von ` configWindow`. Innerhalb von `with` können alle Methoden (= Funktionen) und Eigenschaften des Objekts ` gridPanel` direkt aufgerufen werden. Zu sehen ist dies zum Beispiel and der Anweisung ` aligment = 'left'`. Sie kann direkt angesprochen werden. Ohne `with()` würde ` configWindow.column01.gridPanel.aligment = 'left'` das gleiche machen. Selbiges gilt für `var gridBeginGroup = add('group')`. Die Variable `gridBeginGroup` wird durch den Aufruf in `with()` automatisch zu einem Unterobjekt von `gridPanel`. Sie könnte auch so erzeugt werden: `configWindow.column01.gridPanel. gridBeginGroup = add('group')`. 
  
- ![Analyse der Datenmodell-Hierarchy im *`Datenbrowser`* des Adobe ExtendScript Toolkit bei angehaltenem Skript.]({{ site.url }}/img/datamdlvw-hierarchy.fw.png)
+ ![Analyse der Datenmodell-Hierarchy im *`Datenbrowser`* des Adobe ExtendScript Toolkit bei angehaltenem Skript.]({{ site.baseurl }}/img/datamdlvw-hierarchy.fw.png)
 
 Eine Sonderstellung innerhalb von `with()` hat die Variable `gridRelToInputField`. Sie ist selbst kein Kind-Objekt von ` gridPanel`, referenziert jedoch das Ergebnis aus dem `gridPanel`-Kind-Objekt ` gridRelTo`. Sie kann deshalb auch ausserhalb von with direkt angesprochen werden, wie die Konsolen-Anweisung `$.writeln(gridRelToInputField)` zeigt.
 
@@ -297,7 +299,8 @@ function setConfigWindow() {
   configWindow.column01 = configWindow.add ('group {orientation: "column"}'); 
   
   // "Umrahmung" mit "Titel" hinzufügen
-  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 'Grundlinienraster');
+  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 
+    'Grundlinienraster');
   
   // Mit dem "Innern" der Umrahmung folgendes machen ...
   with(configWindow.column01.gridPanel){
@@ -317,7 +320,8 @@ function setConfigWindow() {
   
     // "Eingabebeschrifgung" (statictext) & Auswahlliste (dropdownlist) hinzufügen
     gridRelTo.add('statictext', [0,0,140,15], 'Relativ zu:');
-    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], ['Oberer Seitenkante', 'Oberen Seitenrand']);
+    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], 
+      ['Oberer Seitenkante', 'Oberen Seitenrand']);
     gridRelToInputField.selection = 0;
     
     // Anzeigegruppe für 3. Eingabe erstellen
@@ -342,7 +346,8 @@ function setConfigWindow() {
   // Variable für Ergebnis switch-case erzeugen
   var baselineGridOption = null;
   
-  // Benutzereingabe gridRelToInputField ('Oberer Seitenkante', 'Oberen Seitenrand') in switch aufnehmen
+  // Benutzereingabe gridRelToInputField ('Oberer Seitenkante', 'Oberen Seitenrand') 
+  // in switch aufnehmen
   switch(gridRelToInputField.selection.index) {
 
     // wenn 0 dann
@@ -398,7 +403,7 @@ Nach dem Anzeigen des Dialog-Fensters mit ` configWindow.show()` muss also zuers
 
 Zum Schluss wird die `return`-Anweisung um die neu erzeugten Werte erweitert. In der abschliessenden `if`-`else`-Verzweigung werden, wenn «Ok» geklickt wurde, alle Werte der `return`-Anweisung über`shownWindow` in die *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit geschrieben.
 
-![Ausgabe in der *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit nach einer erfolgreichen Ausführung («Ok» wurde geklickt). Der Wert 1162766189 kann dabei verwirren. Er steht für `BaselineGridRelativeOption.TOP_OF...`. ]({{ site.url }}/img/js-console_script008-logs.fw.png)
+![Ausgabe in der *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit nach einer erfolgreichen Ausführung («Ok» wurde geklickt). Der Wert 1162766189 kann dabei verwirren. Er steht für `BaselineGridRelativeOption.TOP_OF...`. ]({{ site.baseurl }}/img/js-console_script008-logs.fw.png)
 
 [29]: http://www.kahrel.plus.com/indesign/scriptui.html
 [30]: https://wiki.selfhtml.org/wiki/JavaScript/Objekte_-_Eigenschaften_und_Methoden

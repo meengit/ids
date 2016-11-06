@@ -22,7 +22,7 @@ Die streng hierarchische Beziehung von übergeordneten Klassen zu ihren Subklass
 
 Doch was heisst das im Kontext von Adobe InDesign Scripting? Dieser Kurs handelt von Skripten auf der Basis von Adobe ExtendScript, welches eine erweiterte Form von Javascript ist. Es gibt auch in Adobe ExtendScript Klassen und Klassenbäume. Die «Core Javascript Classes» bilden den javascript-basierten Sprachkern. Die «Script UI Classes» umfassen alle Elemente für die Erzeugung von Benutzeroberflächen. Zusammen mit den «Core Javascript Classes» sind sie unabhängig von den Zielapplikationen und können in allen eingesetzt werden. Die «Object Models», zum Beispiel «Adobe InDeisgn CC 2015 (9.0) Object Model», enthalten die Elemente der jeweiligen Zielapplikation und bauen auf den «Core Classes» und «UI Classes» auf. Sie sind ausschliesslich in der entsprechenden Applikation verfügbar. Das Adobe InDesign Object Model sieht im überblick zum Beispiel so aus:
 
-![Adobe InDesign Object Model](img/idObjectModel.png) 
+![Adobe InDesign Object Model]({{ site.baseurl}}/img/idObjectModel.png) 
 
 *(Quelle: Adobe InDesign CS6 Scripting Tutorial.pdf)*
 
@@ -58,23 +58,24 @@ Für die effektiven Programmierbefehle zum Objektmodell gibt es im Adobe ExtendS
 
 Wichtig: Die im «Objektmodell-Viewer» dargestellte Klasse (Objekt) beginnt jeweils mit einem Grossbuchstaben. Es gibt jedoch zwei Situationen, wie diese beim Programmieren von Skripten aufgerufen werden: Entweder wird die Klasse direkt aufgerufen oder als ein bereits instanziiertes Objekt der Klasse. Der Unterschied besteht darin, dass Klassenelemente wie zum Beispiel `File` zur Verfügung stehen, ohne dass ein konkretes Objekt erzeugt wurde. Die Entwicklungsumgebung kann ja nicht bereits vorab wissen, mit welchen Dokumenten gearbeitet werden soll. Solche Klassen sind deshalb eine Art Vorlage, die auf ihre Verwendung warten. Werden sie aufgerufen, erzeugen sie eine Objektinstanz. Dagegen gibt es Objekte respektive vorgefertigte Instanziierungen, die vom Interpreter automatisch erzeugt werden, wenn ein Skript ausgeführt wird. In der Praxis heisst das: Wenn zum Beispiel ein Dokument geladen werden soll, geschieht dies über die Klasse `File`;
 
-	// Pfad zum Dokument definieren
-	// und in Variable filePath vom Typ String «speichern»
-	var filePath = '~/Desktop/dokument.txt';
+```javascript
+// Pfad zum Dokument definieren
+// und in Variable filePath vom Typ String «speichern»
+var filePath = '~/Desktop/dokument.txt';
 
-	// Textdokument referenzieren
-	// Klasse File aufrufen, Pfad übergeben
-	// und in Variable file als Instanz von File speichern
-	var file = File(filePath);
-
+// Textdokument referenzieren
+// Klasse File aufrufen, Pfad übergeben
+// und in Variable file als Instanz von File speichern
+var file = File(filePath);
+```
 
 Die Variable `filePath` definiert den Pfad auf das Dokument, welches durch die `File`-Klasse referenziert resp. «in den Programmcode importiert» werden soll. Die Zeile `var file = File(filePath);` ruft über die Klasse `File` das referenzierte Dokument auf und baut die Variable `file` zu einer Instanz (= Kopie) der Klasse `File` um. Das heisst, sie erhält alle Methoden (= Funktionen) und Eigenschaften, welche die Klasse `File` für sie vorsieht. Die Variable `file` kann sich von nun an im Programm Code frei verändern. Es können ihr beispielsweise weitere Eigenschaften hinzugefügt werden, welche in der Klasse nicht existieren. Das heisst: Werden die JavaScript-Core-Klassen in einem Skript explizit aufgerufen, beginnen sie mit einem Grossbuchstaben. 
 
 Dagegen referenzieren Instanzelemente bereits erzeugte Objektinstanzen. Wird beispielsweise per Skript ein neues Dokument erzeugt, dann geschieht dies über `var newDoc = app.documents.add()`. `app` zeigt auf das Programmobjekt von Adobe InDesign. Die zugehörige Klasse im «Objektmodell-Viewer» ist `Application`. Sie hat eine Eigenschaft `documents` welche auf die Klasse `Documents` zeigt (links blaues Icon = Eigenschaft, Namen nach dem Doppelpunkt = referenzierte Klasse). Die Klasse `Documents` hat wiederum eine Methode (= Funktion) `add()`, welche das Dokument erstellt und an die Variable `newFile` übergibt. Instanzelemente, wie sie hier behandelt werden, sind also eine Art vorab zusammengebaute Komponenten. Wenn ein Skript ausgeführt wird, werden sie vom Interpreter vorab erzeugt um anschliessend darauf zuzugreifen. Für die Unterscheidung von Klassen- und Instanzelementen in Adobe InDesign gibt es eine einfache Eselsbrücke:  Instanzelemente betreffen meist Operationen, die mit einer Programmfunktion zusammenhängen. Zum Beispiel ein neues Dokument anlegen oder auf die Voreinstellungen zugreifen.  Wenn Sie im Programmcode eigene Variablen oder Funktionen referenzieren, dann sind dies auch Instanzelemente. Klassenelemente sind wie vorgefertigte Schablonen, die jedoch noch im Regal stehen. Sie werden gebraucht, wenn das Programm nicht vorhersehen kann, was benötigt wird – zum Beispiel die Referenzierung eines Dokuments auf dem Filesystem (= ausserhalb des Programms).
 
-![Klassenbrowser im Objektmodell-Viewer](img/objmdlvw-classes.png)
+![Klassenbrowser im Objektmodell-Viewer]({{ site.baseurl}}/img/objmdlvw-classes.png)
 
-![Class, Constructor & Instance](img/objmdlvw-details.png)  
+![Class, Constructor & Instance]({{ site.baseurl}}/img/objmdlvw-details.png)  
 
 
 ### Token (Schlüsselwörter)
@@ -117,10 +118,11 @@ Viel genutzte Schlüsselwörter in JavaScript sind:
 
 Kommentare sind Notizen im Quelltext oder Quelltext-Passagen (= Programmteile), die nicht ausgeführt werden sollen. Sie werden vom Interpreter ignoriert. Einzeilige Kommentare beginnen mit `//`, mehrzeilige Kommentare beginnen mit `/*` und enden mit `*/`.
 
-	// Dies ist ein einzeiliger Kommentar
-	
-	/* Dies ist 
-	   ein Kommentar
-	   über mehrere
-	   Zeilen hinweg. */
+```javascript
+// Dies ist ein einzeiliger Kommentar
 
+/* Dies ist 
+   ein Kommentar
+   über mehrere
+   Zeilen hinweg. */
+```

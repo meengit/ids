@@ -35,26 +35,30 @@ Datentypen bestimmen den Typ des «Inhalts» einer Variable.
 |`Null` | Dieser Sonderdatentyp entspricht der Situation, wenn ein Objekt noch keinen Wert hat, und entspricht keiner «keiner Bedeutung» oder `null`. Er unterscheidet sich somit von einer leeren Zeichenkette oder dem Literal `0`. Er kann zum Beispiel zurückgegeben werden wenn in einem Dialogfenster die `ABBRECHEN`-Schaltfläche betätigt wird. 
 |`typeof` | Mit diesem Datentyp kann in JavaScript der Typ einer Variable/eines Literals/eines Rückgabewerts überprüft werden. 
 
-	// String
-	var einTextTypString = 'Ein Text für mich.';
-	
-	// Number
-	var eineZahlVomTypNumber = 1234;
-	
-	// Boolean
-	var einBoolischerWert = true;
-	
-	// typeof
-	$.writeln(typeof einTextTypString) // -> Output Konsole: string
+```javascript
+// String
+var einTextTypString = 'Ein Text für mich.';
+
+// Number
+var eineZahlVomTypNumber = 1234;
+
+// Boolean
+var einBoolischerWert = true;
+
+// typeof
+$.writeln(typeof einTextTypString) // -> Output Konsole: string
+```
 
 In vielen Fällen kommt es vor, dass einer Variable mehrere Werte zugewiesen werden müssen. Dazu gibt es die Möglichkeit, den Inhalt mehrerer Variablen zu verknüpfen.  
 
-	// Variablen vom Typ «String» verknüpfen
-	var text1 = 'Dies ist ';
-	var text2 = 'eine Zeichenkette';
-	
-	var ganzerText = text1 + " " + text2;
-	$.writeln(ganzerText); // ->  Output Konsole: Dies ist eine Zeichenkette
+```javascript
+// Variablen vom Typ «String» verknüpfen
+var text1 = 'Dies ist ';
+var text2 = 'eine Zeichenkette';
+
+var ganzerText = text1 + " " + text2;
+$.writeln(ganzerText); // ->  Output Konsole: Dies ist eine Zeichenkette
+```
 
 Das Verknüpfen von Variablen deckt jedoch längst nicht alle Anforderungen ab. Deshalb gibt es in JavaScript Datenfelder. Datenfelder, auch Arrays genannt, sind eine Sammlung von Elementen, die über einen gemeinsamen Bezeichner einer Variable zugeordnet und durch einen Index angesprochen werden können. In JavaScript wird ein Datenfeld explizit als Objekt gesehen. Der Index eines Datenfeld beginnt immer mit `0`. Die Datentypen der Elemente in einem Array können verschieden und nicht identisch sein. Wenn das ursprünglich erzeugte Datenfeld kleiner ist, als die Anzahl der später hinzugefügten Elemente, dann wird das Datenfeld automatisch von JavaScript vergrössert. Solche Datenfelder (= Arrays) können auf zwei Arten erzeugt werden:
 
