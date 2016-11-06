@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Operatoren</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                <b>Operatoren</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Operatoren</h1>
+    </header>
+    <article>
+      <p><p>Ein <strong>Operator</strong> ist ein Symbol bzw. Token, das angibt, welche Operation in einem Ausdruck ausgeführt werden soll. Die Elemente, Literale oder Variablen, mit welchen eine solche Operation durchgeführt werden wird, nennt man <strong>Operanden</strong>.</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/JavaScript/Guide/Ausdruecke_und_Operatoren">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a>.</p>
+
+<h3 id="arithmetische-operatoren">Arithmetische Operatoren</h3>
+
+<p>Arithmetische Operatoren brauchen immer zwei Zahlenoperanden und liefern als Ergebnis einer arithmetischen Operation eine neue Zahl als Wert.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Bedeutung</th>
+      <th>Beschreibung</th>
+      <th>Beispiel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">+</code></td>
+      <td>Addition</td>
+      <td> Addition von zwei Zahlen oder numerischen Variablen</td>
+      <td><code class="highlighter-rouge">3 + 4</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-</code></td>
+      <td>Subtraktion</td>
+      <td>Subtraktion von zwei Zahlen oder numerischen Variablen</td>
+      <td><code class="highlighter-rouge">4 - 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-</code></td>
+      <td>Negierung</td>
+      <td>Einstellige arithmetische Negierung</td>
+      <td><code class="highlighter-rouge">-3</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">*</code></td>
+      <td>Multiplikation</td>
+      <td>Multiplikation von zwei Zahlen oder numerischen Variablen</td>
+      <td><code class="highlighter-rouge">2 * 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/</code></td>
+      <td> Division</td>
+      <td>Division von zwei Zahlen oder numerischen Variablen</td>
+      <td><code class="highlighter-rouge">2 / 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">%</code></td>
+      <td>Modulo</td>
+      <td> Gibt den Rest einer Division zurück (<strong>ACHTUNG: Mögliche Rundungsprobleme bei Gleitkommazahlen!</strong>)</td>
+      <td><code class="highlighter-rouge">15 % 9 (= 6)</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">++</code></td>
+      <td>Inkrement</td>
+      <td>Operator erhöht den Wert des Operanden um 1</td>
+      <td>wert++</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">--</code></td>
+      <td>Dekrement</td>
+      <td>Operator vermindert den Wert des Operanden um 1</td>
+      <td>wert–</td>
+    </tr>
+    <tr>
+      <td>WICHTIG</td>
+      <td>Inkrement/Dekrement</td>
+      <td><strong>WICHTIG</strong>: <code class="highlighter-rouge">++i</code> = Operator <strong>vor</strong> Operanden -&gt; Manipulation des Wertes <strong>vor</strong> dessen Verwendung, <code class="highlighter-rouge">i++</code> = Operator <strong>nach</strong> Operanden -&gt; Manipulation des Wertes <strong>nach</strong> dessen Verwendung</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Punkt-vor-Strich-Regel</strong>: Gilt auch in JavaScript – inkl. die Verwendung von Klammern für arithmetische Operationen.</p>
+
+<h3 id="boolesche-operatoren">Boolesche Operatoren</h3>
+
+<p>Mit boolschen Ausdrücken lassen sich unter anderem Bedingungen, Zustände oder Operanden vergleichen.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Bedeutung</th>
+      <th>Beschreibung</th>
+      <th>Beispiel</th>
+      <th>Ergebnis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">!=</code></td>
+      <td>Ungleichheit</td>
+      <td>Vergleich, ob zwei Operanden nicht identisch sind, Ergebnis: <code class="highlighter-rouge">true</code> wenn nicht gleich</td>
+      <td><code class="highlighter-rouge">8 != 4 + 4</code></td>
+      <td><code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!==</code></td>
+      <td>Typungleichheit</td>
+      <td> Vergleich, ob zwei Operanden entweder im Wert oder im Typ nicht identisch sind, Ergebnis: <code class="highlighter-rouge">true</code> wenn eines zutrifft</td>
+      <td><code class="highlighter-rouge">'4' !== 4</code></td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;</code></td>
+      <td>Kleiner-als</td>
+      <td>Vergleich, ob erster Operand kleiner als zweiter, Ergebnis: <code class="highlighter-rouge">true</code> wenn erster kleiner</td>
+      <td>5 &lt; 6</td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&lt;=</code></td>
+      <td>Kleiner-als-oder-gleich</td>
+      <td>Vergleich, ob erster Operand kleiner oder gleich dem zweiten ist, Ergebnis: <code class="highlighter-rouge">true</code> wenn eines zutrifft</td>
+      <td><code class="highlighter-rouge">6 &lt;= 6</code></td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">==</code></td>
+      <td>Gleichheit</td>
+      <td>Vergleich, ob zwei Operanden gleich sind, Ergebnis: <code class="highlighter-rouge">true</code> wenn gleich</td>
+      <td><code class="highlighter-rouge">4 + 4 == 8</code></td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">===</code></td>
+      <td>Identität</td>
+      <td>Vergleich, ob zwei Operanden im Wert und Typ gleich, Ergebnis: <code class="highlighter-rouge">true</code> wenn beide zutreffen</td>
+      <td><code class="highlighter-rouge">'4' === 4</code></td>
+      <td><code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;</code></td>
+      <td>Grösser-als</td>
+      <td>Vergleich, ob erster Operator grösser als Zweiter, Ergebnis: <code class="highlighter-rouge">true</code> wenn Erster grösser</td>
+      <td><code class="highlighter-rouge">5 &gt; 6</code></td>
+      <td><code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">&gt;=</code></td>
+      <td>Grösser-als-oder-gleich</td>
+      <td>Vergleich, ob erster Operand grösser oder gleich dem Zweiten, Ergebnis: <code class="highlighter-rouge">true</code> wenn eines zutrifft</td>
+      <td><code class="highlighter-rouge">5 &gt;= 6</code></td>
+      <td><code class="highlighter-rouge">false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logische-operatoren">Logische Operatoren</h4>
+
+<p>Logische Operatoren dienen der Verknüpfung von booleschen Werten beziehungsweise booleschen Ausdrücken. Das Ergebnis einer solchen Verknüpfung ist wiederum ein boolscher Wert.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Bedeutung</th>
+      <th>Beschreibung</th>
+      <th>Beispiel</th>
+      <th>Ergebnis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">&amp;&amp;</code></td>
+      <td>logisches AND bzw. UND</td>
+      <td>Operator vergleicht zwei Ausdrücke, Ergebnis: <code class="highlighter-rouge">true</code> wenn beide Ausdrücke mit wahrem Ergebnis</td>
+      <td><code class="highlighter-rouge">(4 + 4 == 8) &amp;&amp; (2 + 3 == 5)</code></td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">||</code></td>
+      <td>logisches OR bzw. ODER</td>
+      <td>Operator vergleicht zwei Ausdrücke, Ergebnis: <code class="highlighter-rouge">true</code> wenn ein Ausdruck oder beide Ausdrücke ein wahres Ergebnis haben</td>
+      <td><code class="highlighter-rouge">(4 + 4 == 7) || (2 + 3 == 5)</code></td>
+      <td><code class="highlighter-rouge">true</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">!</code></td>
+      <td>logisches NOT bzw. NICHT</td>
+      <td>Operator dreht logischen Wert um, Ergebnis: <code class="highlighter-rouge">true</code> wird zu <code class="highlighter-rouge">false</code> und entgegengesetzt</td>
+      <td><code class="highlighter-rouge">!(4 + 4 == 8)</code></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">?:</code></td>
+      <td>ENTWEDER-ODER-Bedingung</td>
+      <td>Abkürzung der <code class="highlighter-rouge">if-else</code>-Entscheidung, vergleicht Wert vor dem <code class="highlighter-rouge">?</code> mit Werten nach dem <code class="highlighter-rouge">?</code>, Ergebnis: <code class="highlighter-rouge">true</code> = Wert vor <code class="highlighter-rouge">:</code> wird zurückgegeben, <code class="highlighter-rouge">false</code> = Wert nach <code class="highlighter-rouge">:</code> wird zurückgegeben</td>
+      <td><code class="highlighter-rouge">(3 &lt; 4) ? 'ja':'nein'</code></td>
+      <td><code class="highlighter-rouge">'ja'</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="zuweisungsoperatoren">Zuweisungsoperatoren</h4>
+
+<p>Neben dem direkten Zuweisungsoperator (<code class="highlighter-rouge">=</code>) gib es in JavaScript <strong>arithmetische Zuweisungsoperatoren</strong>. Sie bauen auf dem Gleichheitsoperator mit vorangestelltem Token auf und sind als Abkürzung von arithmetischen Operationen zu verstehen.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Bedeutung</th>
+      <th>Beispiel</th>
+      <th>Erklärung der Anweisung</th>
+      <th>Alternative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">+=</code></td>
+      <td>Additions- und Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a += 5</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> wird um <code class="highlighter-rouge">5</code>  erhöht</td>
+      <td><code class="highlighter-rouge">a = a + 5;</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">-=</code></td>
+      <td>Subtraktions- und Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a -= 10</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> wird um 10 reduziert</td>
+      <td><code class="highlighter-rouge">a = a - 10;</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">*=</code></td>
+      <td>Multiplikations- und Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a *= 5</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> multipliziert mit <code class="highlighter-rouge">5</code></td>
+      <td><code class="highlighter-rouge">a = a * 5</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/=</code></td>
+      <td>Divisions- und Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a /= 2</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> geteilt durch <code class="highlighter-rouge">2</code></td>
+      <td><code class="highlighter-rouge">a = a / 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">%=</code></td>
+      <td>Modulo- und Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a %= 5</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> modulo dem Wert <code class="highlighter-rouge">5</code></td>
+      <td><code class="highlighter-rouge">a = a % 5</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">=</code></td>
+      <td>Direkter Zuweisungsoperator</td>
+      <td><code class="highlighter-rouge">a = 5</code></td>
+      <td>Wert von <code class="highlighter-rouge">a</code> ist <code class="highlighter-rouge">5</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

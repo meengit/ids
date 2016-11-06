@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Grundlagen Javascript</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                <b>Grundlagen Javascript</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Grundlagen Javascript</h1>
+    </header>
+    <article>
+      <p><h2 id="die-javascript-syntax">Die JavaScript-Syntax</h2>
+
+<p>JavaScript ist die syntaktische Grundlage für Adobe ExtendScript. Das heisst, Adobe ExtendScript folgt in der Formatierung des Programmcodes den Regeln von JavaScript. Die kommenden Abschnitte geben einen Überblick zu deren wichtigsten Konzepten. Normalerweise wird die Sprache mit der Anwendung im Browser erklärt. Diese Dokumentation ist dagegen auf die Anwendung im Adobe ExtendScript Toolkit ausgelegt. Wo vermerkt, können die Code-Beispiele ins Adobe ExtendScript Toolkit kopiert und ausgeführt werden.</p>
+
+<p>Genau genommen ist JavaScript keine objektorientierte sondern eine objektbasierte Sprache. JavaScript orientiert dennoch umfangreich an Konzepten aus objektorientierten Sprachen. Deshalb werden wir in diesem Skript hauptsächlich mit dem Begriff «objektorientiert» hantieren. Er schliesst die objektbasierten Merkmale von JavaScript ein.</p>
+
+<p>Objekte sind zusammenhängende Anweisungen und Daten die eine abgeschlossene, eigenständige Einheit bilden. Sie bestehen aus Eigenschaften (auch Attribute oder Objektdaten genannt) und Methoden (Anweisungen). Eigenschaften charakterisieren ein Objekt. Sie können unter anderem mit Zeichen, Zahlen oder einem Zustand belegt sein. Methoden sind die aktiven Funktionalitäten. Sie führen Operationen durch, in dem sie Eigenschaften verändern oder neue erzeugen. Das bedeutet, es gibt keine Methoden oder Eigenschaften ohne ein zugehöriges Objekt. Nach aussen versteckt ein Objekt seine innere Struktur vor anderen Objekten (Information Hiding, Datenkapselung). Der entscheidende Vorteil dieser Datenkapselung ist, dass Objekte in ihren inneren Strukturen verändert werden können, solange sie sich nach aussen unverändert zeigen.</p>
+
+<h3 id="klassen-instanzen-und-vererbung">Klassen, Instanzen und Vererbung</h3>
+
+<p>Klassen oder Objektdeklarationen sind eine Art Baupläne zur Bildung von konkreten Objekten. Im objektorientierten Sprachgebrauch werden Objekte als Instanzen von Klassen bezeichnet. Sie befinden sich nach ihrer Erzeugung in einem konkreten Zustand, während die Klassen selbst keinen Zustand haben.</p>
+
+<p>Bei der Arbeit mit Klassen ist die hierarchische Struktur besonders wichtig. In der objektorientierten Philosophie sollten gemeinsame Details möglichst in einer übergeordneten Superklasse zusammengefasst werden (auch «Verallgemeinerung» genannt). Erst wenn Unterscheidungen nötig werden, werden untergeordnete Klassen gebildet (sogenannte Spezialisierung). Jede (gewöhnliche) Klasse  kann eine Vielzahl von Unterklassen (auch Subklassen) und konkreten Instanzen (abgeleitete Objekte) haben. Die ineinander geschachtelten Klassen bilden den Klassenbaum.</p>
+
+<p>Die streng hierarchische Beziehung von übergeordneten Klassen zu ihren Subklassen heisst Vererbung. Jede Subklasse bekommt alle vorgesehenen Eigenschaften und Methoden ihrer Superklasse(n) vererbt. Daher sollte jede Subklasse sinnvollerweise mindestens eine Eigenschaft oder Methode mehr haben als ihre Superklasse(n) – oder zumindest vererbte Dinge irgendwie verändern. Wenn eine Methode oder Eigenschaft in einer konkreten Objektklasse nicht vorhanden ist, wird sie in der nächsthöheren Superklasse gesucht. Ist sie dort desgleichen nicht vorhanden, wird in der nächsthöheren Klasse im Klassenbaum gesucht – bis die oberste Superklasse des Klassenbaums erreicht ist. Der Zugriff erfolgt in der ersten Klasse mit einem Treffer. In JavaScript-Quelltexten ist keine Vererbung im eigentlichen Sinne, wie eben beschrieben, möglich (wie beispielsweise in Java). Das objektbasierte Konzept von Javascript orientiert sich jedoch umfangreich an den Konzepten der objektorientierten Philosophie. Die Grundklasse, das Grundobjekt in JavaScript ist <code class="highlighter-rouge">Object</code>. Diese Klasse ist die Superklasse aller Klassen im Klassenbaum und enthält die Grundeigenschaften und -methoden eines Objekts.</p>
+
+<p>Doch was heisst das im Kontext von Adobe InDesign Scripting? Dieser Kurs handelt von Skripten auf der Basis von Adobe ExtendScript, welches eine erweiterte Form von Javascript ist. Es gibt auch in Adobe ExtendScript Klassen und Klassenbäume. Die «Core Javascript Classes» bilden den javascript-basierten Sprachkern. Die «Script UI Classes» umfassen alle Elemente für die Erzeugung von Benutzeroberflächen. Zusammen mit den «Core Javascript Classes» sind sie unabhängig von den Zielapplikationen und können in allen eingesetzt werden. Die «Object Models», zum Beispiel «Adobe InDeisgn CC 2015 (9.0) Object Model», enthalten die Elemente der jeweiligen Zielapplikation und bauen auf den «Core Classes» und «UI Classes» auf. Sie sind ausschliesslich in der entsprechenden Applikation verfügbar. Das Adobe InDesign Object Model sieht im überblick zum Beispiel so aus:</p>
+
+<p><img src="img/idObjectModel.png" alt="Adobe InDesign Object Model" /></p>
+
+<p><em>(Quelle: Adobe InDesign CS6 Scripting Tutorial.pdf)</em></p>
+
+<p>Wichtig: Das gezeigte Schema entspricht nicht den Programmbefehlen im Adobe ExtendScript Toolkit. Es visualisiert die grundlegenden Zusammenhänge des Adobe InDesign Objektmodells. Um beispielsweise die «Application», also Adobe InDesign, in einem Skript anzusprechen, wird der Befehl <code class="highlighter-rouge">app</code> genutzt.</p>
+
+<p>Die einzelnen Elemente des Objektmodells können so erklärt werden <em>(Quelle: Adobe InDesign CS6 Scripting Tutorial.pdf)</em>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Was er repräsentiert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Application</td>
+      <td>Das Programm Adobe InDesign.</td>
+    </tr>
+    <tr>
+      <td>Application defaults</td>
+      <td>Die Einstellungen von Adobe InDesign (z. B. Farben, Absatzformate, Objektformate und die Standardeinstellungen für alle neuen Dokumente).</td>
+    </tr>
+    <tr>
+      <td>Applicatoin events</td>
+      <td>Ereignisse die eintreten, wenn ein Benutzer oder ein Script mit Adobe InDesign interagiert (Dokumente öffnen/schliessen/speichern, Menübefehle aufrufen usw.).</td>
+    </tr>
+    <tr>
+      <td>Application Menus</td>
+      <td>Menüs, Submenüs und Kontextmenüs der Benutzeroberfläche. Skripte können diese ausführen oder ausgeführt werden, wenn Menübefehle aufgerufen werden.</td>
+    </tr>
+    <tr>
+      <td>Application methods</td>
+      <td>Methoden, die von einem Skript in Adobe InDesign ausgeführt werden können (z. B. Suchen/Ersetzen von Text, aktuelle Auswahl kopieren, Dokumente anlegen usw.).</td>
+    </tr>
+    <tr>
+      <td>Application preferences</td>
+      <td>Z. B. Text-Voreinstellungen, PDF Export-Einstellungen oder Dokument-Voreinstellungen. Viele dieser Voreinstellungsobjekte existieren auch auf dem Dokumenten-Level. Ebenso wie bei der Benutzeroberfläche werden Anwendungseinstellungen auf neue Dokumente angewendet und Dokumenteinstellungen ändern die Einstellungen eines bestimmten Dokuments.</td>
+    </tr>
+    <tr>
+      <td>Application properties</td>
+      <td>Die Voreinstellungen des Programms (z. B. der Installationspfad).</td>
+    </tr>
+    <tr>
+      <td>Books</td>
+      <td>Die Sammlung der geöffneten Adobe InDesign Bücher.</td>
+    </tr>
+    <tr>
+      <td>Document</td>
+      <td>Ein Adobe InDesign Dokument.</td>
+    </tr>
+    <tr>
+      <td>Document defaults</td>
+      <td>Die Dokumenteinstellungen (z. B. Farben, Absatz- und Zeichenformate).</td>
+    </tr>
+    <tr>
+      <td>Document elements</td>
+      <td>Elemente einer Seite. Z. B. Stories und importierte Grafiken aber auch gezeichnete Elemente (Rechtecke, Kreise usw.), Textfelder, XML-Elemente und alle anderen Typen von Objekten, die auf einer Seite importiert oder erstellt werden können.</td>
+    </tr>
+    <tr>
+      <td>Document event</td>
+      <td>Ereignisse auf der Ebene «Dokument» (z. B. Textimport).</td>
+    </tr>
+    <tr>
+      <td>Document methods</td>
+      <td>Methoden auf der Ebene «Dokument» (z. B. Dokument schliessen, drucken oder exportieren).</td>
+    </tr>
+    <tr>
+      <td>Document preferences</td>
+      <td>Dokumenteigenschaften wie Name, Anzahl Seiten und die Lage des Nullpunkes.</td>
+    </tr>
+    <tr>
+      <td>Documents</td>
+      <td>Eine Sammlung von Dokumenten.</td>
+    </tr>
+    <tr>
+      <td>Libraties</td>
+      <td>Eine Sammlung von Bibliotheken.</td>
+    </tr>
+    <tr>
+      <td>Page</td>
+      <td>Eine einzelne Adobe InDesign Seite.</td>
+    </tr>
+    <tr>
+      <td>Page items</td>
+      <td>Alle Objekte, die auf einem Druckbogen erstellt oder platziert werden können.</td>
+    </tr>
+    <tr>
+      <td>Pages or Spreads</td>
+      <td>Seiten oder Druckbogen in einem Adobe InDesign Dokument.</td>
+    </tr>
+    <tr>
+      <td>Stories</td>
+      <td>Die Textketten in einem Adobe InDesign Dokument.</td>
+    </tr>
+    <tr>
+      <td>Text objects</td>
+      <td>Zeichen, Wörter, Zeilen, Absätze und Spalten o. ä. sind Textobjekte in einer Adobe InDesign Story.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Für die effektiven Programmierbefehle zum Objektmodell gibt es im Adobe ExtendScript Toolkit den «Object Model Viewer». Um diesen zu starten, muss im geöffneten Programm <em><code class="highlighter-rouge">Hilfe &gt; Objektmodell-Viewer</code></em> gewählt werden.</p>
+
+<p>Wichtig: Die im «Objektmodell-Viewer» dargestellte Klasse (Objekt) beginnt jeweils mit einem Grossbuchstaben. Es gibt jedoch zwei Situationen, wie diese beim Programmieren von Skripten aufgerufen werden: Entweder wird die Klasse direkt aufgerufen oder als ein bereits instanziiertes Objekt der Klasse. Der Unterschied besteht darin, dass Klassenelemente wie zum Beispiel <code class="highlighter-rouge">File</code> zur Verfügung stehen, ohne dass ein konkretes Objekt erzeugt wurde. Die Entwicklungsumgebung kann ja nicht bereits vorab wissen, mit welchen Dokumenten gearbeitet werden soll. Solche Klassen sind deshalb eine Art Vorlage, die auf ihre Verwendung warten. Werden sie aufgerufen, erzeugen sie eine Objektinstanz. Dagegen gibt es Objekte respektive vorgefertigte Instanziierungen, die vom Interpreter automatisch erzeugt werden, wenn ein Skript ausgeführt wird. In der Praxis heisst das: Wenn zum Beispiel ein Dokument geladen werden soll, geschieht dies über die Klasse <code class="highlighter-rouge">File</code>;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Pfad zum Dokument definieren
+// und in Variable filePath vom Typ String «speichern»
+var filePath = '~/Desktop/dokument.txt';
+
+// Textdokument referenzieren
+// Klasse File aufrufen, Pfad übergeben
+// und in Variable file als Instanz von File speichern
+var file = File(filePath);
+</code></pre>
+</div>
+
+<p>Die Variable <code class="highlighter-rouge">filePath</code> definiert den Pfad auf das Dokument, welches durch die <code class="highlighter-rouge">File</code>-Klasse referenziert resp. «in den Programmcode importiert» werden soll. Die Zeile <code class="highlighter-rouge">var file = File(filePath);</code> ruft über die Klasse <code class="highlighter-rouge">File</code> das referenzierte Dokument auf und baut die Variable <code class="highlighter-rouge">file</code> zu einer Instanz (= Kopie) der Klasse <code class="highlighter-rouge">File</code> um. Das heisst, sie erhält alle Methoden (= Funktionen) und Eigenschaften, welche die Klasse <code class="highlighter-rouge">File</code> für sie vorsieht. Die Variable <code class="highlighter-rouge">file</code> kann sich von nun an im Programm Code frei verändern. Es können ihr beispielsweise weitere Eigenschaften hinzugefügt werden, welche in der Klasse nicht existieren. Das heisst: Werden die JavaScript-Core-Klassen in einem Skript explizit aufgerufen, beginnen sie mit einem Grossbuchstaben.</p>
+
+<p>Dagegen referenzieren Instanzelemente bereits erzeugte Objektinstanzen. Wird beispielsweise per Skript ein neues Dokument erzeugt, dann geschieht dies über <code class="highlighter-rouge">var newDoc = app.documents.add()</code>. <code class="highlighter-rouge">app</code> zeigt auf das Programmobjekt von Adobe InDesign. Die zugehörige Klasse im «Objektmodell-Viewer» ist <code class="highlighter-rouge">Application</code>. Sie hat eine Eigenschaft <code class="highlighter-rouge">documents</code> welche auf die Klasse <code class="highlighter-rouge">Documents</code> zeigt (links blaues Icon = Eigenschaft, Namen nach dem Doppelpunkt = referenzierte Klasse). Die Klasse <code class="highlighter-rouge">Documents</code> hat wiederum eine Methode (= Funktion) <code class="highlighter-rouge">add()</code>, welche das Dokument erstellt und an die Variable <code class="highlighter-rouge">newFile</code> übergibt. Instanzelemente, wie sie hier behandelt werden, sind also eine Art vorab zusammengebaute Komponenten. Wenn ein Skript ausgeführt wird, werden sie vom Interpreter vorab erzeugt um anschliessend darauf zuzugreifen. Für die Unterscheidung von Klassen- und Instanzelementen in Adobe InDesign gibt es eine einfache Eselsbrücke:  Instanzelemente betreffen meist Operationen, die mit einer Programmfunktion zusammenhängen. Zum Beispiel ein neues Dokument anlegen oder auf die Voreinstellungen zugreifen.  Wenn Sie im Programmcode eigene Variablen oder Funktionen referenzieren, dann sind dies auch Instanzelemente. Klassenelemente sind wie vorgefertigte Schablonen, die jedoch noch im Regal stehen. Sie werden gebraucht, wenn das Programm nicht vorhersehen kann, was benötigt wird – zum Beispiel die Referenzierung eines Dokuments auf dem Filesystem (= ausserhalb des Programms).</p>
+
+<p><img src="img/objmdlvw-classes.png" alt="Klassenbrowser im Objektmodell-Viewer" /></p>
+
+<p><img src="img/objmdlvw-details.png" alt="Class, Constructor &amp; Instance" /></p>
+
+<h3 id="token-schlsselwrter">Token (Schlüsselwörter)</h3>
+
+<p>Token sind Zeichen oder Zeichenkombinationen einer Sprachdefinition, die mit einem bestimmten Sinn behaftet sind. Auf ihnen fusst die gesamte Syntax einer Sprache. Sie werden auch als <strong>Schlüsselwörter</strong> bezeichnet.</p>
+
+<p>Viel genutzte Schlüsselwörter in JavaScript sind:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schlüsselwort</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">break</code></td>
+      <td>Abbruch von Schleifen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">case</code></td>
+      <td>Einleitung eines Treffers (<code class="highlighter-rouge">switch-case</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">catch</code></td>
+      <td>Beginn eines Blocks zum Auffangen von Ausnahmen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">continue</code></td>
+      <td>Fortsetzung von Schleifen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">default</code></td>
+      <td>Vorgabefall bei <code class="highlighter-rouge">switch-case</code>(wenn kein Ergebnis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">delete</code></td>
+      <td>Löschen von Datenfeldelement oder selbst definierter Objekteigenschaft</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">do</code></td>
+      <td>Beginn einer fussgesteuerten Schleife (Überprüfung ob «weiter» am Fuss der Schleife)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">else</code></td>
+      <td>Einleitung alternativer Block bei <code class="highlighter-rouge">if</code>-Entscheidungsstruktur</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">false</code></td>
+      <td>Der Wert ist <em>falsch</em></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">finally</code></td>
+      <td>Einsatz im JS-Ausnahmebehandlungskonzept, leitet auszuführenden Block ein</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">for</code></td>
+      <td>Beginn kopfgesteuerte Schleife</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">function</code></td>
+      <td>Leitet Funktion ein</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">if</code></td>
+      <td>Leitet <code class="highlighter-rouge">if</code>-Fallunterscheidung ein</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">in</code></td>
+      <td>Teil von <code class="highlighter-rouge">for</code>… <code class="highlighter-rouge">in</code>, Bedingte Anweisung in Fallunterscheidung</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">instanceof</code></td>
+      <td>Test des Objekttyps</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">new</code></td>
+      <td> Einleitung bei Verwendung von Konstruktor für Objektdefinition</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">return</code></td>
+      <td>Sprachanweisung mit (optionaler) Übergabe eines Rückgabewerts von Funktionen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">switch</code></td>
+      <td>Einleitung <code class="highlighter-rouge">switch-case</code>Fallunterscheidung</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">this</code></td>
+      <td>Stellvertreter für aktuelle Instanz des Objekts</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">throw</code></td>
+      <td>JS-Ausnahmebehandlungskonzept: Auswerfen einer Ausnahme</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">true</code></td>
+      <td>Der Wert ist <em>wahr</em></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">try</code></td>
+      <td>JS-Ausnahmebehandlungskonzept: Beginn des Umschliessens einer kritischen Anweisung</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">typeof</code></td>
+      <td>Typ eines Elements</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">var</code></td>
+      <td>Beginn einer Variablendefinition</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">void</code></td>
+      <td>Leerer Funktionstyp</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">while</code></td>
+      <td>Einleitung einer kopfgesteuerten Schleife</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">with</code></td>
+      <td>Erlaubt mehrere Anweisungen mit Objekt durchzuführen</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kommentare">Kommentare</h3>
+
+<p>Kommentare sind Notizen im Quelltext oder Quelltext-Passagen (= Programmteile), die nicht ausgeführt werden sollen. Sie werden vom Interpreter ignoriert. Einzeilige Kommentare beginnen mit <code class="highlighter-rouge">//</code>, mehrzeilige Kommentare beginnen mit <code class="highlighter-rouge">/*</code> und enden mit <code class="highlighter-rouge">*/</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Dies ist ein einzeiliger Kommentar
+
+/* Dies ist 
+   ein Kommentar
+   über mehrere
+   Zeilen hinweg. */
+</code></pre>
+</div>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

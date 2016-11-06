@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Mit Dokumenten arbeiten</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                <b>Skripte & Dokumente</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Mit Dokumenten arbeiten</h1>
+    </header>
+    <article>
+      <p><h4 id="skript-001-dokument-erstellen">Skript 001, Dokument erstellen</h4>
+
+<p>Das erste Skript hat die Aufgabe, ein Dokument zu erstellen. Dieses wird nach dem Ablauf des Skripts geöffnet in Adobe InDesign zurückgelassen.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.001.jsx</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">documents</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.001.zip">[ Download script.001.jsx as .zip ]</a></p>
+
+<p>In JavaScript wird über die Punkt-Notation durch das <em>Dokument Object Model, kurz DOM</em> navigiert. Die Grundlagen dazu sind in diesem Wiki unter <a href="https://github.com/grafisches-forum-zh/scripting/wiki/03.-JavaScript-Grundlagen">03. JavaScript Grundlagen </a> erklärt. Dort ist unter anderem diese Grafik aufgeführt:</p>
+
+<p><img src="img/idObjectModel.png" alt="Adobe InDesign Object Model" /></p>
+
+<p><em>(Quelle: Adobe InDesign CS6 Scripting Tutorial.pdf)</em></p>
+
+<p><code class="highlighter-rouge">documents</code> ist ein Unterobjekt von <code class="highlighter-rouge">application</code>. <code class="highlighter-rouge">add()</code> ist eine Funktion (korrekterweise eine Methode) von <code class="highlighter-rouge">documents</code>.  Die Unterscheidung von Objekten, Kindobjekten und Objekt-Funktionen/Methoden und Eigenschaften ist besonders für Programmieranfänger schwer. Dieses und die kommenden Beispiele versuchen, etwas Klarheit zu schaffen.</p>
+
+<p><code class="highlighter-rouge">app</code> repräsentiert <code class="highlighter-rouge">application</code>, also das Programm Adobe InDesign. <code class="highlighter-rouge">documents</code> steht im übertragenen Sinn für eine Sammlung von Dokumenten und deren Methoden/Eigenschaften – zum Beispiel neue Dokumente anlegen.</p>
+
+<pre><code class="language-Text">┌─────────────┐                                       
+│     app     │                                       
+└─────────────┘                                       
+       │           ┌─────────────┐                    
+       └───────────│  documents  │─ ─ ▶ add()         
+                   └─────────────┘                    
+</code></pre>
+
+<h4 id="skript-002-dokument-erstellen--referenzieren">Skript 002, Dokument erstellen &amp; referenzieren</h4>
+
+<p>Der Ausdruck <code class="highlighter-rouge">app.documents.add()</code> ist für eine weitere Verwendung «wertlos». Das heisst, seine «Wirkung» verfällt, sobald das neue Dokument erstellt ist. In vielen Fällen ist es jedoch notwendig, dass nach dem Erstellen im weiteren Verlauf des Skripts auf das neue Dokument zugegriffen werden kann. Hierfür kann es mit einer Variable referenziert werden.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">newDoc</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">documents</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span>
+<span class="nx">newDoc</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.002.zip">[ Download script.002.jsx as .zip ]</a></p>
+
+<p>Rudimentär formuliert passiet folgendes: Adobe InDesign erstellt ein neues Dokument. Die Variable <code class="highlighter-rouge">newDoc</code> referenziert das neue Dokument und all seine Funktionen/Methoden und Eigenschaften. Zu beachten ist, dass der Interpreter von rechts nach links und von innen nach aussen arbeitet. Das heisst, er erstellt zuerst das Dokument und weist es erst anschliessend der Variable <code class="highlighter-rouge">newDoc</code> zu.</p>
+
+<p>Mit den blauen Pfeiltasten im <em><code class="highlighter-rouge">Debug-Bedienfelt</code></em> des ESTK kann durch die einzelnen Zeilen des Skripts gesprungen werden.</p>
+
+<p><img src="img/debug.fw.png" alt="Debug-Bedienfelt im ESTK" /></p>
+
+<p>Nachdem der Interpreter in die zweite Skriptzeile gesprungen ist, kann im Bedienfeld <em><code class="highlighter-rouge">Datenbrowser</code></em> nach dem neu erstellten Dokument respektive dessen Referenz (<code class="highlighter-rouge">newDoc</code>) gesucht werden.  Wird das Bedienfeld nicht von Beginn an angezeigt, kann es im Menü <em><code class="highlighter-rouge">Fenster</code></em> aufgerufen werden.</p>
+
+<p>Die Aufgabe der zweiten Zeile hängt nicht mit der Anzeige im <em><code class="highlighter-rouge">Datenbrowser</code></em> zusammen, wie vielleicht vermutet.  Am Ende jedes Skripts sucht das Adobe ESTK nach einem Ergebnis. Kann dieses nicht ermittelt werden, schreibt das Programm <code class="highlighter-rouge">undefined</code> in die <em><code class="highlighter-rouge">JavaScript-Konsole</code></em>. Wenn zum Schluss des Skripts dagegen beispielsweise eine Variable aufgerufen wird, so wie in der zweiten Zeile, wird deren Ergebnis in die Konsole geschrieben. Wird die <em><code class="highlighter-rouge">JavaScript-Konsole</code></em> nicht von Anfang an angezeigt, kann sie im Menü <em><code class="highlighter-rouge">Fenster</code></em> aufgerufen werden.</p>
+
+<p><img src="img/js-console_vs.fw.png" alt="Ergebnis der JS-Konsole von `script.001.jsx` &amp; `script.002.jsx`" /></p>
+
+<h4 id="skript-003-dokument-speichern">Skript 003, Dokument speichern</h4>
+
+<p>Als nächstes soll das erstellte Dokument gespeichert werden. Hierzu ändern wir die letzte Zeile des Skripts in ` app.activeDocument.save(new File(‘~/Desktop/myname.indd’));`.</p>
+
+<pre><code class="language-Javascript">// script.003.jsx
+
+var newDoc = app.documents.add();
+app.activeDocument.save(new File('~/Desktop/myname.indd'));
+</code></pre>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.003.zip">[ Download script.003.jsx as .zip ]</a></p>
+
+<p>Vereinfacht gesagt, erstellt der Interpreter von Adobe InDesign zuerst ein neues <code class="highlighter-rouge">File</code>-Objekt (<code class="highlighter-rouge">new File()</code>). Dieses beinhaltet eine Art Zeiger auf den gewünschten Speicherort und Dateinamen auf dem Betriebssystem – ungeachtet davon, ob dort wirklich ein Dokument existiert oder nicht. Anschliessend ermittelt der Interpreter das soeben erstellte und darum aktive Dokument in Adobe InDesign. Er speichert dieses unter dem gewünschten Pfad und Namen ab.</p>
+
+<p>Bezogen auf das <em>Dokument Object Model (DOM)</em> passiert folgendes:</p>
+
+<pre><code class="language-Text">                                ┌─────────────┐                                       
+var newDoc = Neues Dokument aus │     app     │                                       
+                                └─────────────┘                                       
+                                       │           ┌─────────────┐                    
+                                       └───────────│  documents  │─ ─ ▶ add()         
+                                                   └─────────────┘                    
+</code></pre>
+
+<p>Die Variable <code class="highlighter-rouge">newDoc</code> referenziert das soeben durch <code class="highlighter-rouge">app.documents.add()</code> erstellte neue Dokument. Im Unterschied zum Skript 002 wäre es in Skript 003 nicht unbedingt nötig, das neu erstellte Dokument mit einer Variable zu referenzieren. Es gibt nach dem Erstellen keinen Zugriff mehr über die Variable (Referenz) <code class="highlighter-rouge">newDoc</code>. Dies weil das ExtendScript Objekt <code class="highlighter-rouge">app</code> eine Eigenschaft besitzt, welche das aktive Dokument referenziert: <code class="highlighter-rouge">activeDocument</code>. Das eigentliche Dokument ist wiederum eine Instanz der Klasse <code class="highlighter-rouge">Document</code>. (Jedes Dokument in Adobe InDesign ist eine Instanz der Klasse <code class="highlighter-rouge">Document</code>.) Diese enthält eine Methode, mit der ein Dokument gespeichert werden kann: <code class="highlighter-rouge">save()</code>.</p>
+
+<pre><code class="language-Text">                   ┌────────────────┐              ┌─────────────┐                                   
+                   │     Class      │              │    Class    │ Vorgefertigter «Bauplan» des ESTK 
+                   │    Document    │─ ┐           │    File     │ für die Arbeit mit Dokumenten     
+                   └────────────────┘              └─────────────┘                                   
+                            ▲          │                  │                                          
+┌─────────────┐             │                              ─ ─ ─ ─                                   
+│     app     │                        │                          │                                  
+└─────────────┘             │                                     ▼                                  
+       │           ┌────────────────┐  │        ┌───────────────────────────────────┐                
+       └───────────│ activeDocument │   ─▶ save(│ new File('~/Desktop/myname.indd') │)               
+                   └────────────────┘           └───────────────────────────────────┘                
+</code></pre>
+
+<h4 id="skript-004-dokment-speichern-wenn-mglich">Skript 004, Dokment speichern <em>wenn möglich</em></h4>
+
+<p>Das Skript 003 hat einige logische Fehler – auch wenn es seine Arbeit richtig macht. Wenn sich unter dem Pfad ` ~/Desktop/myname.indd` bereits ein gleichnamiges Dokument befindet, wird dieses überschrieben. Alle dort gespeicherten Änderungen gehen unwiderruflich verloren. Dieses Skript enthält nun einige rudimentäre Sicherheitsfunktionen.</p>
+
+<pre><code class="language-Javascript">// script.004.jsx
+ 
+var doc = '~/Desktop/myname.indd';
+$.writeln('Datentype Variable \«doc\«: ' + typeof(doc));
+
+doc = new File(doc);
+$.writeln('Datentype Variable \«doc\«: ' + typeof(doc));
+
+if(doc.exists == true) {
+  $.writeln('Das Dokument existiert: '+ doc.exists);
+  alert('Das Dokument existiert bereits. Der Befehl \«Speichern\« konnte nicht ausgeführt werden.');
+}
+else {
+  $.writeln('Das Dokument existiert: '+ doc.exists);
+  var newDoc = app.documents.add();
+  if(app.activeDocument.saved == false) {
+  app.activeDocument.save(doc);
+  app.activeDocument.close();
+  }
+}
+</code></pre>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.004.zip">[ Download script.004.jsx as .zip ]</a></p>
+
+<p><code class="highlighter-rouge">var doc</code> referenziert auf einen <code class="highlighter-rouge">String</code> mit dem Inhalt <code class="highlighter-rouge">~/Desktop/myname.indd</code>.  Die folgende <code class="highlighter-rouge">$.writeln</code> Anweisung mit <code class="highlighter-rouge">typeof(doc)</code> analysiert den Datentyp von <code class="highlighter-rouge">doc</code> und schreibt diesen zusammen mit einem beschreibenden Text in die <em><code class="highlighter-rouge">JavaScript-Konsole</code></em>. <code class="highlighter-rouge">doc</code> ist zu diesem Zeitpunkt noch eine Instanz vom Typ <code class="highlighter-rouge">String</code>.  Danach wird <code class="highlighter-rouge">doc</code> mit sich selbst überschrieben. Bereits vorher wurde erwähnt: Der Interpreter arbeitet von rechts nach links und von innen nach aussen. Er erstellt mit <code class="highlighter-rouge">new File(__ARGUMENT__)</code> zuerst ein <code class="highlighter-rouge">File</code>-Objekt auf den Pfad von <code class="highlighter-rouge">doc</code>. Das übergebene <code class="highlighter-rouge">__ARGUMENT__</code> ist der <code class="highlighter-rouge">String</code>, auf den die Variable <code class="highlighter-rouge">doc</code> bis jetzt verweist. Anschliessend überschreibt der Interpreter den Ursprungswert von <code class="highlighter-rouge">doc</code> mit dem neuen Wert. Die nächste <code class="highlighter-rouge">$.writeln</code> Anweisung macht in der <em><code class="highlighter-rouge">JavaScript-Konsole</code></em> deutlich, dass sich nun der Typ der Variable geändert hat.  Die nachfolgenden Anweisungen und Schleifen sind durch die Skripte 001 bis 003 sowie  <a href="https://github.com/grafisches-forum-zh/scripting/wiki/08.-Skripte-allgemein#inhalt-sprachelementejsx">sprachelemente.jsx</a> nachvollziehbar.</p>
+
+<p>Warum dieses «Umschreiben» der Variable <code class="highlighter-rouge">doc</code>? Der Pfad auf das zu erstellende Dokument muss nur ein Mal zu Beginn des Skripts definiert werden. Anschliessend wird immer mit dem Bezeichner der <code class="highlighter-rouge">doc</code> gearbeitet. Dadurch wird das Skript einfach wartbar und anpassbar. Der Pfad muss nicht bei jedem Aufruf als Klartext ersetzt werden.</p>
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

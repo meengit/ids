@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Schleifen & Iteration</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                <b>Schleifen & Iteration</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Schleifen & Iteration</h1>
+    </header>
+    <article>
+      <p><h2 id="kontrollstrukturen-in-javascript-schleifen">Kontrollstrukturen in JavaScript (Schleifen)</h2>
+
+<p>Kontrollstrukturen sind die klassische Anwendung von logischen und vergleichenden Operatoren in einer Programmiersprache. Mit ihnen kann der Programmierer Entscheidungen über den weiteren Ablauf eines Programms oder Scripts vorgeben, wenn bestimmte Bedingungen eintreten. In JavaScript gibt es, wie in vielen anderen Sprachen, drei Arten von Kontrollflussanweisungen:</p>
+<ol>
+  <li><strong>Entscheidungsanweisungen</strong>: Wählen auf Grund einer Bedingung einen Programmfluss aus;</li>
+  <li><strong>Schleifen</strong>: bzw. Iterationsanweisungen: Wiederholen eine bestimmte Anzahl an Anweisungen;</li>
+  <li><strong>Sprunganweisungen</strong>: Verlassen eine umgebende Struktur.</li>
+</ol>
+
+<h3 id="if-bedingung">if-Bedingung</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if(Bedingung){
+  [Anweisung A]
+}
+else { //Optional 
+  [alternative Anweisung B]
+}
+</code></pre>
+</div>
+
+<p>Wenn die Bedingung wahr ist, wird <code class="highlighter-rouge">[Anweisung A]</code> ausgeführt - ansonsten die <code class="highlighter-rouge">[alternative Anweisung B]</code>. Die <code class="highlighter-rouge">(Bedingung)</code> ist ein Vergleich, der sowohl <code class="highlighter-rouge">true</code> als auch <code class="highlighter-rouge">false</code> sein kann oder der boolesche Wert selbst. Zur Definition des Vergleichs werden in der Regel Vergleichsoperatoren verwendet.</p>
+
+<p>Der <code class="highlighter-rouge">else</code>-Abschnitt ist optional. Wird er nicht notiert, wird bei einer nicht erfüllten <code class="highlighter-rouge">if</code>-Bedingung keine alternative Anweisung aufgerufen, sondern der Code direkt weiter abgearbeitet. Wenn der <code class="highlighter-rouge">if</code>-Zweig bereits ausgeführt wurde, wird der <code class="highlighter-rouge">else</code>-Zweig nicht ausgeführt. Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a>.</p>
+
+<h3 id="switch-case">switch-case</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>switch([Auswahl]){
+  
+  case [Fall 1]:
+    ...
+    break;
+  case [Fall 2]:
+    ...
+    break;
+  default:
+    ...
+} 
+</code></pre>
+</div>
+
+<p>Die <code class="highlighter-rouge">switch-case</code>-Anweisung ist auf das Unterscheiden von mehreren Fällen ausgelegt. Zwar wäre dies auch mit einer <code class="highlighter-rouge">if-else</code>-Bedingung möglich, doch lässt sich die Abfrage mit <code class="highlighter-rouge">switch-case</code> eleganter abbilden. Das Schlüsselwort <code class="highlighter-rouge">switch</code> leitet die Fallunterscheidung ein. Die nachfolgenden runden Klammern <code class="highlighter-rouge">( )</code> umschliessen eine Testvariable oder ein übergebener Ausdruck. Dieser dient zur Fallunterscheidung und kann ein beliebiger Datentyp sein der in JavaScript erlaubt ist. 
+Die einzelnen Fälle werden mit dem Schlüsselwort <code class="highlighter-rouge">case</code> eingeleitet – gefolgt von einem konkreten Testwert der geprüft werden soll. Nach dem Doppelpunkt werden die im Trefferfall auszuführenden Anweisungen notiert.</p>
+
+<p>Theoretisch lassen sich die Anweisungen in einem <code class="highlighter-rouge">case</code>-Zweig als Block in geschweiften Klammern <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="p">}</span></code> notieren. Meist wird jedoch darauf verzichtet.</p>
+
+<p>Die Anweisung <code class="highlighter-rouge">break</code>, am Schluss jedes Blockes, ist eine Sprunganweisung. Das <code class="highlighter-rouge">switch-case</code>-Konstrukt ist eine Fall-Through-Anweisung. <code class="highlighter-rouge">break</code> verhindert, dass nach dem Erreichen des Endes eines Blocks die nachfolgenden Anweisungen in weiteren Blöcken ausgeführt werden. Stattdessen springt sie ans Ende der Struktur.</p>
+
+<p>Der letzte Block ist meist der <code class="highlighter-rouge">default</code>-Zweig. Er ist eine Standardreaktion und wird ausgeführt, wenn kein <code class="highlighter-rouge">case</code>-Fall zutrifft. Als letzter Block kann auch ein <code class="highlighter-rouge">case</code>-Fall notiert werden – wenn kein <code class="highlighter-rouge">default</code>-Fall gewünscht ist. <code class="highlighter-rouge">break</code> ist im letzten Fall, egal ob <code class="highlighter-rouge">default</code> oder <code class="highlighter-rouge">case</code> überflüssig.</p>
+
+<p>Obwohl in der Praxis <code class="highlighter-rouge">case</code> meist in Verbindung mit <code class="highlighter-rouge">break</code> verwendet wird, ist break nicht zwingend notwendig. Dieses Verhalten des Durchfallens/Weitermachens kann ein wesentlicher Vorteil gegenüber der <code class="highlighter-rouge">if-else</code>-Anweisung sein (unterschiedliche Einstiegs-/Ausstiegspunkte möglich).</p>
+
+<p>Neben <code class="highlighter-rouge">break</code> kann zudem u.a. auch mit <code class="highlighter-rouge">return</code> gearbeitet werden. Der grosse Nachteil der Programmflusssteuerung mit <code class="highlighter-rouge">switch-case</code> ist, dass nur diskrete Fälle unterschieden werden können. Es ist nur ein Vergleich auf exakte Gleichheit möglich. Vergleiche wie «grösser als» oder «kleiner als» wie bei <code class="highlighter-rouge">if-else</code> gehen nicht. Zudem können nicht mehrere Werte gemeinsam getestet werden.</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/switch">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a> – wobei die Anweisung <code class="highlighter-rouge">console.log()</code> im Adobe ExtendScript Toolkit jeweils durch <code class="highlighter-rouge">$.writeln()</code> ersetzt werden muss.</p>
+
+<h3 id="while-schleife">while-Schleife</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>while(Bedingung){
+  [Anweisung]
+}
+</code></pre>
+</div>
+
+<p>Die <code class="highlighter-rouge">while</code>-Schleife ist eine Iterationsanweisung. Sie führt am Anfang eines Blocks eine Prüfung einer Bedingung durch und wiederholt diese so lange, bis die Bedingung nicht mehr zutrifft. Damit ist sie kopfgesteuert (auch «abweisend» genannt). Jede <code class="highlighter-rouge">while</code>-Schleife braucht dabei in ihrem Innern einen Mechanismus, mit dem die Schleife abgebrochen resp. aus der Schleife ausgestiegen werden kann. Dadurch besteht die Gefahr, dass aus Versehen eine Endlosschleife erzeugt wird. Ist diese nicht gewollt, kann nicht der gesamte Programmcode abgearbeitet werden ,da der Interpreter in der Schleife hängen bleibt (und diese endlos immer wieder von vorne abarbeitet).</p>
+
+<p>Es gibt zwei grundsätzliche Varianten, um aus einer <code class="highlighter-rouge">while</code>-Schleife auszusteigen:</p>
+
+<p>a. In der [Bedingung] einer <code class="highlighter-rouge">while</code>-Schleife wird eine Variable geprüft, welche im Innern der Schleife mit jedem Durchlauf verändert wird – zum Beispiel numerisch erhöht oder verringert. Trifft die veränderte Variable in der Bedingung nach dem x-ten Durchlauf der Schleife nicht mehr zu, indem ihr Wert zu gross oder zu klein geworden ist, bricht die Schleife ab.</p>
+
+<p>b. Die Schleife wird mit einer Sprunganweisung wie <code class="highlighter-rouge">break</code>, <code class="highlighter-rouge">return</code> oder <code class="highlighter-rouge">throw</code> (bei der Arbeit mit Ausnahmen im Umgang mit Fehlern) verlassen. So ein Abbruch aus dem Innern der Schleife ist insbesondere in Verbindung mit dem Prüfen einer Bedingung über <code class="highlighter-rouge">if</code> im Innern von <code class="highlighter-rouge">while</code> sinnvoll.</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/schleifen_und_iterationen#while_Anweisung">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a> – wobei die Anweisung <code class="highlighter-rouge">console.log()</code> im Adobe ExtendScript Toolkit jeweils durch <code class="highlighter-rouge">$.writeln()</code> ersetzt werden muss.</p>
+
+<h3 id="do-while-schleife">do-while-Schleife</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>do{
+  [Anweisungen]
+}
+while([Bedingung]);
+</code></pre>
+</div>
+
+<p>Die <code class="highlighter-rouge">do-while</code>-Schleife ist eine Variante der <code class="highlighter-rouge">while</code>-Schleife. Sie unterscheidet sich einzig darin, dass die in <code class="highlighter-rouge">do</code> notierten [Anweisungen] auf jeden Fall 1x ausgeführt werden, bevor die [Bedingung] erstmalig in <code class="highlighter-rouge">while</code> überprüft wird. Damit ist die <code class="highlighter-rouge">do-while</code>-Schleife fussgesteuert (auch annehmend genannt).</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/schleifen_und_iterationen#do...while_Anweisung">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a> – wobei die Anweisung <code class="highlighter-rouge">console.log()</code> im Adobe ExtendScript Toolkit jeweils durch <code class="highlighter-rouge">$.writeln()</code> ersetzt werden muss.</p>
+
+<h4 id="for-schleife">for-Schleife</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for(Zählvariable mit Steuerwert; Bedingung; Veränderung der Zählvariable;){
+  [Anweisungen]
+}
+</code></pre>
+</div>
+
+<p>Die erste Angabe in der Klammer nach dem Schlüsselwort <code class="highlighter-rouge">for</code> gibt die Zählvariable an und initialisiert sie mit einem Startwert. Danach folgt (getrennt durch <code class="highlighter-rouge">;</code>) die Abbruchbedingung und dann (getrennt durch <code class="highlighter-rouge">;</code>) die Wertveränderung der Zählvariable. Ist der Wert der Zählvariable nicht mehr zutreffend, wird die <code class="highlighter-rouge">for</code>-Schleife abgebrochen.</p>
+
+<p>Die <code class="highlighter-rouge">for</code>-Schleife hat den Vorteil, dass an zentraler Stelle alle Werte definiert werden können. Der vorzeitige Abbruch einer <code class="highlighter-rouge">for</code>-Schleife aus dem Innern, zum Beispiel mit einer Sprunganweisung wie <code class="highlighter-rouge">break</code>, ist allerdings möglich.</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/schleifen_und_iterationen#for_Anweisung">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a>.</p>
+
+<h3 id="for-in-schleife">for-in Schleife</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for([Index] in [Datenfeld/Objekt]){
+ [Anweisung]
+}
+</code></pre>
+</div>
+
+<p>Die <code class="highlighter-rouge">for-in</code> Schleife ist eine Variante der <code class="highlighter-rouge">for</code>-Schleife. Sie wird vor allem im Zusammenhang mit Datenfeldern und Objekten verwendet. Die <code class="highlighter-rouge">for-in</code> Schleife dient allein der Iteration durch Arrays/Datenfelder oder Objekte. Bei einem Array durchläuft die <code class="highlighter-rouge">for-in</code> Schleife alle Elemente eines Arrays. Bei Objekten durchläuft die <code class="highlighter-rouge">for-in</code> Schleife alle Eigenschaften eines Objekts. [Index] ist dabei der Platzhalter für den Index (numerisch oder assoziativ) und das [Datenfeld/Objekt] der dem Index zugeordnete Inhalt.</p>
+
+<p>Ein detailliertes <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/schleifen_und_iterationen#for...in_Anweisung">Beispiel</a> gibts auf den Hilfeseiten des <a href="https://developer.mozilla.org/de/">Mozilla Developer Networks</a>.</p>
+
+<h3 id="break-und-continue"><code class="highlighter-rouge">break</code> und <code class="highlighter-rouge">continue</code></h3>
+
+<p>Mit <code class="highlighter-rouge">break</code> wird eine Schleife respektive deren Abarbeitung sofort abgebrochen. Dagegen bricht <code class="highlighter-rouge">continue</code> nur den gegenwärtigen Schleifendurchlauf an dessen Position ab und initiiert unmittelbar den nächsten Schleifendurchlauf. Das heisst, mit <code class="highlighter-rouge">continue</code> lassen sich bestimmte Teile einer verschachtelten Schleife ignorieren ohne dass diese komplett abgebrochen wird (ohne aus der Schleife «auszusteigen»).</p>
+
+<p><em>(Wird nach <code class="highlighter-rouge">break</code>, getrennt durch einen Doppelpunkt, ein Label angegeben (<code class="highlighter-rouge">break: [label]</code>), springt das Script nach dem Abbruch der Schleife direkt zur Position des <code class="highlighter-rouge">[label]</code> im Script. Der Name des <code class="highlighter-rouge">[label]</code> ist dabei frei wählbar. Die Funktion wird allerdings nicht von allen Interpretern richtig unterstützt und birgt zudem die Gefahr von «Spaghetti-Code».)</em></p>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

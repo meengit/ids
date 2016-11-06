@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Mit Dialogen arbeiten</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                <b>Skripte & Dialoge</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Mit Dialogen arbeiten</h1>
+    </header>
+    <article>
+      <p><h4 id="skript-005-einfhrung-in-dialge">Skript 005, Einführung in Dialge</h4>
+
+<p>Im nächsten Skript wird ein Dialog-Fenster erstellt. Dialoge-Fenster ermöglichen es, Benutzereingaben in ein Skript aufzunehmen, respektive zu verarbeiten. In den nächsten Beispielen bauen wir ein Dialog-Fenster auf, bei dem Angaben für die Voreinstellungen eingegeben werden können.</p>
+
+<h4 id="wie-fenster-mit-adobe-extendscript-in-adobe-indesign-funktionieren">Wie Fenster mit Adobe ExtendScript in Adobe InDesign funktionieren</h4>
+
+<p>Adobe ExtendScript enthält einen vorgefertigten «Baukasten» für die Anzeige von Fenstern. Dieser wird durch die <code class="highlighter-rouge">ScriptUI</code>-Klassen repräsentiert. Deren Inhalt und Struktur kann unter anderem über den <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> unter <em><code class="highlighter-rouge">Browser</code></em> &gt; <em><code class="highlighter-rouge">ScriptUI Classes</code></em> eingesehen werden. Der <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> lässt sich über das Menü <em><code class="highlighter-rouge">Hilfe</code></em> aufrufen.</p>
+
+<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewähltem `Window`-Objekt" /></p>
+
+<p>Damit der Programmcode übersichtlich bleibt und das Fenster gegebenenfalls mehrfach verwendet werden kann, wird es in diesem Beispiel mit einem Funktionsblock (<code class="highlighter-rouge">function ...</code>) umschlossen.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.005.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+ 
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Die Zeilen <strong><em>deklarieren</em></strong> eine Funktion mit dem Bezeichner <code class="highlighter-rouge">setConfigWindow</code>. Würde das Skript so ausgeführt, würde nichts passieren. Der Interpreter hätte die Funktion zwar eingelesen respektive registriert. Das sie aber bis jetzt nicht über <code class="highlighter-rouge">setConfigWindow();</code> <strong><em>aufgerufen</em></strong> wurde, hat er sie auch nicht abgearbeitet.</p>
+
+<p>Nun wird das Fenster initialisiert:</p>
+
+<pre><code class="language-Javascript">// script.005.jsx
+
+// "Funktionsblock" erstellen
+function setConfigWindow() {
+
+	// Dialog-Fenster erstellen
+  var configWindow = new Window('dialog','Presets definieren');
+}
+</code></pre>
+
+<p><code class="highlighter-rouge">new Window('dialog','Presets definieren')</code> erzeugt eine Instanz von der Klasse<code class="highlighter-rouge">Window</code> aus den <code class="highlighter-rouge">ScriptUI Classes</code>. Vereinfacht formuliert wird hierbei ab dem «Bauplan» der Klasse <code class="highlighter-rouge">Window</code> ein neues «reales» Objekt in unserem Skript erzeugt, das einem leeren Fenster entspricht. Die Argumente <code class="highlighter-rouge">dialog</code> und <code class="highlighter-rouge">Presets definieren</code> legen dabei den Fenstertyp und den Titel des Fensters fest. Übrigens: Eine gute Hilfe bei der Arbeit mit Fenstern ist der Leitfaden <a href="http://www.kahrel.plus.com/indesign/scriptui.html">«ScriptUI» von Peter Kahrel</a>.</p>
+
+<p>Nach dem Erstellen ist das neue Fensterobjekt der Variable <code class="highlighter-rouge">configWindow</code> zugewiesen. Ihr Bezeichner bildet die Referenz für das weitere «Zusammenbauen» des Fensters.</p>
+
+<p>Als nächstes werden die Standard-Buttons <code class="highlighter-rouge">Ok</code> und <code class="highlighter-rouge">Cancel</code> hinzugefügt.</p>
+
+<pre><code class="language-Javascript">// script.005.jsx
+
+// "Funktionsblock" erstellen
+function setConfigWindow() {
+
+	// Dialog-Fenster erstellen
+  var configWindow = new Window('dialog','Presets definieren');
+
+  // Buttons OK &amp; Cancel hinzufügen
+  configWindow.add('button', undefined, 'Ok');
+  configWindow.add('button', undefined, 'Cancel');
+}
+</code></pre>
+
+<p>Die Variable <code class="highlighter-rouge">configWindow</code> referenziert das vorhin erstellte <code class="highlighter-rouge">Window</code>-Objekt. Dieses hat alle Funktionen und Eigenschaften der Klasse <code class="highlighter-rouge">Window</code> geerbt respektive gemäss deren «Bauplan» erhalten. Dazu gehört auch die Funktion <code class="highlighter-rouge">add()</code> – wie im <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> nachgesehen werden kann. Mit dieser können dem Fenster weitere Elemente, wie zum Beispiel Buttons, hinzugefügt werden.</p>
+
+<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window-add.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `add()`-Methode des `Window`-Objekts" /></p>
+
+<p>Als nächstens soll ein erster Blick auf das erzeugte Fenster möglich werden.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.005.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="c1">// Dialog-Fenster erstellen</span>
+  <span class="kd">var</span> <span class="nx">configWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Window</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span><span class="s1">'Presets definieren'</span><span class="p">);</span>
+
+  <span class="c1">// Buttons OK &amp; Cancel hinzufügen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">);</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Cancel'</span><span class="p">);</span>
+
+  <span class="c1">// Fenster in Adobe InDesign anzeigen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Funktion effektiv ausführen (abarbeiten)</span>
+<span class="nx">setConfigWindow</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>Die Anweisung <code class="highlighter-rouge">configWindow.show();</code> sagt Adobe InDesign, dass das Fenster, welches mit <code class="highlighter-rouge">configWindow</code> referenziert wird, angezeigt werden soll. <code class="highlighter-rouge">show()</code> ist hierbei ebenfalls eine geerbte Funktion, so wie <code class="highlighter-rouge">add()</code>.</p>
+
+<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window-show.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `show()`-Methode des `Window`-Objekts" /></p>
+
+<p>Die Anweisung <code class="highlighter-rouge">setConfigWindow();</code> ruft die Funktion auf und weist den Interpreter an, jetzt die Funktionsdeklaration abzuarbeiten. Das heisst, auch wenn in der Funktion <code class="highlighter-rouge">configWindow.show();</code> steht, wird damit so lange nichts gemacht, bis der Interpreter angewiesen wird, den Funktionsblock auszuführen.</p>
+
+<p>Zu beachten ist, dass nun im <em><code class="highlighter-rouge">Debug-Bedienfeld</code></em> Adobe InDesign ausgewählt ist. Ansonsten schlägt das Skript unter Umständen fehl.</p>
+
+<p><img src="https://meengit.github.io/ids/img/debug-idsSelected.fw.png" alt="Adobe InDesign als ausgewählte Zielapplikation im *`Debug-Bedienfeld`*." /></p>
+
+<p>Das erzeugte Fenster hat noch nicht all zu viel Inhalt. Die Buttons «Ok» und «Cancel» stehen übereinander. Das soll als nächstes geändert werden. Denn in den meisten Dialogfenstern stehen die beiden nebeneinander. Dazu muss eine Gruppe für Bedienelemente erstellt werden. Hierzu muss das bestehende Skript umformuliert werden.</p>
+
+<p><img src="https://meengit.github.io/ids/img/dialog_box001.fw.png" alt="Dialog-Fenster mit **nicht** gruppierten Buttons übereinander." /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.005.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="c1">// Dialog-Fenster erstellen</span>
+  <span class="kd">var</span> <span class="nx">configWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Window</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span><span class="s1">'Presets definieren'</span><span class="p">);</span>
+  
+  <span class="c1">// Anzeigegruppe erstellen</span>
+  <span class="kd">var</span> <span class="nx">okCancel_Grp</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+  <span class="c1">// Buttons OK &amp; Cancel hinzufügen</span>
+  <span class="nx">okCancel_Grp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">);</span>
+  <span class="nx">okCancel_Grp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Cancel'</span><span class="p">);</span>
+  
+  <span class="c1">// Fenster in Adobe InDesign anzeigen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Funktion effektiv ausführen (abarbeiten)</span>
+<span class="nx">setConfigWindow</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.005.zip">[ Download script.005.jsx as .zip ]</a></p>
+
+<p>Eine Gruppe ist eine Art «Zwischenelement» welches mehrere Anzeigelemente in einer Reihe zusammenfasst.  Mit ` configWindow.add(‘group’);<code class="highlighter-rouge"> wird dem Fenster eine neue Gruppe hinzugefügt. Diese wird der Variable </code> okCancel_Grp ` zugewiesen. ` okCancel_Grp ` referenziert damit so zu sagen ein Unterobjekt von ` configWindow<code class="highlighter-rouge">. In den nächsten Zeilen werden der Gruppe die beiden Buttons «Ok» und «Cancel» hinzugefügt. Das Argument </code>button<code class="highlighter-rouge"> legt den Typ des hinzugefügten Elements fest. </code>undefined<code class="highlighter-rouge"> besagt, dass es keine speziellen Positionierungseigenschaften für den zu erzeugenden Button gibt. </code>‘Ok’<code class="highlighter-rouge"> und </code>‘Cancel’` beschreiben den Text im Button. Wenn nun das Skript erneut ausgeführt wird, stehen die beiden Buttons nebeneinander.</p>
+
+<p><img src="https://meengit.github.io/ids/img/dialog_box002.fw.png" alt="Dialog-Fenster mit gruppierten Buttons nebeneinander." /></p>
+
+<h4 id="skript-006-auf-events-reagieren">Skript 006, auf Events reagieren</h4>
+
+<p>Das Skript 006 erweitert die Code-Basis aus dem Skript 005 um <em>Event-Handler</em>. <em>Event-Handler</em> reagieren auf ausgelöste <em>Events</em>. <em>Events</em> sind Aktionen, die innerhalb eines Skripts oder einer Applikation ausgelöst werden. Das können sowohl Benutzerkationen als auch skript- oder applikationsinterne Aktionen sein. Um <em>Events</em> abzufangen gibt es sogenannte <em>EventListener</em>. Sie horchen, ob ein Event ausgelöst wird. Abstrahiert formuliert besteht also ein <em>EventHandler</em> aus einem <em>EventListener</em> und einem Programmblock der ausgeführt wird, wenn der <em>EventListener</em> anschlägt, respektive der <em>Event</em>, auf den er horch, ausgelöst wird. Weitere Informationen zu den <em>Events</em>, <em>EventHandler</em> und <em>EventListener</em> sind unter anderem im <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> und im «JavaScript Tools Guide» unter «Defining behavior with event callbacks and listeners» zu finden.</p>
+
+<p><img src="https://meengit.github.io/ids/img/button_cls-eventListener.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `addEventListener()`-Methode des `Button`-Objekts" /></p>
+
+<p>Im aktuellen Beispiel kann auf den Einsatz von <em>EventListener</em> und <em>EventHandler</em> verzichtet werden. Die Buttons «Ok» und «Cancel» haben im Zusammenhang mit Dialog-Fenstern eine spezielle Bedeutung. Schematisch formuliert, wird ihr Rückgabewert von der Funktion <code class="highlighter-rouge">.show()</code> aufgefangen und nach deren Ausführung als boolscher Wert zurückgegeben. Klickt der Nutzer «Ok» ist der Rückgabewert <code class="highlighter-rouge">true</code>, klickt er <code class="highlighter-rouge">Cancel</code>, ist der Rückgabewert <code class="highlighter-rouge">false</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.006.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="c1">// Dialog-Fenster erstellen</span>
+  <span class="kd">var</span> <span class="nx">configWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Window</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span><span class="s1">'Presets definieren'</span><span class="p">);</span>
+  
+  <span class="c1">// Anzeigegruppe erstellen</span>
+  <span class="kd">var</span> <span class="nx">okCancel_Grp</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+  <span class="c1">// Buttons OK &amp; Cancel hinzufügen</span>
+  <span class="nx">okCancel_Grp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">);</span>
+  <span class="nx">okCancel_Grp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Cancel'</span><span class="p">);</span>
+  
+  <span class="c1">// Fenster in Adobe InDesign anzeigen</span>
+  <span class="kd">var</span> <span class="nx">usrAction</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  
+  <span class="c1">// Objekt aus Funktion zurückgeben</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">result</span><span class="p">:</span> <span class="nx">usrAction</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Funktion effektiv ausführen (abarbeiten) und Ergebnis in Variable speichern</span>
+<span class="kd">var</span> <span class="nx">shownWindow</span> <span class="o">=</span> <span class="nx">setConfigWindow</span><span class="p">();</span>
+
+<span class="c1">// Ok geklickt = true</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">shownWindow</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Ok geklickt'</span><span class="p">);</span>
+ <span class="p">}</span>
+
+<span class="c1">// abgebrochen oder Cancel geklickt = false</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Cancel geklickt oder abgebrochen.'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.006.zip">[ Download script.006.jsx as .zip ]</a></p>
+
+<p>Die Variable <code class="highlighter-rouge">usrAction</code> speichert das Ergebnis aus ` configWindow.show()<code class="highlighter-rouge">. Dieses wird erstellt, wenn der Nutzer entweder den Button «Ok» oder «Cancel» geklickt oder das Dialog-Fenster zum Beispiel über die *</code>Esc<code class="highlighter-rouge">* beendet hat. Um später mit diesem Wert arbeiten zu können, wird er über eine </code>return<code class="highlighter-rouge">-Anweisung aus der Funktion </code>setConfigWindow()<code class="highlighter-rouge"> zurückgegeben. Im Beispiel wird ein Objekt erstellt, das eine Eigenschaft enthält: </code>result<code class="highlighter-rouge">. </code>result<code class="highlighter-rouge"> speichert das Ergebnis von </code>usrAction<code class="highlighter-rouge"> und wird über die </code>return<code class="highlighter-rouge">-Anweisung an die Variable angehängt, welche die Ergebnisse aus </code> setConfigWindow()<code class="highlighter-rouge"> speichern soll: </code>shownWindow<code class="highlighter-rouge">. Damit ist die Eigenschaft </code>result<code class="highlighter-rouge"> im Anschluss ganz normal über die Punkt-Notation von JavaScript vefügbar (</code>shownWindow.result`, <a href="https://wiki.selfhtml.org/wiki/JavaScript/Objekte_-_Eigenschaften_und_Methoden">weitere Informationen zur Punkt-Notation in JavaScript unter wiki.selfhtml.org </a>).</p>
+
+<p>Sobald ` shownWindow.result<code class="highlighter-rouge"> verfügbar ist, wird damit eine </code>if<code class="highlighter-rouge">-</code>else<code class="highlighter-rouge">-Schleife angestossen. </code>if<code class="highlighter-rouge"> springt an, wenn der Nutzer «Ok» geklickt hat, </code>else<code class="highlighter-rouge"> in allen anderen Fällen. Die Anweisungen mit </code>$.writeln([…])<code class="highlighter-rouge"> schreiben beim Eintreten des entsprechenden Falls als Kontrolle eine Nachricht in die *</code>JavaScript-Konsole`* des Adobe ExtendScript Toolkit.</p>
+
+<h4 id="skript-007-benutzereingaben">Skript 007, Benutzereingaben</h4>
+
+<p>Das nächste Skript erweitert das Dialog-Fenster aus dem Skript 006 um Eingabefelder.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.007.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="c1">// Dialog-Fenster erstellen</span>
+  <span class="kd">var</span> <span class="nx">configWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Window</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span><span class="s1">'Presets definieren'</span><span class="p">);</span>
+  
+  <span class="c1">// Anzeigekolonne hinzufügen (siehe auch Adobe JavaScript Tools Guide)</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="s1">'group {orientation: "column"}'</span><span class="p">);</span> 
+  
+  <span class="c1">// "Umrahmung" mit "Titel" hinzufügen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">gridPanel</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="s1">'panel'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Grundlinienraster'</span><span class="p">);</span>
+  
+  <span class="c1">// Mit dem "Innern" der Umrahmung folgendes machen ...</span>
+  <span class="kd">with</span><span class="p">(</span><span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">gridPanel</span><span class="p">){</span>
+    
+    <span class="c1">// "Orientierung" der "Umrahmung" auf links stellen</span>
+    <span class="nx">aligment</span> <span class="o">=</span> <span class="s1">'left'</span><span class="p">;</span>
+    
+    <span class="c1">// Anzeigegruppe für 1. Eingabe hinzufügen</span>
+    <span class="kd">var</span> <span class="nx">gridBeginGroup</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+    
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen</span>
+    <span class="nx">gridBeginGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Anfang (in mm):'</span><span class="p">);</span>
+    <span class="nx">gridBeginGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'edittext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="s1">'0'</span><span class="p">);</span>
+    
+    <span class="c1">// Anzeigegruppe für 2. Eingabe erstellen</span>
+    <span class="kd">var</span> <span class="nx">gridRelTo</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Auswahlliste (dropdownlist) hinzufügen</span>
+    <span class="nx">gridRelTo</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Relativ zu:'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">gridRelToInputField</span> <span class="o">=</span> <span class="nx">gridRelTo</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'dropdownlist'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Oberer Seitenkante'</span><span class="p">,</span> <span class="s1">'Oberen Seitenrand'</span><span class="p">]);</span>
+    <span class="nx">gridRelToInputField</span><span class="p">.</span><span class="nx">selection</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">// Anzeigegruppe für 3. Eingabe erstellen</span>
+    <span class="kd">var</span> <span class="nx">gridHeightGroup</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen</span>
+    <span class="nx">gridHeightGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Grundlinienraster (in pt):'</span><span class="p">);</span>
+    <span class="nx">gridHeightGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'edittext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="s1">'0'</span><span class="p">);</span>
+   
+  <span class="p">}</span>
+  
+  <span class="c1">// In der "Anzeigekolonne" aber ausserhalb der "Umrahmung" Buttons hinzufügen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">);</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Cancel'</span><span class="p">);</span>
+  
+  <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">gridRelToInputField</span><span class="p">);</span>
+  
+  <span class="c1">// Fenster in Adobe InDesign anzeigen</span>
+  <span class="kd">var</span> <span class="nx">usrAction</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  
+  <span class="c1">// Objekt aus Funktion zurückgeben</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">result</span><span class="p">:</span> <span class="nx">usrAction</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Funktion effektiv ausführen (abarbeiten) und Ergebnis in Variable speichern</span>
+<span class="kd">var</span> <span class="nx">shownWindow</span> <span class="o">=</span> <span class="nx">setConfigWindow</span><span class="p">();</span>
+
+<span class="c1">// Ok geklickt = true</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">shownWindow</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Ok geklickt'</span><span class="p">);</span>
+ <span class="p">}</span>
+
+<span class="c1">// abgebrochen oder Cancel geklickt = false</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Cancel geklickt oder abgebrochen.'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.007.zip">[ Download script.007.jsx as .zip ]</a></p>
+
+<p>Die Struktur des Skripts hat sich durch die Anpassungen stark verändert. Es gibt viele Möglichkeiten wie Dialog-Fenster in Adobe ExtendScript umgesetzt werden können. Das Skript 007 versucht einen Weg mit wenig Tipparbeit zu gehen. Die Variable <code class="highlighter-rouge">configWindow</code> referenziert noch immer das bereits in den vorhergehenden Skripten erstellte Dialog-Fenster.  Für alle weiteren Schritte sind Hilfestellungen im <a href="http://www.kahrel.plus.com/indesign/scriptui.html">Script UI Guide von Peter Kahrel</a>, im <em>Adobe JavaScript Tools Guide</em> und im Adobe ExtendScript <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> zu finden.</p>
+
+<p><code class="highlighter-rouge"> configWindow.column01 = configWindow.add ('group {orientation: "column"}');</code> fügt über die <a href="https://wiki.selfhtml.org/wiki/JavaScript/Objekte_-_Eigenschaften_und_Methoden">JavaScript Punkt-Notation</a> «on the fly» ein Unterobjekt mit dem Namen ` column01<code class="highlighter-rouge"> zu </code>configWindow<code class="highlighter-rouge"> hinzu. Dieses Objekt kann dadurch nur über </code>configWindow<code class="highlighter-rouge"> aufgerufen werden.  </code>‘group {Orientation: “column”}’` definiert, dass das erzeugte Kind-Objekt eine Gruppe vom Typ «Column» ist. Das heisst, alle Kind-Elemente dieses Objekts werden von horizontal von oben nach unten dargestellt. Alternativ wäre u. a. noch die Orientierung «row» verfügbar. Diese ordnet Kindobjekte in der Vertikalen.</p>
+
+<p><code class="highlighter-rouge"> configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 'Grundlinienraster');</code>fügt den Rahmen «Grundlinienraster» ein. <code class="highlighter-rouge">gridPanel</code> wird als Unterobjekt von <code class="highlighter-rouge">column01</code> erzeugt, das ein Unterobjekt von <code class="highlighter-rouge">configWindow</code> ist. Mit der JavaScript Punkt-Notation  kann es über die Bezeichner <code class="highlighter-rouge">configWindow.column01.gridPanel</code> später wieder aufgerufen werden.</p>
+
+<p>Hin und wieder kommt es vor, dass mehrere Anweisungen in Folge notiert werden sollen, die alle das gleiche Objekt betreffen. Zu diesem Zweck kann mit <code class="highlighter-rouge">with(__OBJEKT__)</code> eine verkürzte Schreibweise verwendet werden. Da normalerweise mehrere Anweisungen auf das Objekt angewendet werden, müssen diese wie bei einer Funktion in geschweifte Klammern (<code class="highlighter-rouge"><span class="p">{}</span></code>) eingeschlossen werden.</p>
+
+<p><code class="highlighter-rouge">with(configWindow.column01.gridPanel)</code> definiert also sinnbildlich «mach etwas mit dem Objekt <code class="highlighter-rouge">gridPanel</code>», Kind-Objekt von ` column01<code class="highlighter-rouge">, Kind-Objekt von </code> configWindow<code class="highlighter-rouge">. Innerhalb von </code>with<code class="highlighter-rouge"> können alle Methoden (= Funktionen) und Eigenschaften des Objekts </code> gridPanel<code class="highlighter-rouge"> direkt aufgerufen werden. Zu sehen ist dies zum Beispiel and der Anweisung </code> aligment = ‘left’<code class="highlighter-rouge">. Sie kann direkt angesprochen werden. Ohne </code>with()<code class="highlighter-rouge"> würde </code> configWindow.column01.gridPanel.aligment = ‘left’<code class="highlighter-rouge"> das gleiche machen. Selbiges gilt für </code>var gridBeginGroup = add(‘group’)<code class="highlighter-rouge">. Die Variable </code>gridBeginGroup<code class="highlighter-rouge"> wird durch den Aufruf in </code>with()<code class="highlighter-rouge"> automatisch zu einem Unterobjekt von </code>gridPanel<code class="highlighter-rouge">. Sie könnte auch so erzeugt werden: </code>configWindow.column01.gridPanel. gridBeginGroup = add(‘group’)`.</p>
+
+<p><img src="https://meengit.github.io/ids/img/datamdlvw-hierarchy.fw.png" alt="Analyse der Datenmodell-Hierarchy im *`Datenbrowser`* des Adobe ExtendScript Toolkit bei angehaltenem Skript." /></p>
+
+<p>Eine Sonderstellung innerhalb von <code class="highlighter-rouge">with()</code> hat die Variable <code class="highlighter-rouge">gridRelToInputField</code>. Sie ist selbst kein Kind-Objekt von ` gridPanel<code class="highlighter-rouge">, referenziert jedoch das Ergebnis aus dem </code>gridPanel<code class="highlighter-rouge">-Kind-Objekt </code> gridRelTo<code class="highlighter-rouge">. Sie kann deshalb auch ausserhalb von with direkt angesprochen werden, wie die Konsolen-Anweisung </code>$.writeln(gridRelToInputField)` zeigt.</p>
+
+<h4 id="skript-008-benutzereingaben-verarbeiten">Skript 008, Benutzereingaben verarbeiten</h4>
+
+<p>Dieses Skript erweitert das Skript 007 um die Verarbeitung von Benutzereingaben. Es geht insbesondere darum, wie erfasste Werte gespeichert und für die weitere Verarbeitung weitergegeben werden können.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.008.jsx</span>
+
+<span class="c1">// "Funktionsblock" erstellen</span>
+<span class="kd">function</span> <span class="nx">setConfigWindow</span><span class="p">()</span> <span class="p">{</span>
+  
+  <span class="c1">// Dialog-Fenster erstellen</span>
+  <span class="kd">var</span> <span class="nx">configWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Window</span><span class="p">(</span><span class="s1">'dialog'</span><span class="p">,</span><span class="s1">'Presets definieren'</span><span class="p">);</span>
+  
+  <span class="c1">// Anzeigekolonne hinzufügen (siehe auch Adobe JavaScript Tools Guide)</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="s1">'group {orientation: "column"}'</span><span class="p">);</span> 
+  
+  <span class="c1">// "Umrahmung" mit "Titel" hinzufügen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">gridPanel</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">add</span> <span class="p">(</span><span class="s1">'panel'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Grundlinienraster'</span><span class="p">);</span>
+  
+  <span class="c1">// Mit dem "Innern" der Umrahmung folgendes machen ...</span>
+  <span class="kd">with</span><span class="p">(</span><span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">gridPanel</span><span class="p">){</span>
+    
+    <span class="c1">// "Orientierung" der "Umrahmung" auf links stellen</span>
+    <span class="nx">aligment</span> <span class="o">=</span> <span class="s1">'left'</span><span class="p">;</span>
+    
+    <span class="c1">// Anzeigegruppe für 1. Eingabe hinzufügen</span>
+    <span class="kd">var</span> <span class="nx">gridBeginGroup</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+    
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen</span>
+    <span class="nx">gridBeginGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Anfang (in mm):'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">gridBeginInputField</span> <span class="o">=</span> <span class="nx">gridBeginGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'edittext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="s1">'0'</span><span class="p">);</span>
+    
+    <span class="c1">// Anzeigegruppe für 2. Eingabe erstellen</span>
+    <span class="kd">var</span> <span class="nx">gridRelTo</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Auswahlliste (dropdownlist) hinzufügen</span>
+    <span class="nx">gridRelTo</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Relativ zu:'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">gridRelToInputField</span> <span class="o">=</span> <span class="nx">gridRelTo</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'dropdownlist'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Oberer Seitenkante'</span><span class="p">,</span> <span class="s1">'Oberen Seitenrand'</span><span class="p">]);</span>
+    <span class="nx">gridRelToInputField</span><span class="p">.</span><span class="nx">selection</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    
+    <span class="c1">// Anzeigegruppe für 3. Eingabe erstellen</span>
+    <span class="kd">var</span> <span class="nx">gridHeightGroup</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  
+    <span class="c1">// "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen</span>
+    <span class="nx">gridHeightGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'statictext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> <span class="s1">'Grundlinienraster (in pt):'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">girdHeightInputField</span> <span class="o">=</span> <span class="nx">gridHeightGroup</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'edittext'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">24</span><span class="p">],</span> <span class="s1">'0'</span><span class="p">);</span>
+   
+  <span class="p">}</span>
+  
+  <span class="c1">// In der "Anzeigekolonne" aber ausserhalb der "Umrahmung" Buttons hinzufügen</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'group'</span><span class="p">);</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Ok'</span><span class="p">);</span>
+  <span class="nx">configWindow</span><span class="p">.</span><span class="nx">column01</span><span class="p">.</span><span class="nx">btnGrp</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'button'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s1">'Cancel'</span><span class="p">);</span>
+  
+  <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">gridRelToInputField</span><span class="p">);</span>
+  
+  <span class="c1">// Fenster in Adobe InDesign anzeigen</span>
+  <span class="kd">var</span> <span class="nx">usrAction</span> <span class="o">=</span> <span class="nx">configWindow</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+  
+  <span class="c1">// Variable für Ergebnis switch-case erzeugen</span>
+  <span class="kd">var</span> <span class="nx">baselineGridOption</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  
+  <span class="c1">// Benutzereingabe gridRelToInputField ('Oberer Seitenkante', 'Oberen Seitenrand') in switch aufnehmen</span>
+  <span class="k">switch</span><span class="p">(</span><span class="nx">gridRelToInputField</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// wenn 0 dann</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="err">:</span> 
+      <span class="c1">// http://jongware.mit.edu/idcs6js/pe_BaselineGridRelativeOption.html</span>
+      <span class="nx">baselineGridOption</span> <span class="o">=</span> <span class="nx">BaselineGridRelativeOption</span><span class="p">.</span><span class="nx">TOP_OF_PAGE_OF_BASELINE_GRID_RELATIVE_OPTION</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    
+    <span class="c1">// wenn 1 dann</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="err">:</span>
+      <span class="c1">// http://jongware.mit.edu/idcs6js/pe_BaselineGridRelativeOption.html</span>
+      <span class="nx">baselineGridOption</span> <span class="o">=</span> <span class="nx">BaselineGridRelativeOption</span><span class="p">.</span><span class="nx">TOP_OF_MARGIN_OF_BASELINE_GRID_RELATIVE_OPTION</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+      
+    <span class="c1">// wenn weder 0 noch 1 dann  </span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="nx">baselineGridOption</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Objekt aus Funktion zurückgeben</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">result</span><span class="p">:</span> <span class="nx">usrAction</span><span class="p">,</span>
+    <span class="na">gridBegin</span><span class="p">:</span> <span class="nx">gridBeginInputField</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+    <span class="na">gridRelTo</span><span class="p">:</span> <span class="nx">baselineGridOption</span><span class="p">,</span>
+    <span class="na">gridHeight</span><span class="p">:</span> <span class="nx">girdHeightInputField</span><span class="p">.</span><span class="nx">text</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Funktion effektiv ausführen (abarbeiten) und Ergebnis in Variable speichern</span>
+<span class="kd">var</span> <span class="nx">shownWindow</span> <span class="o">=</span> <span class="nx">setConfigWindow</span><span class="p">();</span>
+
+<span class="c1">// Ok geklickt = true</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">shownWindow</span><span class="p">.</span><span class="nx">result</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Ok geklickt'</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Anfang (in mm): '</span> <span class="o">+</span> <span class="nx">shownWindow</span><span class="p">.</span><span class="nx">gridBegin</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Relativ zu: '</span> <span class="o">+</span> <span class="nx">shownWindow</span><span class="p">.</span><span class="nx">gridRelTo</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Grundlinienraster (in pt): '</span> <span class="o">+</span> <span class="nx">shownWindow</span><span class="p">.</span><span class="nx">gridHeight</span><span class="p">);</span>
+ <span class="p">}</span>
+
+<span class="c1">// abgebrochen oder Cancel geklickt = false</span>
+<span class="k">else</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="s1">'Cancel geklickt oder abgebrochen.'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.008.zip">[ Download script.008.jsx as .zip ]</a></p>
+
+<p>In den Erklärungen zum Skript 007 wurde bereits die Sonderstellung der Variable ` gridRelToInputField<code class="highlighter-rouge"> eingeführt. Diese Sonderstellung soll nun auch auf die anderen Eingabefelder angewendet werden.  Mit der Anweisung </code>var gridBeginInputField = gridBeginGroup.add(‘edittext’, [0,0,150,24], ‘0’);<code class="highlighter-rouge"> wird der Gruppe </code>gridBeginGroup<code class="highlighter-rouge"> ein neues Eingabefeld hinzugefügt und als Referenz in </code> gridBeginInputField<code class="highlighter-rouge"> gespeichert. Über </code> gridBeginInputField.text<code class="highlighter-rouge"> können somit später die Eingaben in dieses Feld abgegriffen werden. Das gleiche passiert in mit der Anweisung </code> var girdHeightInputField = gridHeightGroup.add(‘edittext’, [0,0,150,24], ‘0’);` für die Eingabe des Grundlinienrasters.</p>
+
+<p>Die Verarbeitung von Dropdownlisten wie ` var gridRelToInputField = gridRelTo.add(‘dropdownlist’, [0,0,150,24], [‘Oberer Seitenkante’, ‘Oberen Seitenrand’]);<code class="highlighter-rouge"> ist in Adobe ExtendScript nicht ganz so einfach wie jene von Textfelder. Die erzeuge Liste im Beispiel hat zwei Werte: «Obere Seitenkante» und «Oberer Seitenrand». Die Programmlogik kann jedoch nicht mit Klartexten arbeiten. Das heisst, die reinen Textbausteine «Obere Seitenkante» und «Oberer Seitenrand», können vom Interpreter nicht in Bezug zur Programmlogik resp. den gewünschten Einstellungen gebracht werden. Die Auswahl von Dropdownlisten gibt deshalb «nur» eindeutige Werte in Zahlenform zurück. Was das heisst ist in der Anweisung </code> gridRelToInputField.selection = 0<code class="highlighter-rouge"> gut ersichtlich. Hier wird die «Standardauswahl» auf </code>0` gesetzt, was dem ersten Element in der Liste («Obere Seitenkante» ) entspricht.</p>
+
+<p>Nach dem Anzeigen des Dialog-Fensters mit ` configWindow.show()<code class="highlighter-rouge"> muss also zuerst die Auswahl der Dropdownliste verarbeitet werden, um zu ermitteln, welcher Wert aus der Funktion zurückgegeben werden soll. Anschliessend muss anhand der Auswahl dem Interpreter mitgeteilt werden, was die Auswahl für die Logik bedeutet, was er damit machen muss.  Die Abarbeitung dieser beiden Aufgaben übernimmt der Switch-Case-Block. </code> switch(gridRelToInputField.selection.index)<code class="highlighter-rouge"> liest den Index des Rückgabewerts aus der Dropdownliste ein. Wenn dieser </code>0<code class="highlighter-rouge"> ist, spring </code> case 0:<code class="highlighter-rouge"> an. Die Variable </code>baselineGridOption<code class="highlighter-rouge"> wird auf den programminternen Wert für den Beginn des Grundlinienrasters an der «Oberen Seitenkante»  gesetzt: </code> BaselineGridRelativeOption.TOP_OF_PAGE_OF_BASELINE_GRID_RELATIVE_OPTION<code class="highlighter-rouge">. Ist der Rückgabewert </code>1<code class="highlighter-rouge"> springt </code>case 1:<code class="highlighter-rouge"> an und setzt den Wert für «Oberern Seitenrand». Liegt ein Fehler vor, wird der Wert weder </code>0<code class="highlighter-rouge"> noch </code>1<code class="highlighter-rouge"> sein. In diesem Fall springt </code>default:<code class="highlighter-rouge"> und stellt sicher, dass </code> BaselineGridOption<code class="highlighter-rouge"> mit dem Wert </code>null` (= vorhanden aber nicht mit einem konkreten Wert besetzt) zurückgegeben wird.</p>
+
+<p>Zum Schluss wird die <code class="highlighter-rouge">return</code>-Anweisung um die neu erzeugten Werte erweitert. In der abschliessenden <code class="highlighter-rouge">if</code>-<code class="highlighter-rouge">else</code>-Verzweigung werden, wenn «Ok» geklickt wurde, alle Werte der <code class="highlighter-rouge">return</code>-Anweisung über<code class="highlighter-rouge">shownWindow</code> in die <em><code class="highlighter-rouge">JavaScript-Konsole</code></em> des Adobe ExtendScript Toolkit geschrieben.</p>
+
+<p><img src="https://meengit.github.io/ids/img/js-console_script008-logs.fw.png" alt="Ausgabe in der *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit nach einer erfolgreichen Ausführung («Ok» wurde geklickt). Der Wert 1162766189 kann dabei verwirren. Er steht für `BaselineGridRelativeOption.TOP_OF...`. " /></p>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Einführung ins Thema</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                <b>Einführung ins Thema</b>
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                Skripte & Voreinstellungen
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Einführung ins Thema</h1>
+    </header>
+    <article>
+      <p><h2 id="grundlegendes">Grundlegendes</h2>
+
+<p>Adobe InDesign kann über verschiedene Schnittstellen gesteuert werden. Im Zusammenhang mit Skripten, wie sie hier behandelt werden, können diese Schnittstellen mit JavaScript, AppleScript und VBScript angesprochen werden. VBScript ist eine von Microsoft entwickelte Skriptsprache. Sie ist nur unter Windows verfügbar. AppleScript ist ein Bestandteil des Apple Betriebssystems Mac OS. Es dient hauptsächlich dazu, Mac-OS-Programme zu automatisieren oder erweitern. JavaScript wurde ursprünglich für dynamisches HTML in Webbrowsern entwickelt und 1995 von Netscape veröffentlicht. Im Unterschied zu VBScript und AppleScript ist JavaScript nicht an eine Betriebssystemplattform gebunden. Es kann auf allen wichtigen Betriebssystemen ausgeführt werden. Deshalb wird im weiteren Verlauf ausschliesslich mit JavaScript und Adobe ExtendScript gearbeitet.</p>
+
+<p>Adobe ExtendScript ist eine erweiterte Implementierung von JavaScript. Sie wurde speziell für den Einsatz in Adobe Programmen ausgearbeitet. Die JavaScript-Syntax basiert auf der <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-Spezifikation</a>. Das ist eine internationale Norm die unter anderem den Sprachumfang von JavaScript festlegt. Sie ist als eine Art Vorgabe, wie zum Beispiel die Deutsche Rechtschreibung für Deutsch, zu verstehen. Adobe ExtendScript bietet darüber hinaus Erweiterungen, die nur im Umfeld von Adobe Programmen eingesetzt werden können. Die Sprache bedient sich im Kern bei JavaScript, hat aber auch eigene Befehle und Anwendungs-Szenarien. <strong>Für die Arbeit mit Adobe ExtendScript ist deshalb wesentlich, dass die Sprache in zwei Teilen verstanden werden muss. Zum einen gibt es die <em>Core JavaScript Elemente</em>, welche dem Standard von JavaScript entsprechen. Zum anderen gibt es die <em>Adobe ExtendScript Elemente</em>, welche durch Adobe definiert werden.</strong> Es kann bei einfachen Aufgaben durchaus vorkommen, dass in einem Skript nur JavaScript, nicht aber ExtendScript Elemente vorkommen.</p>
+
+<p>Das Adobe ExtendScript <strong><em>Toolkit</em></strong> ist die Entwicklungsumgebung für das Schreiben von JavaScript und Adobe ExtendScript-Code. Es besteht aus einem Texteditorfenster und einer Reihe von Werkzeugen für die Entwicklung von Skripten. Neben JavaScript und Adobe ExtendScript werden auch weitere Sprachen unterstützt. Im Rahmen dieser Dokumentation ist dies jedoch nicht von Bedeutung.</p>
+
+<h2 id="arbeitsumgebung">Arbeitsumgebung</h2>
+
+<p>Die Schnittstelle oder das Interface ist der Teil eines Programms, welcher zur Kommunikation dient. Sie nimmt Informationen entgegen oder liefert diese aus. Bei Adobe InDesign ist das zum Beispiel die XML-, CSV- oder Excel-Schnittstelle. Im Prinzip ist auch die Benutzeroberfläche eine Schnittstelle. Sie nimmt die Befehle des Nutzers entgegen und weist das Programm an, diese auszuführen. Das Programm gibt das Ergebnis seiner Arbeit an das Interface zurück, welches dem Nutzer dann anzeigt, ob die Operation erfolgreich war oder nicht. Im Rahmen von Adobe InDesign Scripting gibt es somit die drei Schnittstellen für JavaScript, VBScript und AppleScript. Sie alle nehmen die Befehle eines Skripts entgegen, lassen das Programm diese ausführen und melden zurück, ob alle Operationen ausgeführt werden konnten. Damit dies funktioniert, müssen sich Skript-Autor und Programm auf eine gemeinsame Sprache einigen. Dabei hat das Betriebssystem ein Wörtchen mitzureden. Es ist die Kontrollinstanz, welche festlegt, welche Sprachen überhaupt zugelassen sind. Bei Windows sind das JavaScript und VBScript. Das Apple MacOS erlaubt dagegen JavaScript und AppleScript, nicht aber VBScript. Wenn ein Skript-Autor also will, dass seine Anweisungen bei allen Betriebssystemen verstanden werden, verfasst er seine Skripte in JavaScript respektive Adobe ExtendScript.</p>
+
+<p>In Adobe InDesign werden die Skripte über das Bedienfeld «Skripte» verwaltet. Es kann über <em><code class="highlighter-rouge">Fenster &gt; Hilfsprogramme &gt; Skripte</code></em> oder den Kurzbefehl <code class="highlighter-rouge">cmd + alt + F11</code> aufgerufen werden. Die Skripte im Ordner <code class="highlighter-rouge">Anwendung</code> sind für alle Benutzer des Systems erreichbar. Die Skripte im Ordner <code class="highlighter-rouge">Benutzer</code> können nur vom aktuell angemeldeten Benutzer gesehen werden. In diesem Ordner werden die eigenen Skripte abgelegt.</p>
+
+<p>Skriptdateien für Adobe InDesign haben immer die Endungen <em><code class="highlighter-rouge">.jsx</code></em> oder <em><code class="highlighter-rouge">.jsxbin</code></em>. Bei <em><code class="highlighter-rouge">.jsx</code></em> kann der Skriptcode eingesehen werden. <em><code class="highlighter-rouge">.jsxbin</code></em> Dateien sind dagegen vorkompiliert, damit der Source Code nicht offenliegt. Das heisst, hier kann der Code nicht eingesehen werden. Weitere Informationen zur Anwendung in Skripten gibt es in der <a href="https://helpx.adobe.com/de/indesign/using/scripting.html">Dokumentation zu Adobe InDesign</a>.</p>
+
+<h3 id="adobe-indesign">Adobe InDesign</h3>
+
+<p>Das <em><code class="highlighter-rouge">Skripte</code></em>-Bedienfeld in Adobe InDesign ist eine Art «Mini-Dateibrowser». Alle auf der Festplatte abgelegten Skripte werden angezeigt. Sie müssen dazu in einem der vorgesehenen Ordner liegen. Es können aber auch weitere Ordner oder Laufwerkverknüpfungen eingebunden werden. Die Anzeige der Ordner kann über einen Rechtsklick oder das Bedienfeldmenü mit dem Befehl <em><code class="highlighter-rouge">Im Finder anzeigen</code></em> respektive <em><code class="highlighter-rouge">Im Explorer öffnen</code></em> geöffnet werden.</p>
+
+<p><img src="img/id-skriptepanel.png" alt="Adobe InDesign Bedienfeld Skripte" title="Bedienfeld Skripte" /></p>
+
+<p>Jedes Adobe InDesign Objekt besitzt eine Eigenschaft mit dem Namen «Label». In der Palette <em><code class="highlighter-rouge">Skriptetikett</code></em> kann diese Eigenschaft beim angewählten Objekt (Textrahmen usw.) mit einem Wert gesetzt werden. Damit kann das Objekt in einem Skript explizit angesprochen werden. Wie das geht, wird später erklärt.</p>
+
+<p><img src="img/id-skriptetikett.png" alt="Adobe InDesign Bedienfeld Skriptetikett" title="Bedienfeld Skriptetikett" /></p>
+
+<h3 id="adobe-extendscript-toolkit-estk">Adobe ExtendScript Toolkit (ESTK)</h3>
+
+<p>Skripte für Adobe InDesign werden im Adobe ExtendScript Toolkit, kurz Adobe ESTK, erstellt. Das Programm gehört zum Leistungsumfang der Adobe CreativeCloud und ist kostenlos. In der Regel wird es mit der Installation von Adobe InDesign ausgeliefert. Ist dies nicht der Fall, kann es über <a href="https://www.adobe.com/de/products/extendscript-toolkit.html">adobe.com/de/products/extendscript-toolkit.html</a> nachträglich heruntergeladen und installiert werden.</p>
+
+<p><img src="img/benutzeroberflaeche.png" alt="Oberfläche des Adobe ExtendScript Toolkit" title="Adobe ESTK" /></p>
+
+<p>Die Benutzeroberfläche des Adobe ESTK bietet im wesentlichen neun Elemente. Im <em><code class="highlighter-rouge">Debug-Bedienfeld</code></em> (1) wird die Zielapplikation eingestellt. Sie bestimmt, in welcher Adobe Applikation das geöffnete Skript ausgeführt wird. Der grösste Vorteil des Adobe ESTK im Vergleich zu einem Texteditor liegt darin, dass es mit der Zielapplikation verbunden ist. So können Skripte direkt aus dem Adobe ESTK in der betreffenden Applikation ausgeführt werden.</p>
+
+<p>Im <em><code class="highlighter-rouge">Editor</code></em> (2) werden die Skripte geschrieben. Das Adobe ESTK bietet dabei eine Reihe von Hilfsmitteln. Zu den wichtigsten gehören die Autovervollständigung und das «Debugging». Bei der Autovervollständigung versucht das Adobe ESTK die begonnene Zeile fertig zu schreiben. Das spart Tipparbeit, sofern das Adobe ESTK den gewünschten Ausdruck in seinem Vocabulaire findet. Der Programmierer kann im aufpoppenden Overlay-Fenster den gewünschten Befehl wählen und mit der Eingabe- oder Tabulatortaste bestätigen. Hierbei ist wichtig, dass das richtige Object-Model eingestellt ist. Es kann im Flyout-Menü des <em><code class="highlighter-rouge">Debug-Bedienfelds</code></em> (1) eingestellt werden.</p>
+
+<p>Meist während, aber sicher am Ende der Skriptentwicklung, steht das «Debugging». Der Begriff «debugging» (zu deutsch entwanzen) basiert auf der von Grace Hopper eingeführten Bezeichnung für Fehler in Computersystemen. 1947 hatte während der Arbeiten am Mark II eine Motte für den Ausfall eines Relais gesorgt. Grace Hopper hat diese in sein Logbuch geklebt und mit dem Satz: «First actual case of bug being found.» («Das erste Mal, dass tatsächlich ein Bug gefunden wurde.») kommentiert. Mit Bugfix (engl. fix für reparieren, ausbessern) wird die Behebung eines Programmfehlers bezeichnet. Die wichtigsten «Debugging»-Helfer im Adobe ESTK sind unter anderem die roten Haltepunkte, welche zeilenweise gesetzt werden können. Sie werden zusammengefasst im Bedienfeld <em><code class="highlighter-rouge">Breakpoints</code></em> (3) angezeigt. Im <code class="highlighter-rouge">Debug-Bedienfeld</code> kann mit den blauen Pfeilen von Haltepunkt zu Haltepunkt gesprungen werden. Dieser Vorgang wird manchmal auch als Einzelschrittmodus bezeichnet.</p>
+
+<p>Die Ereignisse und Ergebnisse des gesamten Programmablaufs, oder jene aus dem aktuellen Abschnitt des Einzelschrittmodus, werden in der <em><code class="highlighter-rouge">JavaScript-Konsole</code></em> (6) angezeigt. Sie kann jedoch auch zur Eingabe von Befehlen verwendet werden. Diese werden dann direkt im Adobe ESTK oder in der Zielapplikation ausgeführt.</p>
+
+<p>Im Bedienfeld <em><code class="highlighter-rouge">Aufrufstack</code></em> (4) kann verfolgt werden, in welcher Zeile sich die Fehlersuche gerade befindet. Bei einfachen Skripten wird dieses Bedienfeld kaum gebraucht. Bei komplizierten und verschachtelten Skripten kann es jedoch helfen, den Überblick zu behalten.</p>
+
+<p>Das Bedienfeld <em><code class="highlighter-rouge">Funktionen</code></em> (5) zeigt die Funktionen des Skripts. Der Doppelklick auf eine aufgeführte Funktion lässt den Editor auf eben diese springen.</p>
+
+<p>Im Bedienfeld <em><code class="highlighter-rouge">Skripte</code></em> (7) können die vorhandenen Skripte zu einer Zielapplikation aufgerufen werden. Über das Flyout-Menü lassen sich auch eigene Favoriten hinzufügen.</p>
+
+<p>Das Bedienfeld <em><code class="highlighter-rouge">Datenbrowser</code></em> (8) zeigt die verfügbaren Objekte für das aktuelle Skript sowie die Werte von Variablen während des «Debuggens». In der <em><code class="highlighter-rouge">Statuszeile</code></em> (9) werden verschiedene Angaben zum aktuellen Zustand des Adobe ESTK angezeigt.</p>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

@@ -12,7 +12,7 @@ description: >
   und Berufsschule für Gestaltung Zürich medienformfarbe, entwickelt durch
   Andreas Eberhard, Jona.
 baseurl: "/"
-url: "https://meengit.github.io/ids/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://meengit.github.io/ids" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  meengit
 
 # Build settings

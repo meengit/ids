@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Mit den Voreinstellungen arbeiten</title>
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
+  <script src="https://use.typekit.net/lll5bfl.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/syntax.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="topline"></div>
+  <div id="logobar">
+    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+    </a>
+    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+    </a>
+    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+    </a>
+  </div>
+  <main>
+    <nav>
+      
+<ul>
+
+    <li>
+        <a href="/">
+            
+                Release Notes
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/adobe-ids/">
+            
+                Projekt
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skript/">
+            
+                Zu diesem Skript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/einfuehrung/">
+            
+                Einführung ins Thema
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/js-grundlagen/">
+            
+                Grundlagen Javascript
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/var-datentypen/">
+            
+                Variablen & Datentypen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/obj-fn/">
+            
+                Objekte & Funktionen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/schleifen/">
+            
+                Schleifen & Iteration
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/operatoren/">
+            
+                Operatoren
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-grundlagen/">
+            
+                Skripte, Grundlagen
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dokumente/">
+            
+                Skripte & Dokumente
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-dialoge/">
+            
+                Skripte & Dialoge
+            
+        </a>
+    </li>
+    
+
+    <li>
+        <a href="/skripte-fuer-voreinstellungen/">
+            
+                <b>Skripte & Voreinstellungen</b>
+            
+        </a>
+    </li>
+    
+
+</ul>
+    </nav>
+    <header>
+      <h1>Mit den Voreinstellungen arbeiten</h1>
+    </header>
+    <article>
+      <p><p>Das Skript 009 erweitert das Skript 008 um die effektive Anwendung der im Dialog-Fenster ermittelten Werte. Weitere Informationen zum Arbeiten mit den Dokumentvoreinstellungen sind unter anderem im <em>Adobe InDesign Scripting Tutorial</em> und insbesondere im <em>Adobe InDesign JavaScript Scripting Guide</em> zu finden.</p>
+
+<pre><code class="language-javaScript">// script.009.jsx
+
+// Testen ob ein Dokument geöffnet ist
+if(app.documents.length == 0){
+    
+    // Warnmeldung wenn kein Dokument geöffnet ist
+    alert("Kein Dokument geöffnet.");
+}
+
+// Wenn mindestens ein Dokument geöffnet ist
+else {
+  
+  // Variable activDoc auf aktives Dokument referenzieren lassen
+  var activeDoc = app.activeDocument; 
+  
+  // Funktion für Dialog-Fenster effektiv ausführen (abarbeiten) und Ergebnis in Variable speichern
+  var shownWindow = setConfigWindow();
+
+}
+
+// Sicherheitshalber falsche Eingaben, die nicht nur aus Zahlen bestehen, in reine Zahlen umwandeln sofern möglich.
+shownWindow['gridBegin'] = parseInt(shownWindow['gridBegin']);
+shownWindow['gridHeight'] = parseInt(shownWindow['gridHeight']);
+
+// Ok geklickt = true
+if(shownWindow.result == true){
+  
+  // Mit den Grundlinienraster-Voreinstellungen folgendes machen ...
+  with(activeDoc.gridPreferences){
+    
+    // Probier ...
+    try {
+      
+      // ... wenn der Anfang des Grundlinienraster grösser 0 mm gesetzt ist ...
+      if(shownWindow['gridBegin'] &gt; 0 ) {
+        
+        // ... den Begin des Grundlinienrasters einzustellen ...
+        baselineStart = shownWindow['gridBegin'];
+      }
+      
+      // ... ansonsten: Gib diese Fehlermeldung aus ...
+      else {
+        alert('Die Eingabe für den Beginn des Grundlinienrasters war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
+      }
+    }
+    
+    // ... oder brich ab, wenn Du weder if noch else ausführen kannst.
+    catch(err){
+      alert(err);
+    }
+  
+    try {
+        if(shownWindow['gridRelTo'] == null ) {
+          throw "Die Einstellung der Seitenkante stimmt nicht!";
+        }
+        else {
+          baselineGridRelativeOption = shownWindow['gridRelTo'];
+        }
+      }
+      catch(err){
+        alert(err);
+      } 
+  
+    try {
+      if(shownWindow['gridHeight'] &gt; 0 ) {
+        baselineDivision = shownWindow['gridHeight'];
+      }
+      else {
+        alert('Die Eingabe für den Grundlinienraster war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
+      }
+    }
+    catch(err){
+      alert(err);
+    }
+  }
+}
+
+// abgebrochen oder Cancel geklickt = false
+else {
+    $.writeln('Cancel geklickt oder abgebrochen.');
+}
+
+// "Funktionsblock" erstellen
+function setConfigWindow() {
+  
+  // Dialog-Fenster erstellen
+  var configWindow = new Window('dialog','Presets definieren');
+  
+  // Anzeigekolonne hinzufügen (siehe auch Adobe JavaScript Tools Guide)
+  configWindow.column01 = configWindow.add ('group {orientation: "column"}'); 
+  
+  // "Umrahmung" mit "Titel" hinzufügen
+  configWindow.column01.gridPanel = configWindow.column01.add ('panel', undefined, 'Grundlinienraster');
+  
+  // Mit dem "Innern" der Umrahmung folgendes machen ...
+  with(configWindow.column01.gridPanel){
+    
+    // "Orientierung" der "Umrahmung" auf links stellen
+    aligment = 'left';
+    
+    // Anzeigegruppe für 1. Eingabe hinzufügen
+    var gridBeginGroup = add('group');
+    
+    // "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen
+    gridBeginGroup.add('statictext', [0,0,140,15], 'Anfang (in mm):');
+    var gridBeginInputField = gridBeginGroup.add('edittext', [0,0,150,24], '0');
+    
+    // Anzeigegruppe für 2. Eingabe erstellen
+    var gridRelTo = add('group');
+  
+    // "Eingabebeschrifgung" (statictext) &amp; Auswahlliste (dropdownlist) hinzufügen
+    gridRelTo.add('statictext', [0,0,140,15], 'Relativ zu:');
+    var gridRelToInputField = gridRelTo.add('dropdownlist', [0,0,150,24], ['Oberer Seitenkante', 'Oberen Seitenrand']);
+    gridRelToInputField.selection = 0;
+    
+    // Anzeigegruppe für 3. Eingabe erstellen
+    var gridHeightGroup = add('group');
+  
+    // "Eingabebeschrifgung" (statictext) &amp; Eingabefeld (edittext) hinzufügen
+    gridHeightGroup.add('statictext', [0,0,140,15], 'Grundlinienraster (in pt):');
+    var girdHeightInputField = gridHeightGroup.add('edittext', [0,0,150,24], '0');
+   
+  }
+  
+  // In der "Anzeigekolonne" aber ausserhalb der "Umrahmung" Buttons hinzufügen
+  configWindow.column01.btnGrp = configWindow.add('group');
+  configWindow.column01.btnGrp.add('button', undefined, 'Ok');
+  configWindow.column01.btnGrp.add('button', undefined, 'Cancel');
+  
+  $.writeln(gridRelToInputField);
+  
+  // Fenster in Adobe InDesign anzeigen
+  var usrAction = configWindow.show();
+  
+  // Variable für Ergebnis switch-case erzeugen
+  var baselineGridOption = null;
+  
+  // Benutzereingabe gridRelToInputField ('Oberer Seitenkante', 'Oberen Seitenrand') in switch aufnehmen
+  switch(gridRelToInputField.selection.index) {
+
+    // wenn 0 dann
+    case 0: 
+      // http://jongware.mit.edu/idcs6js/pe_BaselineGridRelativeOption.html
+      baselineGridOption = BaselineGridRelativeOption.TOP_OF_PAGE_OF_BASELINE_GRID_RELATIVE_OPTION;
+      break;
+    
+    // wenn 1 dann
+    case 1:
+      // http://jongware.mit.edu/idcs6js/pe_BaselineGridRelativeOption.html
+      baselineGridOption = BaselineGridRelativeOption.TOP_OF_MARGIN_OF_BASELINE_GRID_RELATIVE_OPTION;
+      break;
+      
+    // wenn weder 0 noch 1 dann  
+    default:
+      baselineGridOption = null;
+  }
+  
+  // Objekt aus Funktion zurückgeben
+  return {
+    result: usrAction,
+    gridBegin: gridBeginInputField.text,
+    gridRelTo: baselineGridOption,
+    gridHeight: girdHeightInputField.text
+  }
+}
+</code></pre>
+
+<p><a href="https://github.com/grafisches-forum-zh/scripting/wiki/source/script.009.zip">[ Download script.009.jsx as .zip ]</a></p>
+
+<p>Das Skript 009 erweitert das Skript 008 um die effektive Anwendung der im Dialog-Fenster ermittelten Werte. Weitere Informationen zum Arbeiten mit den Dokumentvoreinstellungen sind unter anderem im <em>Adobe InDesign Scripting Tutorial</em> und insbesondere im <em>Adobe InDesign JavaScript Scripting Guide</em> zu finden.</p>
+
+<p>In JavaScript respektive Adobe ExtendScript spielt die Position von Funktionen innerhalb des Skripts meist keine Rolle. Der Interpreter liest zuerst alle Funktionen ein und arbeitet anschliessend das Skript ab. Deshalb wird in diesem Skript zur besseren Übersicht der Funktionsblock von ` function setConfigWindow(){ <strong>ANWEISUNGEN</strong> }<code class="highlighter-rouge"> ans Ende kopiert und die </code>if<code class="highlighter-rouge">-</code>else`-Verzweigung nach oben genommen.</p>
+
+<p>Die erste <code class="highlighter-rouge">if</code>-<code class="highlighter-rouge">else</code>-Verzweigung prüft, ob ein Dokument geöffnet wird. Dies wird über ` app.documents.length ` abgefragt. Nur wenn der Wert von <code class="highlighter-rouge">length</code> grösser <code class="highlighter-rouge">0</code> ist, ist ein Dokument geöffnet. Wenn also kein Dokument geöffnet ist, wird die Warnmeldung «Kein Dokument geöffnet» ausgegeben. Wenn ein oder mehrere Dokumente geöffnet sind, springt die <code class="highlighter-rouge">else</code>-Verzweigung an. Dann ermittelt <code class="highlighter-rouge">app.activeDocument</code> das Dokument, welches sich im Vordergrund befindet. Die Variable <code class="highlighter-rouge">activeDoc</code> referenziert das Ergebnis aus <code class="highlighter-rouge">app.activeDocument</code> respektive das aktive Dokument. Anschliessend wird die Funktion für das Dialog-Fenster aufgerufen und deren Rückgabewerte in der Variable <code class="highlighter-rouge">shownWindow</code> gespeichert.</p>
+
+<p>Nach dem Ausführen des Dialog-Fensters kommt die nach oben kopierte <code class="highlighter-rouge">if</code>-<code class="highlighter-rouge">else</code>-Verzweigung aus dem Skript 008. Sie prüft, wie im Skript 008 zuerst, ob «Ok» oder «Cancel» geklickt wurden. Sofern «Ok» geklickt wurde, wird ein <code class="highlighter-rouge">with</code>-Anweisungsblock mit dem aktiven Dokument aus <code class="highlighter-rouge">activeDoc</code> aufgerufen. <code class="highlighter-rouge">gridPreferences</code> ist eine Eigenschaft von der Klasse <code class="highlighter-rouge">Documents</code>, welche für ein Dokument in Adobe InDesign steht und von <code class="highlighter-rouge">app.activeDocument</code> und damit von der Variable <code class="highlighter-rouge">activeDoc</code> referenziert wird.</p>
+
+<p><img src="img/objmdlvw-cls_document-gpref.fw.png" alt="*`Objektmodell-Viewer`* mit eingestelltem *`Adobe IndDesign Object Model`* im Abschnitt *`Browser`* und ausgewählter `gridPreferences`-Eigenschaft der `Document`-Instanz" /></p>
+
+<p>Die folgenden <code class="highlighter-rouge">try</code>-<code class="highlighter-rouge">catch</code>-Anweisungsblöcke passen die Eigenschaften von ` gridPreferences<code class="highlighter-rouge"> im aktiven Dokument an. Kommt es zu logischen Fehlern, zum Beispiel weil aus irgendeinem Grund Voreinstellungen nicht gesetzt werden können, schlägt </code>try<code class="highlighter-rouge"> fehl und </code>catch<code class="highlighter-rouge"> wird ausgeführt. Wenn </code>catch<code class="highlighter-rouge"> anspringt, wird dem Nutzer eine Fehlermeldung angezeigt und das Skript sofort abgebrochen. Sofern im </code>try<code class="highlighter-rouge">-Block ein </code>throw<code class="highlighter-rouge"> definiert ist, wird  dem Benutzer bei </code>catch<code class="highlighter-rouge"> eine die in </code>throw<code class="highlighter-rouge"> gesetzte Nachricht angezeigt. Ist kein </code>throw<code class="highlighter-rouge"> definiert, erhält der die Standardfehlermeldung des Programms angezeigt. Die eingesetzten </code>alert`-Anweisungen geben dem Nutzer in bestimmten Fällen eine Warnmeldung aus, brechen das Skript jedoch nicht ab.</p>
+
+<p>Eine spezielle Aufgabe haben die beiden Zeilen mit den <code class="highlighter-rouge">parseInt()</code>-Anweisungen. Wenn Nutzer, trotz den Hinweisen «in mm» und «in pt», bei den Eingabefeldern Einheiten eingeben, wird hier versucht, diese «loszuwerden». <code class="highlighter-rouge">parseInt()</code> ist eine JavaScript-Anweisung, die versucht, Text in reine Zahlen umzuwandeln: <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/parseInt">Referenz Mozilla Developer Network</a>.</p>
+
+</p>
+    </article>
+  </main>
+  <div id="footerline">
+    <footer>
+      <div>
+        <div>
+        <p>Projekt Adobe InDesign Scripting</p>
+        <p>Entwicklung: A. Eberhard</p>
+        <p>Kontakt: ids@meen.ch</p>
+      </div>
+      <div>
+        <p>Dienstleistungen für GFZ-Mitglieder</p>
+        <p>Grafisches Forum Zürich</p>
+        <p>Seefeldstrasse 62</p>
+        <p>8008 Zürich</p>
+        <p><a href="http://gfz.ch/ids" target="_blank">www.gfz.ch/ids</a></p>
+        <p>info@gfz.ch</p>
+      </div>
+      <div>
+        <p>Kursadministration & Durchführung</p>
+        <p>Medien Form Farbe</p>
+        <p>Berufsschule für Gestaltung</p>
+        <p>Frau Yvonne Koppitsch</p>
+        <p>044 446 97 73</p>
+        <p>weiterbildung@medienformfarbe.ch</p>
+        <p>Ausstellungsstrasse 104</p>
+        <p>8005 Zürich</p>
+      </div>
+      </div>
+
+  </footer>
+  </div>
+</body>
+</html>

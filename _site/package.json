@@ -1,0 +1,15 @@
+{
+  "name": "idspublic",
+  "version": "0.1.0",
+  "description": "Adobe ID Scripting Docs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "A. Eberhard",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0",
+    "gulp": "^3.9.1"
+  }
+}
