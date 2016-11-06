@@ -54,5 +54,6 @@ $RECYCLE.BIN/
 # Project ignore                                  #
 ###################################################
 
+_site/
 .sass-cache/
 .jekyll-metadata

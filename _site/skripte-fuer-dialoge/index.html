@@ -14,13 +14,13 @@
   <div id="topline"></div>
   <div id="logobar">
     <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
-      <img alt="Logo GitHub" src="https://meengit.github.io/ids/img/logobar/github.png">
+      <img alt="Logo GitHub" src="http://localhost:4000/img/logobar/github.png">
     </a>
     <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
-      <img alt="Logo Grafisches Forum Zürich" src="https://meengit.github.io/ids/img/logobar/gfz.png">
+      <img alt="Logo Grafisches Forum Zürich" src="http://localhost:4000/img/logobar/gfz.png">
     </a>
     <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
-      <img alt="Logo medien form farbe" src="https://meengit.github.io/ids/img/logobar/medienformfarbe.jpg">
+      <img alt="Logo medien form farbe" src="http://localhost:4000/img/logobar/medienformfarbe.jpg">
     </a>
   </div>
   <main>
@@ -159,7 +159,7 @@
 
 <p>Adobe ExtendScript enthält einen vorgefertigten «Baukasten» für die Anzeige von Fenstern. Dieser wird durch die <code class="highlighter-rouge">ScriptUI</code>-Klassen repräsentiert. Deren Inhalt und Struktur kann unter anderem über den <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> unter <em><code class="highlighter-rouge">Browser</code></em> &gt; <em><code class="highlighter-rouge">ScriptUI Classes</code></em> eingesehen werden. Der <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> lässt sich über das Menü <em><code class="highlighter-rouge">Hilfe</code></em> aufrufen.</p>
 
-<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewähltem `Window`-Objekt" /></p>
+<p><img src="http://localhost:4000/img/objmdlvw-cls_window.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewähltem `Window`-Objekt" /></p>
 
 <p>Damit der Programmcode übersichtlich bleibt und das Fenster gegebenenfalls mehrfach verwendet werden kann, wird es in diesem Beispiel mit einem Funktionsblock (<code class="highlighter-rouge">function ...</code>) umschlossen.</p>
 
@@ -208,7 +208,7 @@ function setConfigWindow() {
 
 <p>Die Variable <code class="highlighter-rouge">configWindow</code> referenziert das vorhin erstellte <code class="highlighter-rouge">Window</code>-Objekt. Dieses hat alle Funktionen und Eigenschaften der Klasse <code class="highlighter-rouge">Window</code> geerbt respektive gemäss deren «Bauplan» erhalten. Dazu gehört auch die Funktion <code class="highlighter-rouge">add()</code> – wie im <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> nachgesehen werden kann. Mit dieser können dem Fenster weitere Elemente, wie zum Beispiel Buttons, hinzugefügt werden.</p>
 
-<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window-add.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `add()`-Methode des `Window`-Objekts" /></p>
+<p><img src="http://localhost:4000/img/objmdlvw-cls_window-add.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `add()`-Methode des `Window`-Objekts" /></p>
 
 <p>Als nächstens soll ein erster Blick auf das erzeugte Fenster möglich werden.</p>
 
@@ -235,17 +235,17 @@ function setConfigWindow() {
 
 <p>Die Anweisung <code class="highlighter-rouge">configWindow.show();</code> sagt Adobe InDesign, dass das Fenster, welches mit <code class="highlighter-rouge">configWindow</code> referenziert wird, angezeigt werden soll. <code class="highlighter-rouge">show()</code> ist hierbei ebenfalls eine geerbte Funktion, so wie <code class="highlighter-rouge">add()</code>.</p>
 
-<p><img src="https://meengit.github.io/ids/img/objmdlvw-cls_window-show.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `show()`-Methode des `Window`-Objekts" /></p>
+<p><img src="http://localhost:4000/img/objmdlvw-cls_window-show.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `show()`-Methode des `Window`-Objekts" /></p>
 
 <p>Die Anweisung <code class="highlighter-rouge">setConfigWindow();</code> ruft die Funktion auf und weist den Interpreter an, jetzt die Funktionsdeklaration abzuarbeiten. Das heisst, auch wenn in der Funktion <code class="highlighter-rouge">configWindow.show();</code> steht, wird damit so lange nichts gemacht, bis der Interpreter angewiesen wird, den Funktionsblock auszuführen.</p>
 
 <p>Zu beachten ist, dass nun im <em><code class="highlighter-rouge">Debug-Bedienfeld</code></em> Adobe InDesign ausgewählt ist. Ansonsten schlägt das Skript unter Umständen fehl.</p>
 
-<p><img src="https://meengit.github.io/ids/img/debug-idsSelected.fw.png" alt="Adobe InDesign als ausgewählte Zielapplikation im *`Debug-Bedienfeld`*." /></p>
+<p><img src="http://localhost:4000/img/debug-idsSelected.fw.png" alt="Adobe InDesign als ausgewählte Zielapplikation im *`Debug-Bedienfeld`*." /></p>
 
 <p>Das erzeugte Fenster hat noch nicht all zu viel Inhalt. Die Buttons «Ok» und «Cancel» stehen übereinander. Das soll als nächstes geändert werden. Denn in den meisten Dialogfenstern stehen die beiden nebeneinander. Dazu muss eine Gruppe für Bedienelemente erstellt werden. Hierzu muss das bestehende Skript umformuliert werden.</p>
 
-<p><img src="https://meengit.github.io/ids/img/dialog_box001.fw.png" alt="Dialog-Fenster mit **nicht** gruppierten Buttons übereinander." /></p>
+<p><img src="http://localhost:4000/img/dialog_box001.fw.png" alt="Dialog-Fenster mit **nicht** gruppierten Buttons übereinander." /></p>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// script.005.jsx</span>
 
@@ -275,13 +275,13 @@ function setConfigWindow() {
 
 <p>Eine Gruppe ist eine Art «Zwischenelement» welches mehrere Anzeigelemente in einer Reihe zusammenfasst.  Mit ` configWindow.add(‘group’);<code class="highlighter-rouge"> wird dem Fenster eine neue Gruppe hinzugefügt. Diese wird der Variable </code> okCancel_Grp ` zugewiesen. ` okCancel_Grp ` referenziert damit so zu sagen ein Unterobjekt von ` configWindow<code class="highlighter-rouge">. In den nächsten Zeilen werden der Gruppe die beiden Buttons «Ok» und «Cancel» hinzugefügt. Das Argument </code>button<code class="highlighter-rouge"> legt den Typ des hinzugefügten Elements fest. </code>undefined<code class="highlighter-rouge"> besagt, dass es keine speziellen Positionierungseigenschaften für den zu erzeugenden Button gibt. </code>‘Ok’<code class="highlighter-rouge"> und </code>‘Cancel’` beschreiben den Text im Button. Wenn nun das Skript erneut ausgeführt wird, stehen die beiden Buttons nebeneinander.</p>
 
-<p><img src="https://meengit.github.io/ids/img/dialog_box002.fw.png" alt="Dialog-Fenster mit gruppierten Buttons nebeneinander." /></p>
+<p><img src="http://localhost:4000/img/dialog_box002.fw.png" alt="Dialog-Fenster mit gruppierten Buttons nebeneinander." /></p>
 
 <h4 id="skript-006-auf-events-reagieren">Skript 006, auf Events reagieren</h4>
 
 <p>Das Skript 006 erweitert die Code-Basis aus dem Skript 005 um <em>Event-Handler</em>. <em>Event-Handler</em> reagieren auf ausgelöste <em>Events</em>. <em>Events</em> sind Aktionen, die innerhalb eines Skripts oder einer Applikation ausgelöst werden. Das können sowohl Benutzerkationen als auch skript- oder applikationsinterne Aktionen sein. Um <em>Events</em> abzufangen gibt es sogenannte <em>EventListener</em>. Sie horchen, ob ein Event ausgelöst wird. Abstrahiert formuliert besteht also ein <em>EventHandler</em> aus einem <em>EventListener</em> und einem Programmblock der ausgeführt wird, wenn der <em>EventListener</em> anschlägt, respektive der <em>Event</em>, auf den er horch, ausgelöst wird. Weitere Informationen zu den <em>Events</em>, <em>EventHandler</em> und <em>EventListener</em> sind unter anderem im <em><code class="highlighter-rouge">Objektmodell-Viewer</code></em> und im «JavaScript Tools Guide» unter «Defining behavior with event callbacks and listeners» zu finden.</p>
 
-<p><img src="https://meengit.github.io/ids/img/button_cls-eventListener.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `addEventListener()`-Methode des `Button`-Objekts" /></p>
+<p><img src="http://localhost:4000/img/button_cls-eventListener.fw.png" alt="*`Objektmodell-Viewer`* mit eingestellten *`ScriptUI Classes`* im Abschnitt *`Browser`* und ausgewählter `addEventListener()`-Methode des `Button`-Objekts" /></p>
 
 <p>Im aktuellen Beispiel kann auf den Einsatz von <em>EventListener</em> und <em>EventHandler</em> verzichtet werden. Die Buttons «Ok» und «Cancel» haben im Zusammenhang mit Dialog-Fenstern eine spezielle Bedeutung. Schematisch formuliert, wird ihr Rückgabewert von der Funktion <code class="highlighter-rouge">.show()</code> aufgefangen und nach deren Ausführung als boolscher Wert zurückgegeben. Klickt der Nutzer «Ok» ist der Rückgabewert <code class="highlighter-rouge">true</code>, klickt er <code class="highlighter-rouge">Cancel</code>, ist der Rückgabewert <code class="highlighter-rouge">false</code>.</p>
 
@@ -421,7 +421,7 @@ function setConfigWindow() {
 
 <p><code class="highlighter-rouge">with(configWindow.column01.gridPanel)</code> definiert also sinnbildlich «mach etwas mit dem Objekt <code class="highlighter-rouge">gridPanel</code>», Kind-Objekt von ` column01<code class="highlighter-rouge">, Kind-Objekt von </code> configWindow<code class="highlighter-rouge">. Innerhalb von </code>with<code class="highlighter-rouge"> können alle Methoden (= Funktionen) und Eigenschaften des Objekts </code> gridPanel<code class="highlighter-rouge"> direkt aufgerufen werden. Zu sehen ist dies zum Beispiel and der Anweisung </code> aligment = ‘left’<code class="highlighter-rouge">. Sie kann direkt angesprochen werden. Ohne </code>with()<code class="highlighter-rouge"> würde </code> configWindow.column01.gridPanel.aligment = ‘left’<code class="highlighter-rouge"> das gleiche machen. Selbiges gilt für </code>var gridBeginGroup = add(‘group’)<code class="highlighter-rouge">. Die Variable </code>gridBeginGroup<code class="highlighter-rouge"> wird durch den Aufruf in </code>with()<code class="highlighter-rouge"> automatisch zu einem Unterobjekt von </code>gridPanel<code class="highlighter-rouge">. Sie könnte auch so erzeugt werden: </code>configWindow.column01.gridPanel. gridBeginGroup = add(‘group’)`.</p>
 
-<p><img src="https://meengit.github.io/ids/img/datamdlvw-hierarchy.fw.png" alt="Analyse der Datenmodell-Hierarchy im *`Datenbrowser`* des Adobe ExtendScript Toolkit bei angehaltenem Skript." /></p>
+<p><img src="http://localhost:4000/img/datamdlvw-hierarchy.fw.png" alt="Analyse der Datenmodell-Hierarchy im *`Datenbrowser`* des Adobe ExtendScript Toolkit bei angehaltenem Skript." /></p>
 
 <p>Eine Sonderstellung innerhalb von <code class="highlighter-rouge">with()</code> hat die Variable <code class="highlighter-rouge">gridRelToInputField</code>. Sie ist selbst kein Kind-Objekt von ` gridPanel<code class="highlighter-rouge">, referenziert jedoch das Ergebnis aus dem </code>gridPanel<code class="highlighter-rouge">-Kind-Objekt </code> gridRelTo<code class="highlighter-rouge">. Sie kann deshalb auch ausserhalb von with direkt angesprochen werden, wie die Konsolen-Anweisung </code>$.writeln(gridRelToInputField)` zeigt.</p>
 
@@ -543,7 +543,7 @@ function setConfigWindow() {
 
 <p>Zum Schluss wird die <code class="highlighter-rouge">return</code>-Anweisung um die neu erzeugten Werte erweitert. In der abschliessenden <code class="highlighter-rouge">if</code>-<code class="highlighter-rouge">else</code>-Verzweigung werden, wenn «Ok» geklickt wurde, alle Werte der <code class="highlighter-rouge">return</code>-Anweisung über<code class="highlighter-rouge">shownWindow</code> in die <em><code class="highlighter-rouge">JavaScript-Konsole</code></em> des Adobe ExtendScript Toolkit geschrieben.</p>
 
-<p><img src="https://meengit.github.io/ids/img/js-console_script008-logs.fw.png" alt="Ausgabe in der *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit nach einer erfolgreichen Ausführung («Ok» wurde geklickt). Der Wert 1162766189 kann dabei verwirren. Er steht für `BaselineGridRelativeOption.TOP_OF...`. " /></p>
+<p><img src="http://localhost:4000/img/js-console_script008-logs.fw.png" alt="Ausgabe in der *`JavaScript-Konsole`* des Adobe ExtendScript Toolkit nach einer erfolgreichen Ausführung («Ok» wurde geklickt). Der Wert 1162766189 kann dabei verwirren. Er steht für `BaselineGridRelativeOption.TOP_OF...`. " /></p>
 
 </p>
     </article>
