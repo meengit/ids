@@ -148,14 +148,15 @@ main {
 #footerline {
   
   width: 100%;
+  display: block;
   background-color: #0A1C07;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  height: 10 * ($basefontsize * $baselinehight);
 
   footer {
     @include container;
     @include set-font(normal, normal, normal, $navfontsize, $baselinehight, $abeezee, sans-serif);
     color: #fff;
+    padding-top: $basefontsize * $baselinehight;
     
     div {
       @include span(12);
