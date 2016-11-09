@@ -1,7 +1,7 @@
 const idsJsModule = (function ($, ids) {
   'use strict';
-  ids.sticky = function (e, t) { // element[string], target[obj]
-    t.bind('load', function(){
+  ids.sticky = (e, t) => { // element[string], target[obj]
+    t.bind('load', () => {
       let eHeight = 0, 
           eTop = 0, 
           $e = $(e);
@@ -11,8 +11,6 @@ const idsJsModule = (function ($, ids) {
       function pos() {
         eHeight = $e.height();
         eTop = (t.scrollTop()+t.height()-eHeight)+'px';
-        console.log($(document.body).height());
-        console.log(t.height());
         if ( ($(document.body).height()) < t.height()) {
           $e.css({
             position: "absolute"
@@ -28,8 +26,12 @@ const idsJsModule = (function ($, ids) {
       
       $(window).scroll(pos).resize(pos);
       
-    }); // end of bind
-  }; // end of ids.sticky
+    } // end of bind
+  } // end of ids.sticky
+  
+  ids.nav = (obj) => {
+    // none
+  } // end of ids.nav
   return ids;
 }(jQuery, idsJsModule || {}));
 
@@ -37,6 +39,11 @@ const idsJsModule = (function ($, ids) {
   'use strict';
   $(document).ready(function () {
     idsJsModule.sticky('#footerline',$(window));
+    document.getElementById(obj).addEventListener('touchend', (e) => {
+      e.preventDefault();
+      var touch = e.touches[0];
+      console.log('Test', touch.pageX + " - " + touch.pageY);
+    }, false);
   });
 }(jQuery, idsJsModule));
 
