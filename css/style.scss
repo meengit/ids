@@ -12,6 +12,10 @@ $susy: (
   // debug: (image: show)
 );
 
+$breakpoint-no-query-fallbacks: true;
+$bp1024: 1024px;
+$bp1700: 1700px;
+
 $abeezee: 'ABeeZee';
 $opensans: 'Open Sans';
 $adelle: 'Adelle';
@@ -33,19 +37,16 @@ h1 {
   padding-bottom: $baselinehight * 2;
 }
 
-main {
-  
-  @include container;
-  border-bottom: gutter();
+article, main, nav {
+  margin-bottom: gutter();
+}
 
-  article, nav {
-    margin-bottom: gutter();
-  }
+main {
+  @include container;
   
   article {
-    @include span(9 last);
-    margin-top: $basefontsize * 1.9;
-    
+  
+    // global ---
     div {
       .highlight {
         background-color: #F5F5F5;
@@ -64,70 +65,86 @@ main {
         padding: 3px;
         font-size: $basefontsize * 0.9;
       }
-    }
+    } // end of p tag
+    
+    table {
+        border-collapse: separate;
+        border-spacing: 0 5px; 
+        width: 100%;
+    
+        tbody, thead {
+          text-align: left;
+          border-spacing: 3px;
+        }
+      
+        tbody {
+      
+           tr {
+            td {
+              vertical-align: top;
+              border-bottom: 1px dotted #4d4d4d; 
+              border-collapse:separate;  
+              border-spacing:5px 5px;
+            }
+            td:first-child {
+              vertical-align: top;
+              padding-right: 1em;
+            }
+          }
+        }
+      
+        thead {
+          text-transform: uppercase;
+        
+          tr {
+            th {
+              border-top: 1px solid #4d4d4d; 
+              border-bottom: 1px solid #4d4d4d; 
+              border-collapse:separate;  
+              border-spacing:5px 5px;
+              padding-right: 1em;
+            }
+          }
+        }
+      }
     
     ul {
       padding: 0 0 0 1em;
     }
+    @include span(12 last);
     
-    table {
-      border-collapse: separate;
-      border-spacing: 0 5px; 
-      width: 100%;
-    
-      tbody, thead {
-        text-align: left;
-        border-spacing: 3px;
-      }
-      
-      tbody {
-      
-         tr {
-          td {
-            vertical-align: top;
-            border-bottom: 1px dotted #4d4d4d; 
-            border-collapse:separate;  
-            border-spacing:5px 5px;
-          }
-          td:first-child {
-            vertical-align: top;
-            padding-right: 1em;
-          }
-        }
-      }
-      
-      thead {
-        text-transform: uppercase;
-        
-        tr {
-          th {
-            border-top: 1px solid #4d4d4d; 
-            border-bottom: 1px solid #4d4d4d; 
-            border-collapse:separate;  
-            border-spacing:5px 5px;
-            padding-right: 1em;
-          }
-        }
-      }
+    @include susy-breakpoint($bp1024, $susy) {
+      @include span(8 last);
+      margin-top: $basefontsize * 1.9;
     }
     
-  } // end of article 
-    
+    @include susy-breakpoint($bp1700, $susy) {
+      @include span(9 last);
+    }
+  }
+  
   header {
-    @include span(9 last);
-    margin-top: ($baselinehight * $basefontsize) * 6;
-    border-bottom: 1px solid #D4D4D4;
+    @include span(12 last);
+    
+    @include susy-breakpoint($bp1024, $susy) {
+      @include span(8 last);
+      margin-top: ($baselinehight * $basefontsize) * 6;
+      border-bottom: 1px solid #D4D4D4;
+    }
+    
+    @include susy-breakpoint($bp1700, $susy) {
+      @include span(9 last);
+    }
+  
   } // end of header
   
   nav {
-    @include span(1.8);
-    @include set-font(normal, normal, normal, $navfontsize, $baselinehight, $abeezee, sans-serif);
+    
+    // global ---
     position: fixed;
     z-index: 10;
-    padding: 0 0 1em 0;
-    border-right: 1px solid #D4D4D4;
-    padding-top: ($baselinehight * $basefontsize) * 2;
     background-color: #fff;
+    padding-top: ($baselinehight * $basefontsize) * 2;
     
     ul {
       list-style: none outside;
@@ -142,11 +159,54 @@ main {
         }
       }
     }
-  }
+    
+    @include span(12 last);
+  
+    @include susy-breakpoint($bp1024, $susy) {
+      @include span(3);
+      padding: 0 0 1em 0;
+      border-right: 1px solid #D4D4D4;
+    }
+    
+    @include susy-breakpoint($bp1700, $susy) {
+      @include span(1.8);
+      @include set-font(normal, normal, normal, $navfontsize, $baselinehight, $abeezee, sans-serif);
+    } // end of bp1024
+  } // end of nav
+  
 } // end of main
 
-#footerline {
+#topline {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #F5F5F5;
+  z-index: 15;
+  height: ($basefontsize * $baselinehight) * 2;
   
+  #btn_mobilenav {
+    height: ($basefontsize * $baselinehight) * 0.05;
+    display: inline-block;
+    margin-left: 1em;
+    vertical-align: middle;
+  }
+  
+  @media (min-width: $bp1024) {
+    height: 0.5em;
+    
+    #btn_mobilenav {
+      display: none;
+    }
+  }
+
+  
+  
+} // end of id topline
+
+
+#footerline {
+
   width: 100%;
   display: block;
   background-color: #0A1C07;
@@ -157,13 +217,13 @@ main {
     @include set-font(normal, normal, normal, $navfontsize, $baselinehight, $abeezee, sans-serif);
     color: #fff;
     padding-top: $basefontsize * $baselinehight;
-    
+  
     div {
       @include span(12);
-      
+    
       div {
        @include span(3.9);
-      
+    
         p {
           margin: 0 1em;
         }
@@ -173,13 +233,18 @@ main {
 } // end of id footerline
 
 #logobar {
-  position: fixed;
+ position: fixed;
   top: 0;
   right: 20px;
   clear: both;
   z-index: 20;
   
   img {
+    display: none;
+  }
+  
+  @media (min-width: $bp1024) {
+    img {
     display: inline-block;
     margin-left: 5px;
     padding: 10px;
@@ -188,16 +253,8 @@ main {
     background-color: #fff;
     border: 1px solid #F5F5F5;
     box-shadow: 0px 2px 4px #D4D4D4;
+    }  
   }
-  
+
 } // end of id logobar
 
-#topline {
-  display: block;
-  position: fixed;
-  top: 0;
-  height: 0.5em;
-  width: 100%;
-  background-color: #F5F5F5;
-  z-index: 15;
-} // end of id topline
