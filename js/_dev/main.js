@@ -26,11 +26,20 @@ const idsJsModule = (function ($, ids) {
       
       $(window).scroll(pos).resize(pos);
       
-    } // end of bind
+    }); // end of bind
   } // end of ids.sticky
   
-  ids.nav = (obj) => {
-    // none
+  ids.animInOut = (obj) => {
+    document.getElementById(obj).addEventListener('touchend', (e) => {
+      e.preventDefault();
+      var touch = e.touches[0];
+      // console.log(e.target);
+      $('nav').animate({
+          height: 'toggle'
+        }, 200, function() {
+          console.log('Animation complete');
+      }); // end of nav.animate
+    }, false);
   } // end of ids.nav
   return ids;
 }(jQuery, idsJsModule || {}));
@@ -39,11 +48,8 @@ const idsJsModule = (function ($, ids) {
   'use strict';
   $(document).ready(function () {
     idsJsModule.sticky('#footerline',$(window));
-    document.getElementById(obj).addEventListener('touchend', (e) => {
-      e.preventDefault();
-      var touch = e.touches[0];
-      console.log('Test', touch.pageX + " - " + touch.pageY);
-    }, false);
+    ($(window).width() < 1024) ? $('nav').toggle() : console.log('Desktop ui');
+    idsJsModule.animInOut('btn_mobilenav');
   });
 }(jQuery, idsJsModule));
 
