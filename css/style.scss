@@ -125,7 +125,8 @@ main {
   
   header {
     @include span(12 last);
-    
+      margin-top: ($baselinehight * $basefontsize) * 2;
+      
     @include susy-breakpoint($bp1024, $susy) {
       @include span(8 last);
       margin-top: ($baselinehight * $basefontsize) * 6;
@@ -145,16 +146,20 @@ main {
     z-index: 10;
     background-color: #fff;
     padding-top: ($baselinehight * $basefontsize) * 2;
+    display: block;
     
     ul {
       list-style: none outside;
-      padding: 0 0 0 1em;
+      padding: 0 0 ($baselinehight * $basefontsize) 0;
       margin: 0;
       
       li {
+        border-bottom: 1px solid #D4D4D4;
+        
         a {
+          width: 100%;
           text-decoration: none;
-          line-height: $baselinehight * 1.5;
+          line-height: $baselinehight * 2;
           color: #000;
         }
       }
@@ -180,6 +185,7 @@ main {
   display: block;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: #F5F5F5;
   z-index: 15;
@@ -210,26 +216,55 @@ main {
 
   width: 100%;
   display: block;
-  background-color: #0A1C07;
-  height: 10 * ($basefontsize * $baselinehight);
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: $bp1700) {
+    height: 10 * ($basefontsize * $baselinehight);
+    background-color: #0A1C07;
+  }
 
   footer {
-    @include container;
+   
     @include set-font(normal, normal, normal, $navfontsize, $baselinehight, $abeezee, sans-serif);
-    color: #fff;
-    padding-top: $basefontsize * $baselinehight;
-  
+
     div {
-      @include span(12);
     
       div {
-       @include span(3.9);
-    
-        p {
-          margin: 0 1em;
-        }
+        @include span(12 last);
+        border-top: 1px solid #D4D4D4;
+        padding: ($basefontsize * $baselinehight) 0;
       }
+    
     }
+
+      
+      @include susy-breakpoint($bp1024, $susy) {
+        
+        
+        div {
+    
+          div {
+           @include span(6); 
+        
+          } // end of inner div
+        } // end of outer div
+        
+      }
+      
+      @include susy-breakpoint($bp1700, $susy) {
+        
+        
+        div {
+    
+          div {
+            @include span(3);
+        
+          } // end of inner div
+        } // end of outer div
+    } // end of $bp1700
   } // end of footer
 } // end of id footerline
 
