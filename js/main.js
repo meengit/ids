@@ -32,15 +32,13 @@ var idsJsModule = function ($, ids) {
     }); // end of bind
   }; // end of ids.sticky
 
-  ids.animInOut = function (obj) {
-    document.getElementById(obj).addEventListener('touchend', function (e) {
+  ids.toggleTop = function (obj, evt) {
+    document.getElementById(obj).addEventListener(evt, function (e) {
       e.preventDefault();
-      var touch = e.touches[0];
-      // console.log(e.target);
       $('nav').animate({
         height: 'toggle'
       }, 200, function () {
-        console.log('Animation complete');
+        $('nav').is(':visible') ? $('article').css('display', 'none') : $('article').css('display', 'block');
       }); // end of nav.animate
     }, false);
   }; // end of ids.nav
@@ -51,9 +49,9 @@ var idsJsModule = function ($, ids) {
   'use strict';
 
   $(document).ready(function () {
-    idsJsModule.sticky('#footerline', $(window));
-    $(window).width() < 1024 ? $('nav').toggle() : console.log('Desktop ui');
-    idsJsModule.animInOut('btn_mobilenav');
+    //($(window).width() < 1024) ? $('nav').toggle() : idsJsModule.sticky('#footerline',$(window));
+    idsJsModule.toggleTop('btn_mobilenav', 'click');
+    idsJsModule.toggleTop('btn_mobilenav', 'touchend');
   });
 })(jQuery, idsJsModule);
 //# sourceMappingURL=main.js.map

@@ -1,4 +1,4 @@
-const idsJsModule = (function ($, ids) {
+const idsJsModule = (($, ids) => {
   'use strict';
   ids.sticky = (e, t) => { // element[string], target[obj]
     t.bind('load', () => {
@@ -29,27 +29,25 @@ const idsJsModule = (function ($, ids) {
     }); // end of bind
   } // end of ids.sticky
   
-  ids.animInOut = (obj) => {
-    document.getElementById(obj).addEventListener('touchend', (e) => {
+  ids.toggleTop = (obj, evt) => {
+    document.getElementById(obj).addEventListener(evt, (e) => {
       e.preventDefault();
-      var touch = e.touches[0];
-      // console.log(e.target);
       $('nav').animate({
           height: 'toggle'
-        }, 200, function() {
-          console.log('Animation complete');
+        }, 200, () => {
+        ($('nav').is(':visible')) ? $('article').css('display','none') : $('article').css('display','block');
       }); // end of nav.animate
     }, false);
   } // end of ids.nav
   return ids;
-}(jQuery, idsJsModule || {}));
+})(jQuery, idsJsModule || {});
 
-(function ($, idsJsModule) {
+(($, idsJsModule) => {
   'use strict';
-  $(document).ready(function () {
-    idsJsModule.sticky('#footerline',$(window));
-    ($(window).width() < 1024) ? $('nav').toggle() : console.log('Desktop ui');
-    idsJsModule.animInOut('btn_mobilenav');
+  $(document).ready(() => {
+    ($(window).width() < 1024) ? $('nav').toggle() : idsJsModule.sticky('#footerline',$(window));
+    idsJsModule.toggleTop('btn_mobilenav','click');
+    idsJsModule.toggleTop('btn_mobilenav','touchend');
   });
-}(jQuery, idsJsModule));
+})(jQuery, idsJsModule);
 
