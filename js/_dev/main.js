@@ -51,3 +51,5 @@ const idsJsModule = (($, ids) => {
   });
 })(jQuery, idsJsModule);
 
+console.log(window);
+
