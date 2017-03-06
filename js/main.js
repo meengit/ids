@@ -49,7 +49,7 @@ var idsJsModule = function ($, ids) {
   'use strict';
 
   $(document).ready(function () {
-    //($(window).width() < 1024) ? $('nav').toggle() : idsJsModule.sticky('#footerline',$(window));
+    $(window).width() < 1024 ? $('nav').toggle() : idsJsModule.sticky('#footerline', $(window));
     idsJsModule.toggleTop('btn_mobilenav', 'click');
     idsJsModule.toggleTop('btn_mobilenav', 'touchend');
   });
