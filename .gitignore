@@ -58,3 +58,4 @@ _site/
 .sass-cache/
 .jekyll-metadata
 node_modules/
+.compass
