@@ -4,11 +4,7 @@
 title: Adobe InDesign Scripting 
 
 gems:
-  - jekyll-babel
   - jekyll-compass
-
-# jekyll-babel, please do not process .js files
-babel_js_extensions: 'es6, babel, jsx'
 
 markdown: kramdown
 
