@@ -1,0 +1,49 @@
+@import 'susy';
+
+//
+// Working with breakpoints
+// http://zerosixthree.se/detecting-media-queries-with-javascript/
+//
+
+@mixin define-breakpoint($name) {
+  &::after {
+    content: $name;
+    display: none;
+  }
+}
+
+$bp-small: 768px;
+$bp-medium: 992px;
+$bp-large: 1300px;
+
+//
+// Fonts
+//
+
+@mixin font-face($style, $file, $category:'') {
+  $filepath: 'fonts/' + $file;
+  @font-face {
+    font-family: '#{$style}';
+    src: url($filepath + '.eot');                                            // IE9 Compat Modes
+    src: url($filepath + '.eot?#iefix') format('embedded-opentype'),         // IE6-IE8
+         url($filepath + '.woff2') format('woff2'),                          // Super Modern Browsers
+         url($filepath + '.woff') format('woff'),                            // Pretty Modern Browsers
+         url($filepath + '.ttf')  format('truetype'),                        // Safari, Android, iOS
+         url($filepath + '.svg#svgFontName') format('svg'),                  // Legacy iOS
+         local('#{$file}');
+  };
+
+  %#{$style} {
+    font: {
+      @if $category != ''{
+        family: '#{$style}',#{$category};
+      } @else {
+        family: '#{$style}';
+      } // end of else
+    };
+  };
+}
+
+@mixin set-font($stretch, $variant, $weight, $size, $line, $family, $fallback, $default-padding: false) {
+  font: #{$stretch} #{$variant} #{$weight} #{$size}/#{$line} #{$family}, #{$fallback};
+}
