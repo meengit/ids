@@ -1,5 +1,12 @@
+import { Mql, sticky } from './utils';
+
+
+console.log('in main');
+
+
+
+/*
 const idsJsModule = (($, ids) => {
-  'use strict';
   ids.sticky = (e, t) => { // element[string], target[obj]
     t.bind('load', () => {
       let eHeight = 0, 
@@ -43,12 +50,15 @@ const idsJsModule = (($, ids) => {
 })(jQuery, idsJsModule || {});
 
 (($, idsJsModule) => {
-  'use strict';
+  let mql = new Mql();
+  mql.MediaQueryListener();
+
   $(document).ready(() => {
-    ($(window).width() < 1024) ? $('nav').toggle() : idsJsModule.sticky('#footerline',$(window));
+    ($(window).width() < 1024) ? $('nav').toggle() : sticky('#footerline',$(window));
     idsJsModule.toggleTop('btn_mobilenav','click');
     idsJsModule.toggleTop('btn_mobilenav','touchend');
   });
 })(jQuery, idsJsModule);
 
 console.log(window);
+*/
