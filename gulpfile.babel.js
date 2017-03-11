@@ -6,6 +6,18 @@ import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync';
 import cp from 'child_process';
 
+
+import browserify from 'browserify';
+import watchify from 'watchify';
+import babelify from 'babelify';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import merge from 'utils-merge';
+import rename from 'gulp-rename';
+import uglify from 'gulp-uglify';
+import gutil from 'gulp-util';
+import chalk from 'chalk';
+
 const JS_PATH = './_js';
 
 let jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -34,6 +46,62 @@ gulp.task('babel', () => {
     .pipe(gulp.dest('./js'));
 });
 
+gulp.task('concat', () => {
+  return gulp.src([JS_PATH + '/libs/*.js', 'js/*.min.js'])
+    .pipe(sourcemaps.init())
+    .pipe(concat('scripts.js'))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./js'));
+});
+
+gulp.task('watchify', function () {
+  let args = merge(watchify.args, { debug: true })
+  let bundler = watchify(browserify(JS_PATH + '/main.js', args)).transform(babelify, { /* opts */ })
+  bundle_js(bundler)
+
+  bundler.on('update', function () {
+    bundle_js(bundler)
+  })
+})
+
+/* nicer browserify errors */
+function map_error(err) {
+  if (err.fileName) {
+    // regular error
+    gutil.log(chalk.red(err.name)
+      + ': '
+      + chalk.yellow(err.fileName.replace(__dirname + JS_PATH, ''))
+      + ': '
+      + 'Line '
+      + chalk.magenta(err.lineNumber)
+      + ' & '
+      + 'Column '
+      + chalk.magenta(err.columnNumber || err.column)
+      + ': '
+      + chalk.blue(err.description))
+  } else {
+    // browserify error..
+    gutil.log(chalk.red(err.name)
+      + ': '
+      + chalk.yellow(err.message))
+  }
+
+  this.end()
+}
+
+function bundle_js(bundler) {
+  return bundler.bundle()
+    .on('error', map_error)
+    .pipe(source('scripts.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('js/'))
+    .pipe(rename('scripts.min.js'))
+    .pipe(sourcemaps.init({ loadMaps: true }))
+      // capture sourcemaps from transforms
+     .pipe(uglify())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('js'))
+}
 
 gulp.task('jekyll-build', function (done) {
   browserSync.notify(messages.jekyllBuild);
@@ -45,7 +113,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
   browserSync.reload();
 });
 
-gulp.task('browser-sync', ['babel', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['jekyll-build'], function() {
   browserSync({
     server: {
       baseDir: '_site'
@@ -54,9 +122,8 @@ gulp.task('browser-sync', ['babel', 'jekyll-build'], function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(JS_PATH + '/**/*.js', ['lint']);
-  gulp.watch(JS_PATH + '/**/*.js', ['babel']);
+  gulp.watch(JS_PATH + '/**/*.js', ['lint', 'watchify']);
   gulp.watch(['*.html', '_layouts/*.html', '_contents/*'], ['jekyll-rebuild']);
 });
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['watchify', 'browser-sync', 'watch']);
