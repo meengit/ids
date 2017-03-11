@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+  <script src="{{ site.baseurl }}/js/libs/jquery-3.1.1.min.js"></script>
 </head>
 <body>
   <div id="topline">
@@ -23,10 +24,10 @@
       <img alt="Logo medien form farbe" src="{{ site.baseurl }}/img/logobar/medienformfarbe.jpg">
     </a>
   </div>
+  <nav>
+    {% include nav.html nav=site.data.menu %}
+  </nav>
   <main>
-    <nav>
-      {% include nav.html nav=site.data.menu %}
-    </nav>
     <header>
       <h1>{{ page.title }}</h1>
     </header>
@@ -63,6 +64,6 @@
       </div>
     </footer>
   </div>
-  <script src="{{ site.baseurl }}/js/scripts.js"></script>
+  <script src="{{ site.baseurl }}/js/scripts.min.js"></script>
 </body>
 </html>
