@@ -29,7 +29,7 @@ gulp.task('lint', () => {
   return gulp.src([JS_PATH + '/**/*.js', '!' + JS_PATH + '/libs/**'])
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    // .pipe(eslint.failAfterError());
 });
 
 gulp.task('babel', () => {
@@ -105,7 +105,7 @@ function bundle_js(bundler) {
 
 gulp.task('jekyll-build', function (done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config_dev.yml'], {stdio: 'inherit'})
+  return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config_dev.yml', '--watch'], {stdio: 'inherit'})
     .on('close', done);
 });
 
@@ -122,8 +122,8 @@ gulp.task('browser-sync', ['jekyll-build'], function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(JS_PATH + '/**/*.js', ['lint', 'watchify']);
-  gulp.watch(['*.html', '_layouts/*.html', '_contents/*'], ['jekyll-rebuild']);
+  gulp.watch(JS_PATH + '/**/*.js', ['watchify', 'jekyll-rebuild', 'lint']);
+  gulp.watch(['*.html', '_layouts/*.html', '_contents/*', '_compass/*'], ['jekyll-rebuild']);
 });
 
 gulp.task('default', ['watchify', 'browser-sync', 'watch']);
