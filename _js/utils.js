@@ -54,6 +54,20 @@ export function sticky(e, t) {
     pos();
     $(window).scroll(pos).resize(pos);
   });
-    // end of bind
+  // end of bind
 }
-  // end of ids.sticky
+// end of ids.sticky
+
+export function toggleTop(obj, evt) {
+  console.log('in toggletop');
+  document.getElementById(obj).addEventListener(evt, (e) => {
+    e.preventDefault();
+    $('nav').animate({
+      height: 'toggle'
+    }, 200, () => {
+    ($('nav').is(':visible')) ? $('article').css('display', 'none') : $('article').css('display', 'block');
+    });
+    // end of nav.animate
+  }, false);
+}
+// end of ids.nav
