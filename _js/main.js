@@ -1,64 +1,27 @@
-import { Mql, sticky } from './utils';
+import { Mql, sticky, toggleTop } from './utils';
 
-
-console.log('in main');
-
-
-
-/*
-const idsJsModule = (($, ids) => {
-  ids.sticky = (e, t) => { // element[string], target[obj]
-    t.bind('load', () => {
-      let eHeight = 0, 
-          eTop = 0, 
-          $e = $(e);
-    
-      pos();
-    
-      function pos() {
-        eHeight = $e.height();
-        eTop = (t.scrollTop()+t.height()-eHeight)+'px';
-        if ( ($(document.body).height()) < t.height()) {
-          $e.css({
-            position: "absolute"
-          }).animate({
-              top: eTop
-          });
-        } else {
-          $e.css({
-            position: "static"
-          });
-        } // end of if else
-      } // end of fn pos
-      
-      $(window).scroll(pos).resize(pos);
-      
-    }); // end of bind
-  } // end of ids.sticky
-  
-  ids.toggleTop = (obj, evt) => {
-    document.getElementById(obj).addEventListener(evt, (e) => {
-      e.preventDefault();
-      $('nav').animate({
-          height: 'toggle'
-        }, 200, () => {
-        ($('nav').is(':visible')) ? $('article').css('display','none') : $('article').css('display','block');
-      }); // end of nav.animate
-    }, false);
-  } // end of ids.nav
-  return ids;
-})(jQuery, idsJsModule || {});
-
-(($, idsJsModule) => {
+(($) => {
   let mql = new Mql();
   mql.MediaQueryListener();
 
-  $(document).ready(() => {
-    ($(window).width() < 1024) ? $('nav').toggle() : sticky('#footerline',$(window));
-    idsJsModule.toggleTop('btn_mobilenav','click');
-    idsJsModule.toggleTop('btn_mobilenav','touchend');
-  });
-})(jQuery, idsJsModule);
+  $(window).on('breakpoint-change', (e, breakpoint) => {
+    if (breakpoint.search('small') >= 0) {
+      $(document).ready(() => {
+        $(window).width() < 1024 ? $('nav').toggle() : sticky('#footerline', $(window));
+        toggleTop('btn_mobilenav', 'click');
+        toggleTop('btn_mobilenav', 'touchend');
+      });
+      console.log('small'); // eslint-disable-line no-console
+    }
 
-console.log(window);
-*/
+    if (breakpoint.search('medium') >= 0) {
+      // document.body.innerHTML = 'CSS Breakpoint screen-medium';
+      // console.log('medium');
+    }
+
+    if (breakpoint.search('large') >= 0) {
+      // document.body.innerHTML = 'CSS Breakpoint screen-large';
+      // console.log('large');
+    }
+  });
+})(jQuery);
