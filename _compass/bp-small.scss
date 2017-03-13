@@ -1,0 +1,8 @@
+@import 'susy';
+@import 'mixins.scss';
+
+body {
+  @include susy-breakpoint($bp-small) {
+    @include define-breakpoint('bp-small');
+  }  
+}

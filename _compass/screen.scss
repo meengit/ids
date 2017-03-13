@@ -23,26 +23,40 @@ $susy: (
   global-box-sizing: border-box
 );
 
+//
+// Fonts
+//
+
 // @include font-face(__Style__, __File__, '');
+$basefontsize: 16px;
+$baselinehight: 1.38em;
+
 
 //
 // Styles
 //
 
+$lightgrey: #f5f5f5;
+
+html {
+  @include set-font(normal, normal, 300, $basefontsize, $baselinehight, 'Open Sans', sans-serif); 
+}
+
 body {
-  // @include set-font(normal, normal, normal, $basefontsize, $baselinehight, '__Name__', sans-serif); 
-
   @include define-breakpoint('mini');
-
-  @include susy-breakpoint($bp-small) {
-    @include define-breakpoint('bp-small');
+  
+  nav {
+    @include set-font(normal, normal, 600, $basefontsize, $baselinehight, 'Open Sans', sans-serif); 
   }
 
-  @include susy-breakpoint($bp-medium) {
-    @include define-breakpoint('bp-medium');
-  }
-
-  @include susy-breakpoint($bp-large) {
-    @include define-breakpoint('bp-large');
+  #topline {
+    border-top: 8px solid $lightgrey;
+    display: block;
+    height: 8px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 15;
   }
 } // end of body
