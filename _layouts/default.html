@@ -10,19 +10,21 @@
 <body>
   <div id="topline">
     <div id="btn_mobilenav">
-      MENU 
+      <p>MENU</p> 
+    </div>
+    <div id="logobar">
+      <div>
+    <a href="#" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="#">
+    </a>
+    <a href="#" alt="Webseite Grafisches Forum Zürich" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="#">
+    </a>
+    <a href="#" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="#">
+    </a>
     </div>
   </div>
-  <div id="logobar">
-    <a href="https://github.com/meengit/ids" alt="GitHub Account A. Eberhard" target="_blank">
-      <img alt="Logo GitHub" src="{{ site.baseurl }}/img/logobar/github.png">
-    </a>
-    <a href="http://gfz.ch/" alt="Webseite Grafisches Forum Zürich" target="_blank">
-      <img alt="Logo Grafisches Forum Zürich" src="{{ site.baseurl }}/img/logobar/gfz.png">
-    </a>
-    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
-      <img alt="Logo medien form farbe" src="{{ site.baseurl }}/img/logobar/medienformfarbe.jpg">
-    </a>
   </div>
   <nav>
     {% include nav.html nav=site.data.menu %}
@@ -34,9 +36,7 @@
     <article>
       <p>{{ content }}</p>
     </article>
-  </main>
-  <div id="footerline">
-    <footer>
+    <footer id="footerline">
       <div>
         <div>
         <p>Projekt Adobe InDesign Scripting</p>
@@ -63,7 +63,7 @@
       </div>
       </div>
     </footer>
-  </div>
+  </main>
   <script src="{{ site.baseurl }}/js/scripts.min.js"></script>
 </body>
 </html>
