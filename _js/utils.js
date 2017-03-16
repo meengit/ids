@@ -28,6 +28,11 @@ export class Mql {
   }
 }
 
+export function removeEvtListener(element) {
+  let elClone = element.clone(true);
+  element.replaceWith(elClone);
+}
+
 // element[string], target[obj]
 export function sticky(e, t) {
   t.bind('load', () => {
@@ -59,13 +64,12 @@ export function sticky(e, t) {
 // end of ids.sticky
 
 export function toggleTop(obj, evt) {
-  console.log('in toggletop');
   document.getElementById(obj).addEventListener(evt, (e) => {
     e.preventDefault();
     $('nav').animate({
       height: 'toggle'
     }, 200, () => {
-    ($('nav').is(':visible')) ? $('article').css('display', 'none') : $('article').css('display', 'block');
+    ($('nav').is(':visible')) ? $('body').addClass('no-scroll') : $('body').removeClass('no-scroll');
     });
     // end of nav.animate
   }, false);
