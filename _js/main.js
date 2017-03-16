@@ -9,7 +9,7 @@ import { Mql, removeEvtListener, toggleTop } from './utils';
     let imgs = $(obj).find('img');
     let logos = [ config.GHB_LOGO, config.GFZ_LOGO, config.MFF_LOGO ];
     let urls = [ config.GHB_LINK, config.GFZ_LINK, config.MFF_LINK ];
-    let logoBasePath = config.LOCATION.origin + config.IMG_DIR + config.LOGOBAR;
+    let logoBasePath = config.LOCATION.origin + '/ids' + config.IMG_DIR + config.LOGOBAR;
 
     function setAttr(elements, values, attribute) {
       $(elements).each(function (index, element) {
