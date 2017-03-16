@@ -16,6 +16,5 @@ Entwickelt durch: A. Eberhard, Autor(en) und Korrektor(en): Diverse, Lizenz: [MI
 
 ## Kontakt
 
-- [Newsletter](http://newsletter.freihandlabor.com/h/r/96CC5C2CC4B046FA), informiert monatlich über den aktuellen Stand der Dokumentation
 - Fragen/Fehler o. ä. betreffend Skript: **idsdocs@gfz.ch** oder via [GitHub Issues](https://github.com/meengit/ids/issues) (nur für Nutzer mit GitHub-Account)
 - Supportanfragen: **idshelp@gfz.ch**

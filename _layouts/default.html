@@ -2,40 +2,41 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
-  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Open+Sans&amp;subset=latin-ext" rel="stylesheet"> 
-  <script src="https://use.typekit.net/lll5bfl.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  <link href="{{ site.baseurl }}/css/style.css" rel="stylesheet">
-  <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
-  
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css" />
+  <script src="{{ site.baseurl }}/js/libs/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-  <div id="topline"></div>
-  <div id="logobar">
-    <a href="#0" alt="GitHub Account A. Eberhard" target="_blank">
-      <img alt="Logo GitHub" src="{{ site.baseurl }}/img/logobar/github.png">
+  <div id="topline">
+    <div id="btn_mobilenav">
+      <p>MENU</p> 
+    </div>
+    <div id="logobar">
+      <div>
+    <a href="#" alt="GitHub Account A. Eberhard" target="_blank">
+      <img alt="Logo GitHub" src="#">
     </a>
-    <a href="http://gfz.ch/ids" alt="Projektberschreibung auf gfz.ch" target="_blank">
-      <img alt="Logo Grafisches Forum Zürich" src="{{ site.baseurl }}/img/logobar/gfz.png">
+    <a href="#" alt="Webseite Grafisches Forum Zürich" target="_blank">
+      <img alt="Logo Grafisches Forum Zürich" src="#">
     </a>
-    <a href="http://www.medienformfarbe.ch/" alt="Kursausschreibung medien form farbe" target="_blank">
-      <img alt="Logo medien form farbe" src="{{ site.baseurl }}/img/logobar/medienformfarbe.jpg">
+    <a href="#" alt="Kursausschreibung medien form farbe" target="_blank">
+      <img alt="Logo medien form farbe" src="#">
     </a>
+    </div>
   </div>
+  </div>
+  <nav>
+    {% include nav.html nav=site.data.menu %}
+  </nav>
   <main>
-    <nav>
-      {% include nav.html nav=site.data.menu %}
-    </nav>
     <header>
       <h1>{{ page.title }}</h1>
     </header>
     <article>
       <p>{{ content }}</p>
     </article>
-  </main>
-  <div id="footerline">
-    <footer>
+    <footer id="footerline">
       <div>
         <div>
         <p>Projekt Adobe InDesign Scripting</p>
@@ -61,8 +62,8 @@
         <p>8005 Zürich</p>
       </div>
       </div>
-
-  </footer>
-  </div>
+    </footer>
+  </main>
+  <script src="{{ site.baseurl }}/js/scripts.min.js"></script>
 </body>
 </html>
