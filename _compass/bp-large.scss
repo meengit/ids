@@ -4,6 +4,27 @@
 body {
   @include susy-breakpoint($bp-large) {
     @include define-breakpoint('bp-large');
+
+    main {
+      article, 
+      footer, 
+      header {
+        @include pre(3);
+        @include span(10 first);
+        @include post(2);
+        border-left: 1px solid $lightgrey;
+        padding-left: span(1);
+      }
+
+      header {
+        margin-top: 0;
+        padding-top: 8rem;
+      }
+    }
+
+    nav {
+      width: span(3);
+    }
   }
 }
-  
+ 
