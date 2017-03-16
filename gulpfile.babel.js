@@ -28,8 +28,9 @@ let messages = {
 gulp.task('lint', () => {
   return gulp.src([JS_PATH + '/**/*.js', '!' + JS_PATH + '/libs/**'])
     .pipe(eslint())
+    .on('error', map_error)
     .pipe(eslint.format())
-    // .pipe(eslint.failAfterError());
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('babel', () => {
@@ -86,7 +87,6 @@ function map_error(err) {
       + chalk.yellow(err.message))
   }
 
-  this.end()
 }
 
 function bundle_js(bundler) {
@@ -105,7 +105,7 @@ function bundle_js(bundler) {
 
 gulp.task('jekyll-build', function (done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config_dev.yml', '--watch'], {stdio: 'inherit'})
+  return cp.spawn( jekyll , ['build', '--config', '_config.yml,_config_dev.yml', /*'--watch'*/], {stdio: 'inherit'})
     .on('close', done);
 });
 
