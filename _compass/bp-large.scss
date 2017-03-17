@@ -1,6 +1,10 @@
 @import 'susy';
 @import 'mixins.scss';
 
+html {
+  @include set-font(normal, normal, 300, $basefontsize * 1.2, $baselinehight * 1.1, 'Open Sans', sans-serif);   
+}
+
 body {
   @include susy-breakpoint($bp-large) {
     @include define-breakpoint('bp-large');

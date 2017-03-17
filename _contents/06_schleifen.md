@@ -80,9 +80,9 @@ Die `do-while`-Schleife ist eine Variante der `while`-Schleife. Sie unterscheide
 
 Ein detailliertes [Beispiel][15] gibts auf den Hilfeseiten des [Mozilla Developer Networks][9] – wobei die Anweisung `console.log()` im Adobe ExtendScript Toolkit jeweils durch `$.writeln()` ersetzt werden muss.
 
-#### for-Schleife
+### for-Schleife
 
-	for(Zählvariable mit Steuerwert; Bedingung; Veränderung der Zählvariable;){
+	for(Zählvariable; Bedingung; Veränderung Zählvariable;){
 	  [Anweisungen]
 	}
 

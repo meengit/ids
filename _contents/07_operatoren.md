@@ -22,7 +22,7 @@ Operator | Bedeutung | Beschreibung | Beispiel |
 `%` | Modulo | Gibt den Rest einer Division zurück (**ACHTUNG: Mögliche Rundungsprobleme bei Gleitkommazahlen!**) | `15 % 9 (= 6)` |
 `++` | Inkrement | Operator erhöht den Wert des Operanden um 1 | wert++ |
 `--` | Dekrement | Operator vermindert den Wert des Operanden um 1 | wert-- |
-WICHTIG | Inkrement/Dekrement | **WICHTIG**: `++i` = Operator **vor** Operanden -> Manipulation des Wertes **vor** dessen Verwendung, `i++` = Operator **nach** Operanden -> Manipulation des Wertes **nach** dessen Verwendung | |
+WICHTIG | Inkrement, Dekrement | **WICHTIG**: `++i` = Operator **vor** Operanden -> Manipulation des Wertes **vor** dessen Verwendung, `i++` = Operator **nach** Operanden -> Manipulation des Wertes **nach** dessen Verwendung | |
 
 **Punkt-vor-Strich-Regel**: Gilt auch in JavaScript – inkl. die Verwendung von Klammern für arithmetische Operationen.
 

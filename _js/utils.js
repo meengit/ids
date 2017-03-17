@@ -28,6 +28,17 @@ export class Mql {
   }
 }
 
+export function resizeToViewportHeight(element) {
+  let eleH = element.height();
+  let winH = $(window).height();
+  let heaH = $('header').height();
+  let fotH = $('footer').height();
+
+  if (winH - heaH - fotH > eleH + heaH + fotH) {
+    element.css('height', (winH - heaH - fotH) + 'px');
+  }
+}
+
 export function removeEvtListener(element) {
   let elClone = element.clone(true);
   element.replaceWith(elClone);

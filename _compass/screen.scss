@@ -33,19 +33,37 @@ body {
   }
 
   code {
-    @include set-font(normal, normal, 200, .75rem, $baselinehight, 'Menlo', monospace);
-  }
+        font-family: 'Menlo', monospace;
+        font-size: .75rem;
+      }
 
   h1 {
     @include set-font(normal, normal, 600, 3.6rem, $baselinehight * .8, 'Dosis', sans-serif);
     margin-bottom: 1rem;
   }
 
+  h2,
+  h3 {
+    padding-bottom: .75rem;
+  }
+
   h2 {
     @include set-font(normal, normal, 200, 2.4rem, $baselinehight * .8, 'Dosis', sans-serif);
     border-bottom: 1px solid $lightgrey;
     margin-bottom: 1rem;
-    padding-bottom: .75rem;
+  }
+
+  h3 {
+    @include set-font(normal, normal, 600, 1rem, $baselinehight * .8, 'Open Sans', sans-serif);
+  }
+
+  h4 {
+    @include set-font(normal, normal, 400, 1rem, $baselinehight * .8, 'Open Sans', sans-serif);
+    font-style: italic;
+  }
+
+  p {
+    hyphens: auto;
   }
 
   main {
@@ -70,7 +88,9 @@ body {
       }
 
       img {
-        width: 100%;
+        width: 89%;
+        padding: 5%;
+        border: 1px solid $lightgrey;
       }
 
       div.highlighter-rouge, 
@@ -86,9 +106,16 @@ body {
       }
     }
 
+    em {
+      font-style: italic;
+    }
+
     footer {
       border-top: 1px solid $lightgrey;
+      margin-top: 3rem;
       padding-top: 1rem;
+      font-size: .8rem;
+      line-height: $baselinehight;
 
       > div {
         div {
@@ -125,8 +152,17 @@ body {
         a {
           text-decoration: none;
         }
+
+        a.active {
+          padding-bottom: .1rem;
+          border-bottom: 3px solid $blk;
+        }
       }
     }
+  }
+
+  strong {
+    font-weight: 600;
   }
 
   table {
@@ -216,3 +252,4 @@ body {
 @import 'bp-small.scss';
 @import 'bp-medium.scss';
 @import 'bp-large.scss';
+@import 'bp-extra.scss';

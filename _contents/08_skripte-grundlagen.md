@@ -19,16 +19,18 @@ Das gesamte Skript `Sprachelemente.jsx` kann hier heruntergeladen werden: [Downl
 ### Inhalt `sprachelemente.jsx`
 
 ```javascript
-/***************************************************************************************
- * sprachelemente.jsx                                                                  *
- * Kurs Adobe InDesign Scripting, Berufsschule für Gestaltung Zürich medien form farbe *
- * Author: A. Eberhard, Grafisches Forum Zürich GFZ                                    *
- * Lizenz: MIT                                                                         *
- *                                                                                     *
- * WICHTIG:                                                                            *
- * Platzhalter für individuelle Anweisungen/Namen sind durch Underlines & VERSALIEN    *
- * gekennzeichnet. Zum Beispiel: __ANWEISUNGEN__                                       *
- ***************************************************************************************/
+/***************************************************************
+ * sprachelemente.jsx                                          *
+ * Kurs Adobe InDesign Scripting, Berufsschule für Gestaltung  *
+ * Zürich medien form farbe                                    *
+ * Author: A. Eberhard, Grafisches Forum Zürich GFZ            *
+ * Lizenz: MIT                                                 *
+ *                                                             *
+ * WICHTIG:                                                    *
+ * Platzhalter für individuelle Anweisungen/Namen sind durch   *
+ * Underlines & VERSALIEN                                      *
+ * gekennzeichnet. Zum Beispiel: __ANWEISUNGEN__               *
+ **************************************************************/
 
 
 
@@ -51,7 +53,8 @@ Das gesamte Skript `Sprachelemente.jsx` kann hier heruntergeladen werden: [Downl
  **************************************/
  
 // Variablen
-// Schlüsselwort var __BEZEICHNER__ (kein Schlüsselwort) Zuweisungsoperator (=) __WERT__;
+// Schlüsselwort var __BEZEICHNER__ (kein Schlüsselwort) Zuweisungs-
+// operator (=) __WERT__;
 var text01 = 'VW'; // String (Text)
 var text02 = 'Mein Auto ist ein ' + text01 + '.'; // String (Text)
 var num01 = 24; // Number
@@ -67,14 +70,15 @@ var undef;
 // Laufzeitfehlern, aber zu unbrauchbaren Ergebnissen.
 
 // Array
-// Schlüsselwort var __BEZEICHNER__ (kein Schlüsselwort) Zuweisungsoperator (=) [ __WERT__, 
-// __WERT__, __WERT__, __WERT__ ];
+// Schlüsselwort var __BEZEICHNER__ (kein Schlüsselwort) Zuweisungs-
+// operator (=) [ __WERT__,__WERT__, __WERT__, __WERT__ ];
 var arr = ['Apfel', 'Birne', 'Banane', 24, true]; // Array
 var concat = arr[0] + ' und ' + arr[1] + ' sind Früchte.';
 
 // Object
-// Schlüsselwort var __BEZEICHNER__ (darf kein Schlüsselwort sein) Zuweisungsoperator (=) 
-// { __SCHLÜSSEL__: __WERT__, __SCHLÜSSEL__:__WERT__, __SCHLÜSSEL__:__WERT__};
+// Schlüsselwort var __BEZEICHNER__ (darf kein Schlüsselwort sein) 
+// Zuweisungsoperator (=) { __SCHLÜSSEL__: __WERT__, __SCHLÜSSEL__:__WERT__, 
+// __SCHLÜSSEL__:__WERT__};
 var obj = {
             a: 'A im ABC',
             b: 'B im ABC',
@@ -89,7 +93,7 @@ var obj = {
  **************************************/
  
 // Funktionen definieren
-// Schlüsselwort function __BEZEICHNER__ (darf kein Schlüsselwort sein)] (__PARAMETER__) {}
+// Schlüsselwort function __BEZEICHNER__ (kein Schlüsselwort)] (__PARAMETER__) {}
 
 // Funkton ohne Parameter definieren
 function fn01() {
@@ -164,7 +168,8 @@ if(simpleIF01 == 15) {
   if(simpleIF02 === '30') {
     $.writeln('Verschachteltes \"if\": Beide \"if\" trafen zu.');
     if(multiIF) {
-      $.writeln('Verschachteltes \"if\": Einfache Prüfung var "multiIF" war positiv.');
+      $.writeln('Verschachteltes \"if\": Einfache Prüfung ' +
+        'var "multiIF" war positiv.');
     }
   }
 }

@@ -14,12 +14,12 @@ Das erste Skript hat die Aufgabe, ein Dokument zu erstellen. Dieses wird nach de
 app.documents.add();
 ```
 
-[\[ Download script.001.jsx as .zip \]](https://github.com/grafisches-forum-zh/scripting/wiki/source/script.001.zip) 
+[\[ Download script.001.jsx as .zip \]](https://meengit.github.io/ids/source/ids-scripts_1.0.0/script.001.zip) 
 
 
 In JavaScript wird über die Punkt-Notation durch das *Dokument Object Model, kurz DOM* navigiert. Die Grundlagen dazu sind in diesem Wiki unter [03. JavaScript Grundlagen ](https://github.com/grafisches-forum-zh/scripting/wiki/03.-JavaScript-Grundlagen) erklärt. Dort ist unter anderem diese Grafik aufgeführt:
 
-![Adobe InDesign Object Model](img/idObjectModel.png) 
+![Adobe InDesign Object Model](/img/idObjectModel.png) 
 
 *(Quelle: Adobe InDesign CS6 Scripting Tutorial.pdf)*
 
@@ -45,7 +45,7 @@ var newDoc = app.documents.add();
 newDoc;
 ```
 
-[\[ Download script.002.jsx as .zip \]](https://github.com/grafisches-forum-zh/scripting/wiki/source/script.002.zip) 
+[\[ Download script.002.jsx as .zip \]](https://meengit.github.io/ids/source/ids-scripts_1.0.0/script.002.zip) 
 
 Rudimentär formuliert passiet folgendes: Adobe InDesign erstellt ein neues Dokument. Die Variable `newDoc` referenziert das neue Dokument und all seine Funktionen/Methoden und Eigenschaften. Zu beachten ist, dass der Interpreter von rechts nach links und von innen nach aussen arbeitet. Das heisst, er erstellt zuerst das Dokument und weist es erst anschliessend der Variable `newDoc` zu. 
 
@@ -70,7 +70,7 @@ var newDoc = app.documents.add();
 app.activeDocument.save(new File('~/Desktop/myname.indd'));
 ```
 
-[\[ Download script.003.jsx as .zip \]](https://github.com/grafisches-forum-zh/scripting/wiki/source/script.003.zip) 
+[\[ Download script.003.jsx as .zip \]](https://meengit.github.io/ids/source/ids-scripts_1.0.0/script.003.zip) 
 
 Vereinfacht gesagt, erstellt der Interpreter von Adobe InDesign zuerst ein neues `File`-Objekt (`new File()`). Dieses beinhaltet eine Art Zeiger auf den gewünschten Speicherort und Dateinamen auf dem Betriebssystem – ungeachtet davon, ob dort wirklich ein Dokument existiert oder nicht. Anschliessend ermittelt der Interpreter das soeben erstellte und darum aktive Dokument in Adobe InDesign. Er speichert dieses unter dem gewünschten Pfad und Namen ab. 
 
@@ -128,7 +128,7 @@ else {
 }
 ```
 
-[\[ Download script.004.jsx as .zip \]](https://github.com/grafisches-forum-zh/scripting/wiki/source/script.004.zip) 
+[\[ Download script.004.jsx as .zip \]](https://meengit.github.io/ids/source/ids-scripts_1.0.0/script.004.zip) 
 
 `var doc` referenziert auf einen `String` mit dem Inhalt `~/Desktop/myname.indd`.  Die folgende `$.writeln` Anweisung mit `typeof(doc)` analysiert den Datentyp von `doc` und schreibt diesen zusammen mit einem beschreibenden Text in die *`JavaScript-Konsole`*. `doc` ist zu diesem Zeitpunkt noch eine Instanz vom Typ `String`.  Danach wird `doc` mit sich selbst überschrieben. Bereits vorher wurde erwähnt: Der Interpreter arbeitet von rechts nach links und von innen nach aussen. Er erstellt mit `new File(__ARGUMENT__)` zuerst ein `File`-Objekt auf den Pfad von `doc`. Das übergebene `__ARGUMENT__` ist der `String`, auf den die Variable `doc` bis jetzt verweist. Anschliessend überschreibt der Interpreter den Ursprungswert von `doc` mit dem neuen Wert. Die nächste `$.writeln` Anweisung macht in der *`JavaScript-Konsole`* deutlich, dass sich nun der Typ der Variable geändert hat.  Die nachfolgenden Anweisungen und Schleifen sind durch die Skripte 001 bis 003 sowie  [sprachelemente.jsx](https://github.com/grafisches-forum-zh/scripting/wiki/08.-Skripte-allgemein#inhalt-sprachelementejsx) nachvollziehbar.
 

@@ -13,42 +13,41 @@ JavaScript ist keine objektorientierte, sondern eine objektbasierte Sprache. Ein
 
 Ebenfalls können Objekte Zustände haben. Eine Methode (= Funktion) in einem Objekt wird mit `empfänger.methodenname(Argumente)` aufgerufen. Der «Empfänger» entspricht dem Aufruf des Objektnamens (Objektadresse). Eine Objekteigenschaft wird mit `empfänger.eigenschaft` aufgerufen.
 
-```text
+```javascript
 // Ein Objekt definieren
 
            Zuweisungsoperator                                                                                                    
                    │                                                                                                             
                    │                                                                                                             
                    ▼                                                                                                             
-     var dasObjekt = { ◀───────────────────────────────────────────── «Beginn» des Objekts                                    
-      ▲      ▲        zahl1: 12, ◀──────────────────────── Eigenschaft «zahl1» mit Wert 12   
-      │      │        zahl2: 15, ◀──────────────────────── Eigenschaft «zahl1» mit Wert 15   
-      │      │        rechnen: function(uebergeben){ ◀─────────── Beginn Methode «rechnen»            
-      │      │                                           
-      │      │                   var ergebnis = this.zahl1 + this.zahl2 + uebergeben;                                            
-      │      │                   return ergebnis;                                                                                
-      │      │                                                                                
-      │      │                 } ◀───────────────────────────────── Ende Methode «rechnen»              
-      │      │       } ◀─────────────────────────────────────────────── «Ende» des Objekts                                      
-      │      │                                                                                                                   
-      │      │                                                                                                                   
-      │ Bezeichner                                                                                                               
-      │                                                                                                                          
-      │                                                                                                                          
-Schlüsselwort                                                                                                                    
+     var dasObjekt = {  // «Beginn» des Objekts                             
+      ▲   ▲  zahl1: 12, // Eigenschaft «zahl1» mit Wert 12   
+      │   │  zahl2: 15, // Eigenschaft «zahl1» mit Wert 15  
+      │   │   
+      │   │  // Beginn Methode «rechnen»
+      │   │  rechnen: function(uebergeben){          
+      │   │    var ergebnis = this.zahl1 + 
+      │   │                   this.zahl2 + 
+      │   │                   uebergeben;                                            
+      │   │    return ergebnis;                                                                                
+      │   │           } // Ende Methode «rechnen»              
+      │   │         } // «Ende» des Objekts                                      
+      │   │                                                                                                             
+      │   │                                                                                                             
+      │ Bezeichner                                                                                                      
+      │                                                                                                                 
+      │                                                                                                                
+Schluesselwort                                                                                                                    
 
 
-
-
- // Wert berechnen zahl1 + zahl2 + uebergeben (5)                                                                            
- // Ergebnis JavaScript Konsole: 32                                                                                          
+ // Wert berechnen zahl1 + zahl2 + uebergeben (5)                                                                       
+ // Ergebnis JavaScript Konsole: 32  
  $.writeln(dasObjekt.rechnen(5));                                                                                            
 
- // Eigenschaft zahl1 verändern                                                                                              
+ // Eigenschaft zahl1 verändern  
  dasObjekt.zahl1 = 0;                                                                                                        
 
- // Wert NEU berechnen aus zahl1 (neu) + zahl2 + uebergeben (5)                                                              
- // // Ergebnis JavaScript Konsole: 20                                                                                       
+ // Wert NEU berechnen aus zahl1 (neu) + zahl2 + uebergeben (5)                                                          // Ergebnis JavaScript Konsole: 20
  $.writeln(dasObjekt.rechnen(5));
 ```
 
@@ -136,12 +135,14 @@ function aussen(){
   function innen(){
     document.write(a);
   } 
-  // Funktion «innen» im Scope von «aussen» aufrufen um auf die Variable «a» zuzugreifen.
+  // Funktion «innen» im Scope von «aussen» aufrufen um 
+  // auf die Variable «a» zuzugreifen.
   // innen() aufrufen wenn aussen() aufgerufen wird
   innen(); 
 } 
 
-// wenn aussen() aufgerufen wird, wird "automatisch" innen() ausgeführt
+// wenn aussen() aufgerufen wird, wird "automatisch" 
+// innen() ausgeführt
 aussen(); 
 ```
 
