@@ -51,7 +51,8 @@ if(shownWindow.result == true){
       
       // ... ansonsten: Gib diese Fehlermeldung aus ...
       else {
-        alert('Die Eingabe für den Beginn des Grundlinienrasters war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
+        alert('Die Eingabe für den Beginn des Grundlinienrasters' +
+          ' war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
       }
     }
     
@@ -77,7 +78,8 @@ if(shownWindow.result == true){
         baselineDivision = shownWindow['gridHeight'];
       }
       else {
-        alert('Die Eingabe für den Grundlinienraster war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
+        alert('Die Eingabe für den Grundlinienraster' +
+          ' war keine Zahl oder \"0\"!\nSie bleibt unverändert.');
       }
     }
     catch(err){
@@ -178,19 +180,19 @@ function setConfigWindow() {
 }
 ```
 
-[\[ Download script.009.jsx as .zip \]](https://github.com/grafisches-forum-zh/scripting/wiki/source/script.009.zip) 
+[\[ Download script.009.jsx as .zip \]](https://meengit.github.io/ids/source/ids-scripts_1.0.0/script.009.zip) 
 
 Das Skript 009 erweitert das Skript 008 um die effektive Anwendung der im Dialog-Fenster ermittelten Werte. Weitere Informationen zum Arbeiten mit den Dokumentvoreinstellungen sind unter anderem im *Adobe InDesign Scripting Tutorial* und insbesondere im *Adobe InDesign JavaScript Scripting Guide* zu finden.
 
-In JavaScript respektive Adobe ExtendScript spielt die Position von Funktionen innerhalb des Skripts meist keine Rolle. Der Interpreter liest zuerst alle Funktionen ein und arbeitet anschliessend das Skript ab. Deshalb wird in diesem Skript zur besseren Übersicht der Funktionsblock von ` function setConfigWindow(){ __ANWEISUNGEN__ }` ans Ende kopiert und die `if`-`else`-Verzweigung nach oben genommen.
+In JavaScript respektive Adobe ExtendScript spielt die Position von Funktionen innerhalb des Skripts meist keine Rolle. Der Interpreter liest zuerst alle Funktionen ein und arbeitet anschliessend das Skript ab. Deshalb wird in diesem Skript zur besseren Übersicht der Funktionsblock von `function setConfigWindow(){ __ANWEISUNGEN__ }` ans Ende kopiert und die `if`-`else`-Verzweigung nach oben genommen.
 
-Die erste `if`-`else`-Verzweigung prüft, ob ein Dokument geöffnet wird. Dies wird über ` app.documents.length ` abgefragt. Nur wenn der Wert von `length` grösser `0` ist, ist ein Dokument geöffnet. Wenn also kein Dokument geöffnet ist, wird die Warnmeldung «Kein Dokument geöffnet» ausgegeben. Wenn ein oder mehrere Dokumente geöffnet sind, springt die `else`-Verzweigung an. Dann ermittelt `app.activeDocument` das Dokument, welches sich im Vordergrund befindet. Die Variable `activeDoc` referenziert das Ergebnis aus `app.activeDocument` respektive das aktive Dokument. Anschliessend wird die Funktion für das Dialog-Fenster aufgerufen und deren Rückgabewerte in der Variable `shownWindow` gespeichert.
+Die erste `if`-`else`-Verzweigung prüft, ob ein Dokument geöffnet wird. Dies wird über `app.documents.length `abgefragt. Nur wenn der Wert von `length` grösser `0` ist, ist ein Dokument geöffnet. Wenn also kein Dokument geöffnet ist, wird die Warnmeldung «Kein Dokument geöffnet» ausgegeben. Wenn ein oder mehrere Dokumente geöffnet sind, springt die `else`-Verzweigung an. Dann ermittelt `app.activeDocument` das Dokument, welches sich im Vordergrund befindet. Die Variable `activeDoc` referenziert das Ergebnis aus `app.activeDocument` respektive das aktive Dokument. Anschliessend wird die Funktion für das Dialog-Fenster aufgerufen und deren Rückgabewerte in der Variable `shownWindow` gespeichert.
 
 Nach dem Ausführen des Dialog-Fensters kommt die nach oben kopierte `if`-`else`-Verzweigung aus dem Skript 008. Sie prüft, wie im Skript 008 zuerst, ob «Ok» oder «Cancel» geklickt wurden. Sofern «Ok» geklickt wurde, wird ein `with`-Anweisungsblock mit dem aktiven Dokument aus `activeDoc` aufgerufen. `gridPreferences` ist eine Eigenschaft von der Klasse `Documents`, welche für ein Dokument in Adobe InDesign steht und von `app.activeDocument` und damit von der Variable `activeDoc` referenziert wird. 
 
 ![*`Objektmodell-Viewer`* mit eingestelltem *`Adobe IndDesign Object Model`* im Abschnitt *`Browser`* und ausgewählter `gridPreferences`-Eigenschaft der `Document`-Instanz]({{ site.baseurl }}/img/objmdlvw-cls_document-gpref.fw.png)
 
-Die folgenden `try`-`catch`-Anweisungsblöcke passen die Eigenschaften von ` gridPreferences` im aktiven Dokument an. Kommt es zu logischen Fehlern, zum Beispiel weil aus irgendeinem Grund Voreinstellungen nicht gesetzt werden können, schlägt `try` fehl und `catch` wird ausgeführt. Wenn `catch` anspringt, wird dem Nutzer eine Fehlermeldung angezeigt und das Skript sofort abgebrochen. Sofern im `try`-Block ein `throw` definiert ist, wird  dem Benutzer bei `catch` eine die in `throw` gesetzte Nachricht angezeigt. Ist kein `throw` definiert, erhält der die Standardfehlermeldung des Programms angezeigt. Die eingesetzten `alert`-Anweisungen geben dem Nutzer in bestimmten Fällen eine Warnmeldung aus, brechen das Skript jedoch nicht ab.
+Die folgenden `try`-`catch`-Anweisungsblöcke passen die Eigenschaften von `gridPreferences` im aktiven Dokument an. Kommt es zu logischen Fehlern, zum Beispiel weil aus irgendeinem Grund Voreinstellungen nicht gesetzt werden können, schlägt `try` fehl und `catch` wird ausgeführt. Wenn `catch` anspringt, wird dem Nutzer eine Fehlermeldung angezeigt und das Skript sofort abgebrochen. Sofern im `try`-Block ein `throw` definiert ist, wird  dem Benutzer bei `catch` eine die in `throw` gesetzte Nachricht angezeigt. Ist kein `throw` definiert, erhält der die Standardfehlermeldung des Programms angezeigt. Die eingesetzten `alert`-Anweisungen geben dem Nutzer in bestimmten Fällen eine Warnmeldung aus, brechen das Skript jedoch nicht ab.
 
 Eine spezielle Aufgabe haben die beiden Zeilen mit den `parseInt()`-Anweisungen. Wenn Nutzer, trotz den Hinweisen «in mm» und «in pt», bei den Eingabefeldern Einheiten eingeben, wird hier versucht, diese «loszuwerden». `parseInt()` ist eine JavaScript-Anweisung, die versucht, Text in reine Zahlen umzuwandeln: [Referenz Mozilla Developer Network][31].
 

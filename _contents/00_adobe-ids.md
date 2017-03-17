@@ -19,7 +19,7 @@ Diese Dokumentation berücksichtigt folgende Kurse:
 
 ## Nächster Kurs 
 
-Frühjahr 2017, Anmeldung noch nicht verfügbar. Voraussichtlicher Inhalt siehe [Screenshot]({{ site.baseurl }}/img/description.png).
+Herbst 2017, Anmeldung noch nicht verfügbar. Voraussichtlicher Inhalt siehe [Screenshot]({{ site.baseurl }}/img/description.png).
 
 
 
