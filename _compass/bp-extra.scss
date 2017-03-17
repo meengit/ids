@@ -1,0 +1,29 @@
+@import 'susy';
+@import 'mixins.scss';
+
+body {
+  @include susy-breakpoint($bp-extra) {
+    @include define-breakpoint('bp-extra');
+
+    main {
+      article, 
+      footer, 
+      header {
+        @include pre(3);
+        @include span(9 first);
+        @include post(3);
+        border-left: 1px solid $lightgrey;
+        padding-left: span(1);
+      }
+
+      footer {
+        > div {
+          div {
+            float: left;
+            width: 32%;
+          }
+        }
+      }
+    }
+  }
+}

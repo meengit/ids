@@ -5,13 +5,6 @@ body {
   @include susy-breakpoint($bp-small) {
     @include define-breakpoint('bp-small');
 
-    main {
-
-      code {
-        @include set-font(normal, normal, 200, .8rem, $baselinehight, 'Menlo', monospace);
-      }
-    }
-
     #btn_mobilenav {
       @include span(8 first);
       @include set-font(normal, normal, 600, 1rem, $baselinehight, 'Dosis', sans-serif);

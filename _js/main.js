@@ -1,5 +1,5 @@
 import * as config from './config';
-import { Mql, removeEvtListener, toggleTop } from './utils';
+import { Mql, removeEvtListener, resizeToViewportHeight, toggleTop } from './utils';
 
 (($) => {
   let mql = new Mql();
@@ -61,7 +61,7 @@ import { Mql, removeEvtListener, toggleTop } from './utils';
 
       if (breakpoint.search('medium') >= 0) {
         logobar('#logobar', 'd');
-        $('nav').show();
+        $('nav').show().find('a[href="'+ config.LOCATION.pathname +'"]').addClass('active');
         removeEvtListener($('#btn_mobilenav'));
         console.log('medium'); // eslint-disable-line no-console
       }
@@ -69,8 +69,18 @@ import { Mql, removeEvtListener, toggleTop } from './utils';
       if (breakpoint.search('large') >= 0) {
         logobar('#logobar', 'd');
         $('nav').show();
+        $('nav').find('a[href="'+ config.LOCATION.pathname +'"]').addClass('active');
         removeEvtListener($('#btn_mobilenav'));
         console.log('large'); // eslint-disable-line no-console
+      }
+
+      if (breakpoint.search('extra') >= 0) {
+        logobar('#logobar', 'd');
+        $('nav').show();
+        $('nav').find('a[href="'+ config.LOCATION.pathname +'"]').addClass('active');
+        removeEvtListener($('#btn_mobilenav'));
+        resizeToViewportHeight($('article'));
+        console.log('extra'); // eslint-disable-line no-console
       }
     });
     // end of window breakpoint-change
