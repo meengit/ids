@@ -1,0 +1,26 @@
+# Site settings
+
+# {{ site.title }}
+title: Adobe InDesign Scripting 
+
+gems:
+  - jekyll-compass
+
+markdown: kramdown
+
+# {{ site.email }}
+email: ids@meen.ch
+
+# {{ site.description }}
+description: > 
+  Adobe InDesign Scripting, Gemeinschaftsprojekt «Grafisches Forum Zürich» 
+  und Berufsschule für Gestaltung Zürich medienformfarbe, entwickelt durch
+  Andreas Eberhard, Jona.
+
+github_username:  meengit
+url: "https://meengit.github.io"
+baseurl: "/ids"
+
+collections:
+  contents:
+    output: true
