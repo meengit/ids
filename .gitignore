@@ -54,8 +54,13 @@ $RECYCLE.BIN/
 # Project ignore                                  #
 ###################################################
 
-_site/
-.sass-cache/
+# new setup
+.sass-cache
 .jekyll-metadata
-node_modules/
+public
+src/assets/bundle.js
+node_modules
+
+# old setup
+_site
 .compass

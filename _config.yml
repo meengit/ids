@@ -1,2 +1,3 @@
 destination: public
 source: src
+exclude: ['node_modules']
